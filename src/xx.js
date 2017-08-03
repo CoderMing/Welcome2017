@@ -30,7 +30,7 @@ setInterval(function() {
 	// 开学当日时间
 	var x = new Date(),
 		startDate = 12, //9月该日零时开学
-		list = [2.3, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.4, 86.75];
+		list = [2.4, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.4, 86.75];
 	var seconds = 59 - x.getSeconds(),
 		minutes = 59 - x.getMinutes(),
 		hours = 23 - x.getHours(),
@@ -71,6 +71,10 @@ function iframeLoad() {
 setTimeout(function() {
 	iframeLoad();
 }, 1000);
+$('iframe').hover(function() {
+	console.log('123');
+	$(this).click();
+})
 
 // 返回顶部
 $('#fanhuidingbu').click(function() {

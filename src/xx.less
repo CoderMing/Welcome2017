@@ -197,6 +197,7 @@ a {
 	}
 	#lu {
 		width: 100%;
+		min-width: 100vw;
 		height: 55vw;
 		margin-top: -48vw;
 		background: url(./images/new_lu.png) no-repeat center center;
@@ -271,7 +272,7 @@ a {
 	    width: 26.7vw;
 	    height: 16.5vw;
 	    margin-top: -26.5vw;
-	    background: url(http://localhost:8888/%E6%96%B0%E7%94%9F%E4%B8%93%E9%A2%98%E7%BD%91/images/new_daojishihanzi.png) no-repeat center center;
+	    background: url(./images/new_daojishihanzi.png) no-repeat center center;
 	    transform: scale(1, 0);
 	    z-index: 6;
 	    background-size: contain;
@@ -306,7 +307,7 @@ a {
 		}
 		#yishuzi5 {
 			margin-left: 9.7vw;
-    		margin-top: 5.8vw;
+    		margin-top: 5.75vw;
 		}
 		#yishuzi6 {
 			margin-left: 11vw;
@@ -341,16 +342,22 @@ a {
 
 iframe {
 	z-index: 0;
-	transform: translate(0, -18vw);
+	transform: translate(0, -26.5vw);
 	width: 100%;
 	min-width: 1000px;
 	height: 30vw;
 	margin: 0 auto;
+	margin-bottom: -15vw;
+	opacity: 0;
+	animation: ~'showframe .5s 1s forwards';
+}
+@keyframes showframe {
+	0% {opacity: 0};
+	100% {opacity: 1;}
 }
 footer {
 	width: 100%;
 	background: #daeeab;
-	margin-top: -100px;
 
 	.ft-in {
 		width: 1000px;
