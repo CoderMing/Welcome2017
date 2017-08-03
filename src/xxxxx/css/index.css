@@ -1,4 +1,4 @@
-*{
+﻿*{
 	margin: 0;
 	padding: 0;
 }
@@ -43,6 +43,7 @@ body{
 /* 地图板块开始*/
 #map{
 	position: relative;
+	margin-top: 140px;
 	height: 735px;
 }
 .map_waikuang{
@@ -62,6 +63,12 @@ body{
     left: 847px;
     transform-origin: 70% 70%;
 	animation: ros 1s ease infinite alternate;
+}
+.map_title{
+
+	top: -134px;
+	left: 365px;
+	z-index: 30;
 }
 /* 地图板块结束*/
 
