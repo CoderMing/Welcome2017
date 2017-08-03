@@ -13,6 +13,9 @@
                     <img class="map_map" src="images/w_mapmap.png">
                     <img class="map_grass" src="images/w_mapgrass.png">
                     <img class="map_title" src="images/w_maptitle.png">
+                    <img class="right_stone" src="images/w_rightstone.png">
+                    <img class="my_dot1" src="images/w_mydot.png">
+                    <img class="my_dot2" src="images/w_mydot.png">
                 </div>
             </div>
 
@@ -24,6 +27,8 @@
                     <img class="arm_lalian" src="images/w_armlalian.png">
                     <!-- 按钮 -->
                     <img class="arm_input" src="images/w_arminput.png">
+                    <img class="arm_dot1" src="images/w_mydot.png">
+                    <img class="arm_dot2" src="images/w_mydot.png">
                 </div>
                 
                 <div class="arm-message">
@@ -47,6 +52,8 @@
                     <img class="mes_fengcai2" src="images/w_fengcai2.png" >
                     <img class="mes_guanyu2" src="images/w_guanyu2.png" >
                     <img class="mes_mesgrass" src="images/w_mesgrass.png" >
+                    <img class="mes_leftstone" src="images/w_leftstone.png" >
+                    <img class="mes_dot" src="images/w_mesdot.png" >
                     
                    <!--  四个按钮 -->
                     <img class="mes_mesinput1" src="images/w_mesinput.png" >
@@ -66,9 +73,7 @@
 
 
             <div id="welcome">
-                <div class="wel_title">
-                    <img src="images/w_welcome.png">
-                </div>
+                
                 <div class="wel-contain">
                     <img class="wel_background" src="images/w_background.png">
                     <img class="wel_first" src="images/w_first.png">
@@ -76,11 +81,20 @@
                     <img class="wel_learn1" src="images/w_learn1.png">
                     <img class="wel_learn2" src="images/w_learn2.png">
                     <img class="wel_grass" src="images/w_grass.png">
+                    <img class="wel_title" src="images/w_welcome.png">
+                    <img class="wel_dot1" src="images/w_mydot.png">
+                    <img class="wel_dot2" src="images/w_mydot.png">
+                    <img class="wel_dot3" src="images/w_mydot.png">
+                    <img class="wel_dot4" src="images/w_mydot.png">
+          
+
                 </div>
+                
                 <div class="wel-text">
                     <p class="wel_myp1">想了解更多关于学校的日常？想提前了解自己的专业？或者有其他方面的问题，就来“学长学姐帮帮忙”板块，学长学姐们都在这里，等待着你的提问。</p>
                     <p class="wel_myp2">想了解更多关于学校的日常？想提前了解自己的专业？或者有其他方面的问题，就来“学长学姐帮帮忙”板块，学长学姐们都在这里，等待着你的提问。</p>
                 </div>
+                
             </div>
             
             
@@ -98,6 +112,7 @@
             w_shuju2 = document.getElementsByClassName('mes_shuju2')[0],
             w_guanyu2 = document.getElementsByClassName('mes_guanyu2')[0],
             w_fengcai2 = document.getElementsByClassName('mes_fengcai2')[0];
+            w_maptitle = document.getElementsByClassName('map_title')[0];
 
 
         my_title(w_armtitle);
@@ -106,10 +121,12 @@
         my_title(w_shuju);
         my_title(w_gongnue);
         my_title(w_title);
+        my_title(w_maptitle);
         my_title2(w_gongnue2);
         my_title2(w_shuju2);
         my_title2(w_fengcai2);
         my_title2(w_guanyu2);
+       
        
         //规定路标动画事件
         function my_title(obj){
@@ -126,7 +143,7 @@
             obj.style.WebkitAnimation = 'weltitle 2s ease 2 alternate';
             setTimeout(function(){
                 clearMove1.abc = 0;
-            },4200)
+            },4000)
             
         }
         //规定路标清除动画
@@ -144,15 +161,19 @@
             obj.onmouseout = function(){
                 clearMove2(this);
             }
+           
         }
         //规定logo转动动画
         function move2(obj){
             clearMove2.abc = 1;
+            
             obj.style.WebkitAnimation = 'meslogo 2s ease 1 alternate';
             setTimeout(function(){
                  clearMove2.abc = 0;
             },2000)
         }
+     
+
         //规定logo清除动画
         function clearMove2(obj){
             if(!clearMove2.abc){

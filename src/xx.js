@@ -1,4 +1,11 @@
+if ($('#loading')) {
+	setTimeout(function() {
+		$('#loading').remove();
+	}, 5500)
+}
+
 // header
+
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 60) {
 		$('#nav').addClass('toSmall')
@@ -30,7 +37,7 @@ setInterval(function() {
 	// 开学当日时间
 	var x = new Date(),
 		startDate = 12, //9月该日零时开学
-		list = [2.4, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.4, 86.75];
+		list = [2.33, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.5, 87];
 	var seconds = 59 - x.getSeconds(),
 		minutes = 59 - x.getMinutes(),
 		hours = 23 - x.getHours(),
@@ -53,15 +60,22 @@ setInterval(function() {
 }, 1000);
 
 // banner
-$(window).mousemove(function(e) {
+function iframeOnload () {
+	console.log('123');
+	$('#child').contents().mousemove(changeShan);		
+}
+
+function changeShan(e) {
 	function move(s, x, y) {
-		s.css('transform', 'translate(' + e.screenX*x/10000 + 'vw,' + e.screenY*y/10000 + 'vw)');
+		s.css('transform', 'translate(' + e.originalEvent.screenX*x/10000 + 'vw,' + e.originalEvent.screenY*y/10000 + 'vw)');
 	}
  	move($('#shan'), -8, -5);
  	move($('#lantian'), -13, -10);
 	move($('#taiyang'), -23, -20);
 	move($('#flyman'), 13, 8);
-})
+}
+$(window).mousemove(changeShan);
+
 
 // 中间iframe
 

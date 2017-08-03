@@ -11,11 +11,87 @@ body {
 	width: 100%;
 	height: auto;
 	min-width: 1100px;
+	overflow-x: hidden;
 }
 a {
 	text-decoration: none;
 	color: white;
 }
+
+
+
+
+
+
+#loading {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 1);
+	z-index: 10000;
+	animation: ~'load .5s 4.5s forwards';
+	@keyframes load {
+		0% {opacity: 1;display: block;}
+		99% {opacity: 0; display: block;}
+		100% {opacity: 0; display: none;}
+	}
+	
+	div.l-out {
+		width: 400px;
+		height: 200px;
+		background: url(./images/redrock.png) no-repeat center center;
+		background-size: ~'contain';
+		margin: 0 auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -150px;
+		margin-left: -200px;
+	}
+
+	div.l-in {
+		width: 500px;
+		height: 20px;
+		background: #ddd;
+		position: absolute;
+		display: block;
+		border-radius: 10px;
+		z-index: 10001;
+		transform: translate(0, 0);
+		top: 50%;
+		left: 50%;
+		margin-top: 50px;
+		margin-left: -250px;
+		overflow: hidden;
+
+
+		div.l-l {
+			background: black;
+			transform-origin: 0px center;
+			width: 100%;
+			height: 20px;			transform: scale(0, 1);
+			animation: ~'loading 5s forwards' ;
+		}
+		@keyframes loading {
+			0% {transform: scale(0, 1);}
+			20% {transform: scale(.1, 1);}
+			20% {transform: scale(.3, 1);}
+			40% {transform: scale(.6, 1);}
+			70% {transform: scale(.6, 1);}
+			90% {transform: scale(1, 1);opacity: 1;}
+			100% {transform: scale(1, 1);opacity: 0;}
+		}
+	}
+}
+
+
+
+
+
+
+
 #nav {
 	width: 100%;
 	height: 80px;
@@ -114,7 +190,6 @@ a {
 	}
 }
 
-
 #qrcode1, #qrcode2 {
 	width: 150px;
 	height: 222px;
@@ -167,12 +242,11 @@ a {
 	
 	width: 100%;
 	min-width: 1100px;
-	overflow: hidden;
-	height: 63.5vw;
 	margin: 0;
 	padding-top: 60px;
-	transform: translate(0, 0);
+	transform: translate(0, 1px);
 	z-index: 2;
+	overflow-x: hidden;
 	
 	#shan, #lantian {
 		width: 130%;
@@ -224,26 +298,28 @@ a {
 	    transform-origin: center 150vw;
 	    transition: all .5s ease-in;
 	    margin-left: 29vw;
+	    opacity: 0;
 	    margin-top: -53vw;
-	    animation: runcar 1s forwards;
+	    animation: ~'runcar 1s 5s forwards';
 	}
 	@keyframes runcar {
-		0% {transform: rotate(-40deg);}
-		50% {transform: skew(-2deg);}
-		70% {transform: skew(0deg);}
-		100% {transform: rotate(0deg)}
+		0% {transform: rotate(-40deg);opacity: 1;}
+		50% {transform: skew(-2deg);opacity: 1;}
+		70% {transform: skew(0deg);opacity: 1;}
+		100% {transform: rotate(0deg);opacity: 1;}
 	}
 	#yishuzi {
 		z-index: 6;
 	    width: 39.5vw;
 	    height: 20vw;
 	    margin-left: 28.0vw;
-	    margin-top: -31vw;
+	    margin-top: -32.2vw;
+	    opacity: 0;
 	    background: url(./images/new_yishuzi.png) no-repeat center center;
 	    transform: scale(1, 0);
 	    background-size: cover;
 	    transform-origin: center 150vw;
-	    animation: runcar 1s forwards;
+	    animation: ~'runcar 1s 5s forwards';
 	}
 	@keyframes dropzi {
 		0% {transform: scale(1, 0)}
@@ -262,7 +338,7 @@ a {
 	    margin-top: -1vw;
 	    margin-left: 60vw;
 	    opacity: 0;
-	    animation: showman .5s .7s forwards;
+	    animation: ~'showman .5s 5.7s forwards';
 	}
 	@keyframes showman {
 		0% {opacity: 0}
@@ -271,13 +347,13 @@ a {
 	#daojishihanzi {
 	    width: 26.7vw;
 	    height: 16.5vw;
-	    margin-top: -26.5vw;
+	    margin-top: -25.4vw;
 	    background: url(./images/new_daojishihanzi.png) no-repeat center center;
 	    transform: scale(1, 0);
 	    z-index: 6;
 	    background-size: contain;
 	    margin-left: 33.7vw;
-	    animation: dropzi .5s .6s forwards;
+	    animation: ~'dropzi .5s 5.6s forwards';
 
 		.yishuzi {
 			position: absolute;
@@ -295,7 +371,7 @@ a {
 		}
 		#yishuzi2 {
 			margin-left: -1.2vw;
-    		margin-top: 4.7vw;
+    		margin-top: 4.9vw;
 		}
 		#yishuzi3 {
 			margin-left: 3.4vw;
@@ -311,7 +387,7 @@ a {
 		}
 		#yishuzi6 {
 			margin-left: 11vw;
-    		margin-top: 5.75vw;
+    		margin-top: 5.9vw;
 		}
 		#yishuzi7 {
 			margin-left: 16vw;
@@ -331,25 +407,26 @@ a {
 	    z-index: 6;
 	    margin-top: -32vw;
 	    margin-left: 14vw;
-	    animation: flyman 1s ease;
+	    animation: ~'flyman 1s 4.5s ease';
 	}
 	@keyframes flyman {
 		0% {opacity: 0;}
+		1% {opacity: 0;}
 		75% {transform: translate(-4vw, -7vw);opacity: 0;}
 		100% {transform: translate(0.5vw, 0.8vw);opacity: 1}
 	}
 }
 
 iframe {
-	z-index: 0;
-	transform: translate(0, -26.5vw);
+	z-index: 10;
+	transform: translate(0, 0vw);
 	width: 100%;
 	min-width: 1000px;
 	height: 30vw;
 	margin: 0 auto;
-	margin-bottom: -15vw;
+	margin-top: 18vw;
 	opacity: 0;
-	animation: ~'showframe .5s 1s forwards';
+	animation: ~'showframe .5s 6s forwards';
 }
 @keyframes showframe {
 	0% {opacity: 0};
