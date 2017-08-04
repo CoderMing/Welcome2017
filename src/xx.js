@@ -1,3 +1,4 @@
+// 加载动画
 if ($('#loading')) {
 	setTimeout(function() {
 		$('#loading').remove();
@@ -5,7 +6,6 @@ if ($('#loading')) {
 }
 
 // header
-
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 60) {
 		$('#nav').addClass('toSmall')
@@ -30,6 +30,15 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
 		$(this).removeClass('ACTIVE')
 	});
 	$(this).addClass('ACTIVE');
+	
+	var toFrame = ($('#car').offset().top + $('#car').height() - 50) - $(window).scrollTop(),
+		flag = 0,
+		Inter = setInterval(function() {
+		$(window).scrollTop($(window).scrollTop() + toFrame/15);
+		if (++flag >= 15) {
+			clearInterval(Inter);
+		}
+	}, 15);
 });
 
 // 倒计时
@@ -37,7 +46,7 @@ setInterval(function() {
 	// 开学当日时间
 	var x = new Date(),
 		startDate = 12, //9月该日零时开学
-		list = [2.33, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.5, 87];
+		list = [2.33, 11.7, 21.05, 30.4, 39.8, 49.2, 58.55, 68, 77.4, 87];
 	var seconds = 59 - x.getSeconds(),
 		minutes = 59 - x.getMinutes(),
 		hours = 23 - x.getHours(),
@@ -80,9 +89,10 @@ $(window).mousemove(changeShan);
 // 中间iframe
 
 function iframeLoad() {
-	$('#child').height($('#child').contents()[0].body.scrollHeight)
+	$('#child').height($('#child').contents()[0].body.scrollHeight);
 };
 setTimeout(function() {
+	iframeOnload();
 	iframeLoad();
 }, 1000);
 $('iframe').hover(function() {
@@ -99,7 +109,7 @@ $('#fanhuidingbu').click(function() {
 			if ($(window).scrollTop() <= 0) {
 				clearInterval(interval);
 			}
-		}, 10); 
+		}, 15); 
 })
 
 

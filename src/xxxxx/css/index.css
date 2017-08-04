@@ -72,14 +72,14 @@ body{
 	animation: ros 1s ease infinite alternate;
 }
 .map_title{
-
 	top: -134px;
 	left: 365px;
 	z-index: 10;
 }
 .right_stone{
-    top: 640px;
-	left: 1050px;
+	position: absolute;
+    top: 801px;
+	right: -17px;
 	z-index: 20;
 }
 .my_dot1{
@@ -127,6 +127,7 @@ body{
 }
 .arm_input:hover{
 	transform: scale(1.1);
+	z-index: 10;
 }
 .arm-message{
 	position: absolute;
@@ -143,7 +144,8 @@ body{
 }
 .arm-message img:hover{
 	z-index: 10;
-	transform: scale(1.5);}
+	transform: scale(1.5);
+}
 .arm_p{
 	clear: both;
 	position: absolute;
@@ -222,6 +224,7 @@ body{
 }
 .mes_mesinput1:hover{
 	transform: scale(1.1);
+	z-index: 10;
 }
 .mes_mesinput2{
 	top: 465px;
@@ -230,6 +233,7 @@ body{
 }
 .mes_mesinput2:hover{
 	transform: scale(1.1);
+	z-index: 10;
 }
 .mes_mesinput3{
 	top: 1110px;
@@ -284,8 +288,9 @@ body{
 	z-index: 0;
 }
 .mes_leftstone{
-	top: 653px;
-	left: -311px;
+	position: absolute;
+	top: 2393px;
+	left: -50px;
 	z-index: 20;
 }
 
