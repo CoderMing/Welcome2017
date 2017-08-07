@@ -31,6 +31,7 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
 	});
 	$(this).addClass('ACTIVE');
 	
+	// 高度跳转
 	var toFrame = ($('#car').offset().top + $('#car').height() - 50) - $(window).scrollTop(),
 		flag = 0,
 		Inter = setInterval(function() {
@@ -39,6 +40,24 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
 			clearInterval(Inter);
 		}
 	}, 15);
+
+	// iframe切换
+
+	var _this = this;
+	$('#child')
+		.css({
+			opacity: 0
+ 		});
+	setTimeout(function() {
+ 		$('#child').attr('src', $(_this).attr('goto'));
+ 		$('#child').height(1000);   //先降低iframe的高度 然后再使用offsetTop  此处默认iframe永远不低于1000px
+	}, 300);
+	$('#child').on('load', function() {
+ 		setTimeout(function() {
+ 			iframeLoad();
+ 			$('#child').css('opacity', 1);
+ 		}, 100);
+	});
 });
 
 // 倒计时
@@ -69,11 +88,6 @@ setInterval(function() {
 }, 1000);
 
 // banner
-function iframeOnload () {
-	console.log('123');
-	$('#child').contents().mousemove(changeShan);		
-}
-
 function changeShan(e) {
 	function move(s, x, y) {
 		s.css('transform', 'translate(' + e.originalEvent.screenX*x/10000 + 'vw,' + e.originalEvent.screenY*y/10000 + 'vw)');
@@ -89,10 +103,11 @@ $(window).mousemove(changeShan);
 // 中间iframe
 
 function iframeLoad() {
-	$('#child').height($('#child').contents()[0].body.scrollHeight);
+	console.log($('#child').contents().height());
+	$('#child').height($('#child').contents().height());
+	$('#child').contents().mousemove(changeShan);		
 };
 setTimeout(function() {
-	iframeOnload();
 	iframeLoad();
 }, 1000);
 $('iframe').hover(function() {
@@ -111,10 +126,6 @@ $('#fanhuidingbu').click(function() {
 			}
 		}, 15); 
 })
-
-
-
-
 
 
 

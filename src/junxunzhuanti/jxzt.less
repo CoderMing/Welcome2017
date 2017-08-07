@@ -1,0 +1,616 @@
+body {
+	margin: 0;
+	height: auto;
+	width: 100vw;
+	display: block;
+	padding: 0;
+	font-family: "weituanyahei", "Arial";
+	overflow-x: hidden;
+}
+#st-l {
+	width: 180px;
+	height: 180px;
+	background: url(./images/w_leftstone-min.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: -40px;
+	top: 900px;
+}
+#st-r {
+	width: 200px;
+	height: 250px;
+	background: url(./images/w_rightstone-min.png) no-repeat 0 0;
+	background-size: cover;
+	position: absolute;
+	float: right;
+	margin-right: 0px;
+	right: 0;
+	top: 300px;
+}
+#yz {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background: url(./images/w_mesgrass-min.png) no-repeat;
+	background-size: contain;
+	animation: ~'gress 3s infinite ease-in';
+	left: 50px;
+	top: 200px;
+	transform-origin: 65% 65%;
+}
+@keyframes gress {
+	0% {transform: rotate(0deg)}
+	25% {transform: rotate(5deg)}
+	75% {transform: rotate(-5deg)}
+}
+.zs {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: url(./images/w_mydot-min.png) no-repeat;
+	background-size: contain;
+}
+
+
+
+
+
+#container {
+	width: 1000px;
+	position: relative;
+	height: auto;
+	margin: 0 auto;
+	
+	#title {
+		width: 300px;
+		height: 150px;
+		margin-left: 330px;
+		clear: both;
+		background-size: contain;
+		background: url(./images/title-min.png) no-repeat;
+		transform-origin: 55% 70%;
+
+
+			&:hover {
+				animation: ~'rowtitle .5s 3 ease';
+			}
+
+			@keyframes rowtitle {
+				 0% {transform: rotate(0)}
+				 25% {transform: rotate(-5deg)}
+				 75% {transform: rotate(5deg)}
+				 100% {transform: rotate(0deg)}
+			}
+	}
+	#main {
+		width: 1000px;
+		height: 1100px;
+		background: url(./images/waike-min.png) no-repeat;
+		background-size: contain;
+		margin-left: -20px;
+	}
+	.m-t {
+		width: 81%;
+		height: 300px;
+		margin-left: 13%;
+		padding-top: 30px;
+		display: flex;
+		position: relative;
+
+		.mt-t {
+			flex: 1;
+			background: url(./images/btn-min.png) no-repeat;
+			background-size: cover;
+			margin: 10px;
+			font-size: 22px;
+			height: 83px;
+			color: #f19942;
+			vertical-align: middle;
+			line-height: 66px;
+			text-align: center;
+			text-shadow: -1px 1px #ccc;
+			transition: ~'all .1s ease';
+			cursor: pointer;
+
+			&.ACTIVE, &:hover {
+				background: url(./images/btn-A-min.png) no-repeat;
+				background-size: cover;
+				color: #fff;
+				text-shadow: -1px 1px #e05a36;
+				background-position: center -2px;
+			}
+
+		}
+		#zhibiao {
+			width: 45px;
+			height: 47px;
+			z-index: 2;
+			background: url(./images/zhibiao-min.png) no-repeat;
+			background-size: contain;
+			position: absolute;
+			transform: translate(75px, 103px);
+			transition: ~'all .2s ease';
+		}
+	}
+
+	.mm {
+		z-index: 3;
+	    font-weight: 200;
+	    position: absolute;
+	    width: 782.5px;
+	    height: 818px;
+	    left: 123px;
+	    top: 296.5px;
+	    border-radius: 48px 45px 0px 0px ;
+	    transform-origin: center center;
+	    // transform: perspective(2000px) rotateX(5.00deg);
+		transform-origin: center center;		    
+	    overflow: hidden;
+		transition: all .2s;
+		opacity: 0;
+
+		&.SHOW {		
+			transition: all .2s;
+			display: block;
+			opacity: 1;
+		}
+
+		
+
+		// 模块1
+	    &#mm1 {
+
+	    	&>div {
+
+	    		.player {
+
+		    		width: 700px;
+		    		border-radius: 10px;
+		    		box-shadow: 0px 0px 2px 2px #c8e176;
+		    		border: 1px solid #aaa;  
+			    	height: 480px;
+			    	background: black;
+			    	margin: 50px auto;
+				    background: url(./images/tu-min.png) no-repeat;
+				    background-size: cover;
+		    	}
+		    	.lunbo {
+		    		width: 770px;
+		    		margin: 0 auto;
+		    		display: flex;
+		    		align-items: center;
+
+
+		    		.lun-in {
+						flex: 4;
+						margin: 10px;
+						height: 200px;
+						display: block;
+						position: relative;
+						overflow: hidden;
+
+		    			.list {
+		    				position: absolute;
+			    			width: 170px;
+							height: 155px;
+							border-radius: 10px;
+						    background: url(./images/tu-min.png) no-repeat;
+						    background-size: cover;
+						    display: inline-block;
+						    overflow: hidden;
+						    box-sizing: border-box;
+						    transition: all .3s;
+						    border: 1px solid #c9e176;
+						
+							&:nth-child(2) {
+								margin-left: 190px;
+							}
+							&:nth-child(3) {
+								margin-left: 380px;
+							}
+							&:nth-child(4) {
+								margin-left: 570px;
+							}
+							&>div {
+								width: 100%;
+								height: 280px;
+								margin-top: -100px;
+								position: relative;
+								background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 25%,rgba(0, 0, 0, .5) 100%);
+								color: #ffffff;
+								line-height: 350px;
+								text-align: center;
+								transition: all .2s;
+
+							}
+							&:hover>div {
+								margin-top: 80px;
+								line-height: 95px;
+							}
+						}
+		    		}
+		    	}
+	    	}
+	    }
+
+
+	    // 模块2
+		&#mm2 {
+			
+			.mm2-title {
+				width: 240px;
+				height: 40px;
+				margin: 20px auto 10px;
+
+				.mm2t-z, .mm2t-y {
+					width: 50px;
+					height: 100%;
+					display: inline-block;
+					opacity: .7;
+					transition: all .2s;
+					cursor: pointer;
+					
+					&:hover {
+						opacity: 1;
+					}
+				}
+				.mm2t-z {
+					float: left;
+					background: url(./images/jiantou-z-min.png) no-repeat center center;
+					background-size: contain;
+				}
+				.mm2t-y {
+					float: right;
+					background: url(./images/jiantou-y-min.png) no-repeat center center;
+					background-size: contain;
+				}
+				.mm2t-i {
+					width: 140px;
+					height: 100%;
+					float: left;
+					font-size: 25px;
+					color: #f5b533;
+					line-height: 40px;
+					text-align: center;
+				}
+			}
+			.mm2t-in {
+				overflow-x: hidden;
+				overflow-y: scroll;
+				width: 790px;
+				height: 724px;
+				margin: 60px 10px 0 10px;
+
+				.mm2t-item {
+					width: 235px;
+					margin: 5px 10px 35px 10px;
+					height: 204px;
+					background: url(./images/tu-min.png);
+					background-size: cover;
+					overflow: hidden;
+					float: left;
+					cursor: pointer;
+					border-radius: 10px;
+					border: 1px solid #cbe37d;
+					box-sizing: border-box;
+
+					&>div {
+						position: relative;
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						background: rgba(84, 72, 42, 0.5);
+						transition: all .5s;
+
+						p {
+							display: block;
+							width: 150px;
+							height: 120px;
+							border-radius: 50% 50% 0 0;
+							background: #fbfef0;
+							text-align: center;
+							font-size: 17px;
+							color: #f1a774;
+							transform: translate(0, 150px);
+							line-height: 60px;
+							margin: 0 auto;
+							box-shadow: 0px 0px 20px 20px rgba(100, 100, 100, 0.3);
+							transition: all .5s;
+							animation: ~'jumpf .5s forwards';
+						}
+						&:hover {
+							background: none;
+
+							p {
+								animation: ~'jumpt .5s forwards';
+							}
+							@keyframes jumpt {
+								0% {transform: translate(0, 150px)}
+								30% {transform: translate(0, 140px)}
+								100% {transform: translate(0, 300px)}
+							}
+							@keyframes jumpf {
+								0% {transform: translate(0, 300px)}
+								30% {transform: translate(0, 300px)}
+								60% {transform: translate(0, 143px)}
+								70% {transform: translate(0, 155px)}
+								80% {transform: translate(0, 143px)}
+								90% {transform: translate(0, 151px)}
+								100% {transform: translate(0, 150px)}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+	    // 模块3
+	    &#mm3 {
+	    	transform: skewX(.9deg);
+	    	left: 129px;
+	    	width: 783.6px;
+	    	margin-top: 5px;
+
+	    	.titbg {
+	    		position: relative;
+	    		width: 100%;
+	    		height: 80px;
+	    		background: url(./images/mm3bg-min.png) no-repeat;
+	    		background-position: center center;
+	    		background-size: cover;
+	    		display: flex;
+
+	    		.m3t-biao {
+	    			position: absolute;
+	    			width: 80px;
+	    			height: 0px;
+	    			border: 3px solid #ef9328;
+	    			border-radius: 10px;
+	    			transform: translate(88px, 65px);
+	    			transition: all .2s;
+	    		}
+
+	    		.m3t-li {
+	    			font-size: 20px;
+	    			flex: 1;
+	    			color: #6fa808;
+	    			line-height: 80px;
+	    			height: 100px;
+	    			text-align: center;
+	    			transition: all .2s;
+	    			cursor: pointer;
+	    			margin: 0 20px;
+
+	    			&.ACTIVE {
+	    				color: #ef9328;
+	    			}
+	    		}
+	    	}
+    		.mm3m {
+    			width: 100%;
+    			height: auto;
+    			height: 690px;
+    			overflow-y: scroll;
+    			overflow-x: hidden;
+				
+				&::-webkit-scrollbar {
+					width: 10px;
+					background-color: #c4eee9;
+					border-radius: 250px;
+					border: 1px solid #aae4dc;
+					box-shadow: 5px 0px 2px #aae4dc inset;
+				}
+				&::-webkit-scrollbar-thumb {
+					background: #f1a37d;
+					border-radius: 250px;
+					box-shadow: 1px 0px 5px 5px #ef885b inset;
+				}
+				
+				.mm3m-h, .mm3m-p {
+					transform-origin: -10000000px 0;
+					transform: skewX(-0.9deg);
+				}
+				.mm3m-h {
+					width: 80%;
+					margin: 30px auto;
+					font-size: 22px;
+					color: #f3b160;
+				}
+    			.mm3m-p {
+    				width: 80%;
+    				margin: 0 auto;
+    				padding: 10px 2px;
+    				line-height: 30px;
+					color: #f3b160;
+    				font-size: 15px;
+    				background: url(./images/mm3line-min.png) no-repeat center 100%;
+    			}
+    		}
+	    }
+
+	    // mm4 
+	    &#mm4 {
+	    	transform: skewX(.9deg);
+	    	width: 787px;
+			
+			#m4-b, #m4-k {
+		    	transform: skewX(-.9deg);
+			}
+			#m4-geci {
+				width: 100%;
+				transform: translate(0, 50px);
+				margin: 0 0 50px 0;
+				padding: 0 0 50px 0;
+				overflow: auto;
+				height: 480px;
+				text-align: center;
+
+				p {
+					transform: skewX(-.9deg);
+					color: #f3b86d;
+					line-height: 30px;
+					font-size: 18px;
+					text-shadow: 0px 0px 1px #f3c89d;
+					font-weight: 300;
+
+					&:first-child {
+						font-size: 25px;
+					}
+				}
+				&::-webkit-scrollbar {
+					width: 10px;
+					background-color: #c4eee9;
+					border-radius: 250px;
+					border: 1px solid #aae4dc;
+					box-shadow: 5px 0px 2px #aae4dc inset;
+				}
+				&::-webkit-scrollbar-thumb {
+					background: #f1a37d;
+					border-radius: 250px;
+					box-shadow: 1px 0px 5px 5px #ef885b inset;
+				}
+			}
+			#m4-b {
+				height: 10px;
+				width: 600px;
+				margin: 20px auto;
+				margin-top: 100px;
+				cursor: pointer;
+				
+
+				#m4b-l {
+					float: left;
+					width: 500px;
+					height: 10px;
+					border-radius: 50px;
+					background: #daebb9;
+
+					#m4b-r {
+						background: #f8c560;
+						height: 100%;
+						width: 50%;
+						border-radius: 10px;
+						float: left;
+					}
+					#m4b-x {
+						width: 10px;
+						height: 10px;
+						background: white;
+						border-radius: 20px;
+						float: left;
+						transform: scale(2, 2) translate(-5px, 0);
+						cursor: pointer;
+					}
+				}
+				#m4b-ti {
+					margin-left: 15px;
+					float: left;
+					color: #f3b86d;
+					line-height: 10px;
+					font-size: 13px;
+				}
+			}
+			#m4-k {
+				width: 530px;
+				height: 120px;
+				display: block;
+				display: flex;
+				margin: 0 auto;
+				transform: translate(-20px, 0);
+
+				.m4k-b {
+					flex: 1;
+					height: 60px;
+					background: url(./images/zanting.png) no-repeat center center;
+					background-size: 90%;
+					margin: 26px;
+					border-radius: 100px;
+					cursor: pointer;
+				}
+				#m4k-1 {
+					background-image: url(./images/gedan.png);
+					background-size: 140%;
+					background-position: center 40%;
+				}
+				#m4k-2 {
+					background-image: url(./images/backMusic.png);
+				}
+				#m4k-3 {
+					background-image: url(./images/bofang.png);
+				}
+				#m4k-4 {
+					background-image: url(./images/nextMusic.png);
+				}
+				#m4k-5 {
+					width: 53px;
+					background-image: url(./images/yinliang.png);
+					background-size: 140%;
+
+					#m4-yinliang {
+						width: 100px;
+						height: 8px;
+						background: #daebb9;
+						position: relative;
+						transform: translate();
+						top: 26px;
+						left: 55px;
+						border-radius: 10px;
+						cursor: pointer;
+						
+						#m4y-jindu {
+							background: #f8c560;
+							height: 100%;
+							width: 50%;
+							border-radius: 10px;
+							float: left;
+						}
+						#m4y-control {
+							width: 8px;
+							height: 8px;
+							background: white;
+							border-radius: 20px;
+							float: left;
+							transform: scale(2, 2) translate(-4px, 0);
+							cursor: pointer;
+						}
+					}
+				}
+			}
+	    }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
