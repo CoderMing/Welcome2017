@@ -4,6 +4,9 @@ let gulp = require('gulp'),
 	pngquant = require('imagemin-pngquant');
 
 gulp.task('default', _=> {
+	gulp.watch('./src/youzigonglue/jxzt.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/youzigonglue'));
+	});
 	gulp.watch('./src/junxunzhuanti/jxzt.less', (e)=> {
 		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/junxunzhuanti'));
 	});

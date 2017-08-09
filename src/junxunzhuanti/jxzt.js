@@ -27,6 +27,16 @@ $('.mt-t').get(3).click();
 
 
 
+
+
+
+
+
+
+
+
+
+
 // 视频
 var VideoLunboFlag = false;
 $('.lun-z, .lun-y').click(function() {
@@ -41,6 +51,15 @@ var transList2 = [88, 348, 610];
 $('.m3t-li').click(function() {
 	$('.m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
 	$('.m3t-biao').css('transform', 'translate(' + transList2[$(this).attr('a')] + 'px, 65px)');
+	$('.mm3m').css('opacity', 0);
+	var _this = this;
+	setTimeout(function() {
+		$('.mm3m').hide();
+		$('#mm3m-' + $(_this).attr('a')).css('display', 'block');
+		setTimeout(function() {
+			$('#mm3m-' + $(_this).attr('a')).css('opacity', '1');
+		}, 10)
+	}, 200)
 });
 
 
@@ -76,37 +95,27 @@ $.ajax({
 		})
 
 		// 活动歌词
-		musicLrcTime.forEach(function(a, b, c) {
-			if (!isUserScrollGeci) {
-				+function() {
-					setTimeout(function(a, b, c) {
-						$('#m4-geci').scrollTop(48 * b);
-					}, a[0] * 60000 + a[1] * 1000);
-				}(a, b, c);	
-			}
-		});
+		// musicLrcTime.forEach(function(a, b, c) {
+		// 	+function() {
+		// 		setTimeout(function(a, b, c) {
+		// 			$('#m4-geci').scrollTop(48 * b);
+		// 		}, a[0] * 60000 + a[1] * 1000);
+		// 	}(a, b, c);	
+		// });
 	}
 })
 
-
-	console.log('12');
-	
-$('#m4-geci').on('sroll', function() {
-	console.log('12');
-	isUserScrollGeci = true;
-})
-$('#m4-geci').mouseout(function() {
-	isUserScrollGeci = false;
-})
-
 // 音乐
-var  isUserScrollGeci = false;
+// var  isUserScrollGeci = false;
 var  musicMouseDownFlag = false;
 var  isPused = true;
+var  musicSeconds = -1;
 $('#m4-b')
 .on('mouseup', function(e) {
 	$('#m4b-r').width(e.offsetX);
 	musicMouseDownFlag = false;
+	musicSeconds = Math.floor($('#m4b-r').width() / $('#m4b-l').width() * $('#music')[0].duration);
+	$('#music')[0].currentTime = musicSeconds;
 })
 // .on('mousedown', function(e) {
 // 	console.log(e.target)
@@ -120,6 +129,21 @@ $('#m4-b')
 // 		$('#m4b-r').width(e.offsetX);
 // 	}
 // })
+function musicTime() {
+	if (!isPused) {
+		musicSeconds++;
+		$('#m4b-ti span').html($('#m4b-ti span').html().replace(/(\d\d?):(\d\d?)/, Math.floor(musicSeconds / 60) + ':' + musicSeconds % 60));
+		$('#m4b-ti span').eq(1).html($('#m4b-ti span').html().replace(/(\d\d?):(\d\d?)/, Math.floor($('#music')[0].duration / 60) + ':' + Math.floor($('#music')[0].duration % 60)));
+		$('#m4b-r').width($('#m4b-l').width() / $('#music')[0].duration * musicSeconds);
+	}		
+	if ($('#music')[0].ended) {
+		musicSeconds = -1;
+		$('#m4k-3').css('background-image', 'url(images/bofang.png)');
+		console.log('123');
+	}
+	setTimeout(musicTime, 1000);
+}
+setTimeout(musicTime, 1000);
 
 $('#m4-yinliang')
 .on('mouseup', function(e) {
@@ -147,10 +171,22 @@ $('#m4k-3').click(function() {
 
 
 
-
-
-
-
+// 歌单
+var isMusicListDrop = false;
+$('#m4k-1').click(function(e) {
+	if (e.target.id == 'm4k-1') {
+		if (!isMusicListDrop) {
+			$('#m4-gedan').addClass('ACTIVE');
+			$(this).css('background', 'url(./images/gedan-A.png) no-repeat center 46%');
+			$(this).css('background-size', '40%');
+		}else {
+			$('#m4-gedan').removeClass('ACTIVE');
+			$(this).css('background', 'url(./images/gedan.png) no-repeat center 50%');
+			$(this).css('background-size', '120%');
+		}
+		isMusicListDrop = !isMusicListDrop;
+	}
+})
 
 
 
