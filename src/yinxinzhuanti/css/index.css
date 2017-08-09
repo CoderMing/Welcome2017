@@ -1,0 +1,299 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+}
+body{
+	font-family: "weituanyahei", "Arial";
+}
+#contain{
+	position: relative;
+	top: 0;
+	left: 0;
+    width: 1300px;
+    height: 1500px;
+    margin: 0 auto;
+    /*background: silver;*/
+}
+.w_title{
+	width: 300px;
+	height: 150px;
+	margin: 0 auto;
+}
+.welcome_left{
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 100%;
+    height: 1250px;
+    background: url(../images/w_waikuangleft.png) no-repeat 26px -54px;
+}
+.welcome_right{
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 100%;
+    height: 1250px;
+    background: url(../images/w_waikuangright.png) no-repeat 26px -84px;
+}
+
+
+.xiaolianon{
+	position: absolute;
+	top: 36px;
+	left: 357px;
+	width: 275px;
+	height: 100px;
+	cursor: pointer;
+    background: url(../images/w_xiaolianon.png) no-repeat;
+
+}
+.xiaolian{
+	position: absolute;
+	top: 36px;
+	left: 357px;
+	width: 275px;
+	height: 100px;
+	cursor: pointer;
+    background: url(../images/w_xiaolian.png) no-repeat;
+
+}
+.xuezhang{
+	position: absolute;
+	top: 36px;
+	left: 675px;
+	width: 275px;
+	height: 100px;
+	cursor: pointer;
+    background: url(../images/w_xuezhang.png) no-repeat;
+}
+.xuezhangon{
+	position: absolute;
+	top: 36px;
+	left: 675px;
+	width: 275px;
+	height: 100px;
+	cursor: pointer;
+    background: url(../images/w_xuezhangon.png) no-repeat;
+}
+
+.welcome_smile{
+	display: block;
+	position: absolute;
+	top: 368px;
+	left: 265px;
+	width: 774px;
+	height: 826px;
+    /*transform-origin: top top;*/
+
+	/*transform: skewX(0.5deg);*/
+
+}
+.smile_logo{
+	width: 100%;
+	height: 441px;
+	border: 1px solid rgb(209,231,164);
+	border-radius: 20px;
+	background: url(../images/w_smile.jpg) no-repeat;
+}
+.smile_mes{
+	margin-top: 35px;
+	width: 100%;
+	height: 350px;
+
+}
+.smi_right{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+.smi_con{
+	position: absolute;
+	top: 500px;
+	left: 102px;
+	width: 570px;
+	height: 300px;
+
+}
+.smi_con li{
+	width: 100%;
+	height: 58px;
+	line-height: 58px;
+	font-size: 15px;
+	font-weight: 600;
+	color: rgb(242,181,100);
+	border-bottom: 1.5px solid rgb(209,231,164);
+}
+.smi_con li span{
+	color: rgb(238,148,105);
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.xuezhang_help{
+	display: none;
+	position: absolute;
+	top: 327px;
+	left: 265px;
+	width: 774px;
+	height: 826px;
+	/*background: silver;*/
+}
+.help_nav{
+	width: 100%;
+	height: 70px;
+	/*background: yellow;*/
+}
+.help_nav li{
+	float: left;
+	width: 80px;
+	height: 70px;
+	margin: 0px 24.5px;
+	text-align: center;
+	line-height: 70px;
+
+	font-size: 21px;
+	color: rgb(137,186,59);
+	cursor: pointer;
+	/*background: green; */
+}
+li.on{
+	color: rgb(241,146,55);
+}
+
+.help_nav div{
+	position: absolute;
+	top: 63px;
+	left: 22px;
+	width: 85px;
+	height: 6px;
+	border-radius: 20px;
+	background: rgb(241,146,55);
+	transition: all 0.3s ease 0s;
+}
+
+
+.help_contain{
+	width: 100%;
+	height: 704px;
+	margin-top: 10px;
+/*	background: pink;*/
+}
+.help_con_nav{
+	width: 100%;
+	height: 90px;
+	/*background: green;*/
+}
+.help_con_nav div{
+	height: 100%;
+	line-height: 90px;
+	text-align: center;
+	font-size: 21px;
+	font-weight: 500;
+	color: rgb(240,146,102);
+}
+
+.help_nav_tiwen{
+	width: 200px;
+	float: left;
+}
+.help_nav_people{
+	float: right;
+	width: 80px;
+	margin-right: 50px;
+}
+.help_nav_time{
+	float: right;
+	width: 80px;
+	margin-right: 24px;
+}
+
+
+
+
+.help_contain li{
+	width: 100%;
+	height: 54px;
+	line-height: 50px;
+	font-size: 18px;
+    font-weight: 500;
+	color: rgb(242,181,100);
+	border-bottom: 1.5px solid rgb(209,231,164);
+
+}
+.help_q{
+	overflow: hidden;
+	float: left;
+	width: 480px;
+	height: 100%;
+	cursor: pointer;
+	
+}
+.help_p{
+	float: right;
+	width: 150px;
+	height: 100%;
+	overflow: hidden;
+	
+	text-align: center;
+}
+.help_t{
+	float: right;
+	width: 120px;
+	height: 100%;
+	overflow: hidden;
+
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.help_foot{
+	width: 100%;
+	height: 80px;
+	/*background: lightblue;*/
+}
+.foot_con{
+	width: 312px;
+	height: 41px;
+	/*background: pink;*/
+	margin: 15px auto;
+}
+.foot_left{
+	float: left;
+}
+.foot_right{
+	float: right;
+}
+.foot_con ul{
+	margin-left: 39px;
+}
+.foot_con img{
+	cursor: pointer;
+}
+.foot_con li{
+	float: left;
+	width: 46px;
+	margin-left: 1px;
+	height: 41px;
+	text-align: center;
+	line-height: 41px;
+	color: rgb(242,181,100);
+	cursor: pointer;
+
+}
+.foot_con li.on{
+	background: url(../images/w_mydot.png) no-repeat 8px 5px;
+	color: rgb(255,255,255);
+
+}
