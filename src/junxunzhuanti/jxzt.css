@@ -191,6 +191,7 @@ body {
   overflow: hidden;
   box-sizing: border-box;
   transition: all .3s;
+  cursor: pointer;
   border: 1px solid #c9e176;
 }
 #container .mm#mm1 > div .lunbo .lun-in .list:nth-child(2) {
@@ -382,6 +383,14 @@ body {
   height: 690px;
   overflow-y: scroll;
   overflow-x: hidden;
+  display: none;
+  position: absolute;
+  opacity: 0;
+  transition: all .2s;
+}
+#container .mm#mm3 .mm3m.AVTIVE {
+  opacity: 1;
+  display: block;
 }
 #container .mm#mm3 .mm3m::-webkit-scrollbar {
   width: 10px;
@@ -480,8 +489,10 @@ body {
 #container .mm#mm4 #m4-b #m4b-l #m4b-x {
   width: 10px;
   height: 10px;
+  margin-left: -5px;
   background: white;
   border-radius: 20px;
+  transform: translate(5px, 0);
   float: left;
   transform: scale(2, 2);
   cursor: pointer;
@@ -511,9 +522,77 @@ body {
   cursor: pointer;
 }
 #container .mm#mm4 #m4-k #m4k-1 {
-  background-image: url(images/gedan.png);
-  background-size: 140%;
+  position: relative;
+  background: url(images/gedan.png) no-repeat center 50%;
+  background-size: 120%;
   background-position: center 40%;
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan {
+  color: #889941;
+  position: absolute;
+  width: 250px;
+  padding-top: 50px;
+  height: 350px;
+  text-align: center;
+  background: url(images/musicListBg.png) no-repeat center center;
+  background-size: contain;
+  top: -400px;
+  left: -67px;
+  transform: scale(0, 0);
+  transform-origin: center 100%;
+  transition: all .3s ease;
+  animation-direction: reverse;
+  animation: musiclistreverse .3s forwards;
+}
+@keyframes musiclistreverse {
+  100% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.1, 1.1);
+    opacity: 1;
+  }
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan.ACTIVE {
+  opacity: 1;
+  transform: scale(0, 0);
+  animation: musiclist .3s forwards;
+}
+@keyframes musiclist {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1, 1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .tit {
+  font-size: 20px;
+  line-height: 40px;
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ {
+  height: 25px;
+  width: 180px;
+  margin: 5px auto;
+  text-align: left;
+  line-height: 25px;
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ.ACTIVE {
+  border-right: 3px solid #ddad54;
+}
+#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ small {
+  float: right;
 }
 #container .mm#mm4 #m4-k #m4k-2 {
   background-image: url(images/backMusic.png);
@@ -552,7 +631,7 @@ body {
   height: 8px;
   background: white;
   border-radius: 20px;
-  margin-left: 8px;
+  margin-left: -8px;
   float: left;
   transform: scale(2, 2);
   cursor: pointer;
