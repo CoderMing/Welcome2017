@@ -56,7 +56,11 @@ $.ajax({
 	success: function(e) {
 		musicLrc = e.match(/(\[.*?\])([^\n]+)/g);
 		musicLrcTime = musicLrc.map(function(item) {
-			return item.replace(/(\[.*?\])([^\n]+)/, '$1');
+			return item.replace(/\[(.*?)\]([^\n]+)/, '$1')
+					   .split(/:(?=\d\d.\d\d)/)
+					   .map(function(a) {
+					   		return parseFloat(a);
+					   });
 		});
 		musicLrcArt = musicLrc.map(function(item) {
 			return item.replace(/(\[.*?\])(?=[^\n]+)/, '').trim();
@@ -71,10 +75,32 @@ $.ajax({
 			return list;
 		})
 
+		// 活动歌词
+		musicLrcTime.forEach(function(a, b, c) {
+			if (!isUserScrollGeci) {
+				+function() {
+					setTimeout(function(a, b, c) {
+						$('#m4-geci').scrollTop(48 * b);
+					}, a[0] * 60000 + a[1] * 1000);
+				}(a, b, c);	
+			}
+		});
 	}
 })
 
+
+	console.log('12');
+	
+$('#m4-geci').on('sroll', function() {
+	console.log('12');
+	isUserScrollGeci = true;
+})
+$('#m4-geci').mouseout(function() {
+	isUserScrollGeci = false;
+})
+
 // 音乐
+var  isUserScrollGeci = false;
 var  musicMouseDownFlag = false;
 var  isPused = true;
 $('#m4-b')
@@ -83,11 +109,14 @@ $('#m4-b')
 	musicMouseDownFlag = false;
 })
 // .on('mousedown', function(e) {
-// 	musicMouseDownFlag = true;
+// 	console.log(e.target)
+// 	if (e.target.id == 'm4b-l') {
+// 		musicMouseDownFlag = true;
+// 		$('#m4b-r').width(e.offsetX);
+// 	}
 // })
 // .on('mousemove', function(e) {
-// 	if (musicMouseDownFlag) {
-// 		console.log(e);
+// 	if (musicMouseDownFlag && e.target.id == 'm4b-l') {
 // 		$('#m4b-r').width(e.offsetX);
 // 	}
 // })
@@ -109,8 +138,10 @@ $('#m4k-3').click(function() {
 	isPused = !isPused;
 	if (isPused) {
 		$('#m4k-3').css('background-image', 'url(images/bofang.png)');
+		$('#music')[0].pause(); 
 	}else {
 		$('#m4k-3').css('background-image', 'url(images/zanting.png)');
+		$('#music')[0].play();
 	}
 });
 

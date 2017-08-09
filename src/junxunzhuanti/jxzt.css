@@ -473,6 +473,7 @@ body {
   background: #f8c560;
   height: 100%;
   width: 50%;
+  margin-right: -10px;
   border-radius: 10px;
   float: left;
 }
@@ -482,7 +483,7 @@ body {
   background: white;
   border-radius: 20px;
   float: left;
-  transform: scale(2, 2) translate(-5px, 0);
+  transform: scale(2, 2);
   cursor: pointer;
 }
 #container .mm#mm4 #m4-b #m4b-ti {
@@ -551,7 +552,8 @@ body {
   height: 8px;
   background: white;
   border-radius: 20px;
+  margin-left: 8px;
   float: left;
-  transform: scale(2, 2) translate(-4px, 0);
+  transform: scale(2, 2);
   cursor: pointer;
 }
