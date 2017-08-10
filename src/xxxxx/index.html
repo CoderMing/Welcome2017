@@ -5,6 +5,7 @@
         <title></title>
         <link href="css/index.css" rel="stylesheet" type="text/css">
     </head>
+    
     <body style="width: 100%;">
         <img class="right_stone" src="images/w_rightstone.png">
         <img class="mes_leftstone" src="images/w_leftstone.png">
@@ -103,6 +104,7 @@
 
             
         </div>
+    <script type="text/javascript" src="./js/magnifier.js"></script>
     <script type="text/javascript">
         var w_title = document.getElementsByClassName('wel_title')[0],
             w_gongnue = document.getElementsByClassName('mes_gongnue')[0],
@@ -114,7 +116,12 @@
             w_shuju2 = document.getElementsByClassName('mes_shuju2')[0],
             w_guanyu2 = document.getElementsByClassName('mes_guanyu2')[0],
             w_fengcai2 = document.getElementsByClassName('mes_fengcai2')[0],
-            w_maptitle = document.getElementsByClassName('map_title')[0];
+            w_maptitle = document.getElementsByClassName('map_title')[0],
+            map_map = document.querySelector('.map_map');
+            
+  
+            map_map.setAttribute("bigsrc",map_map.src);
+
            
 
         my_title(w_armtitle);

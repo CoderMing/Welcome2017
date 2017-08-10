@@ -362,3 +362,43 @@ body {
 #container #mm2#mm5 .lb-tit {
   margin-left: 50px;
 }
+#container .showitem {
+  width: 340px;
+  margin: 0px 20px 50px;
+  float: left;
+}
+#container .showitem .si-pic {
+  overflow: hidden;
+  border-radius: 15px;
+  width: 100%;
+  height: 200px;
+  cursor: pointer;
+  background: url(images/tu-min.png) no-repeat center center / cover;
+}
+#container .showitem .si-pic .si-tit {
+  width: 100%;
+  height: 125%;
+  line-height: 300px;
+  transition: all .2s ease;
+  transform: translate(0, -50px);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+#container .showitem .si-pic:hover .si-tit {
+  transform: translate(0, 150px);
+  line-height: 50px;
+}
+#container .showitem .si-p {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  line-height: 35px;
+  font-size: 15px;
+  color: #f1983f;
+}
+#container .showitem .si-p strong {
+  padding-right: 10px;
+  font-size: 16px;
+  color: #ea8552;
+}

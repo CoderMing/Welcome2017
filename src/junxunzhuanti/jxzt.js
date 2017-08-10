@@ -107,7 +107,7 @@ $.ajax({
 
 // 音乐
 // var  isUserScrollGeci = false;
-var  musicMouseDownFlag = false;
+// var  musicMouseDownFlag = false;
 var  isPused = true;
 var  musicSeconds = -1;
 $('#m4-b')
@@ -152,7 +152,6 @@ $('#m4-yinliang')
 })
 
 $('#m4k-5').click(function(e) {
-	console.log(e);
 	if (e.target.id == 'm4k-5') {
 		$('#m4-yinliang').toggle(200);
 	}
