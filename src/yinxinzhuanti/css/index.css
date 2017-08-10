@@ -36,7 +36,11 @@ body{
 	margin: 0 auto;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .welcome_left{
+=======
+.welcome{
+>>>>>>> origin/master
 =======
 .welcome{
 >>>>>>> origin/master
@@ -48,6 +52,7 @@ body{
     background: url(../images/w_waikuangleft.png) no-repeat 26px -54px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .welcome_right{
     position: absolute;
     top: 150px;
@@ -56,6 +61,9 @@ body{
     height: 1250px;
     background: url(../images/w_waikuangright.png) no-repeat 26px -84px;
 }
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
@@ -71,6 +79,10 @@ body{
     background: url(../images/w_xiaolianon.png) no-repeat;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
@@ -85,6 +97,10 @@ body{
     background: url(../images/w_xiaolian.png) no-repeat;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
@@ -98,6 +114,10 @@ body{
 	cursor: pointer;
     background: url(../images/w_xuezhang.png) no-repeat;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> origin/master
 =======
  
 >>>>>>> origin/master
@@ -111,6 +131,10 @@ body{
 	cursor: pointer;
     background: url(../images/w_xuezhangon.png) no-repeat;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
