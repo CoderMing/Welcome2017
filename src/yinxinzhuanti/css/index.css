@@ -6,15 +6,28 @@ li{
 	list-style-type: none;
 }
 body{
+	background: transparent;
+	height: auto;
+	display: block;
+	overflow: hidden;
 	font-family: "weituanyahei", "Arial";
 }
+/*右边草动画*/
+@keyframes ros{
+    from{
+         transform: rotate(0deg);}
+    to{
+        transform: rotate(5deg);}
+}
+
 #contain{
 	position: relative;
 	top: 0;
 	left: 0;
     width: 1300px;
-    height: 1500px;
+    height: 1400px;
     margin: 0 auto;
+    overflow: hidden;
     /*background: silver;*/
 }
 .w_title{
@@ -97,6 +110,7 @@ body{
 	border: 1px solid rgb(209,231,164);
 	border-radius: 20px;
 	background: url(../images/w_smile.jpg) no-repeat;
+	cursor: pointer;
 }
 .smile_mes{
 	margin-top: 35px;
@@ -296,4 +310,30 @@ li.on{
 	background: url(../images/w_mydot.png) no-repeat 8px 5px;
 	color: rgb(255,255,255);
 
+}
+.right_stone{
+	position: absolute;
+    top: 320px;
+	right: -17px;
+	z-index: 20;
+}
+.left_stone{
+	position: absolute;
+	top: 920px;
+	left: -53px;
+	z-index: 20;
+}
+.my_grass{
+	position: absolute;
+	top: 140px;
+	left: 20px;
+	z-index: 20;
+	transform-origin: 70% 70%;
+	animation: ros 1s ease infinite alternate; 
+}
+.w_wel_mydot{
+	position: absolute;
+	top: 700px;
+	left: 1300px;
+	z-index: 20;
 }

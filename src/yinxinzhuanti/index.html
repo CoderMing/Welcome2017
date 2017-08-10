@@ -6,6 +6,10 @@
         <link href="css/index.css" rel="stylesheet" type="text/css" >
     </head>
     <body>
+        <img class="right_stone" src="images/w_rightstone.png">
+        <img class="left_stone" src="images/w_leftstone.png">
+        <img class="w_wel_mydot" src="images/w_wel_mydot.png">
+        <img class="my_grass" src="images/w_grass.png">
         <div id="contain">
             <div class="w_title">
             	<img src="images/w_title.png">
@@ -157,6 +161,9 @@
             pageDot = document.querySelectorAll('.foot_con li'),
             welcome_smile = document.querySelector('.welcome_smile'),
             xuezhang_help = document.querySelector('.xuezhang_help'),
+            foot_left = document.querySelector('.foot_left'),
+            foot_right = document.querySelector('.foot_right'),
+            smile_logo = document.querySelector('.smile_logo'),
     	    flag = true;
 
         button1.onclick = function() {
@@ -210,15 +217,43 @@
                 dot.style.left = (index * 129 + 22) +'px';
             }
         }
-
+        
+        var dot_position = 0;
         for(var i=0,len=pageDot.length;i < len;i++){
+
+            pageDot[i].index = i;
+
             pageDot[i].onclick = function() {
+                dot_position = this.index;
                 for(var i=0;i < len;i++){
                     pageDot[i].className = '';    
                 }
                 this.className = 'on';
-
             }
+        }
+        foot_left.onclick = function() {
+            dot_position--;
+            if(dot_position < 0){
+                dot_position = 0;
+            }
+            for(var i=0;i < len;i++){
+                pageDot[i].className = '';    
+            }
+            pageDot[dot_position].className = 'on';
+        }
+        foot_right.onclick = function() {
+            dot_position++;
+            if(dot_position > 4){
+                dot_position = 4;
+            }
+            for(var i=0;i < len;i++){
+                pageDot[i].className = '';    
+            }
+            pageDot[dot_position].className = 'on';
+        }
+
+        smile_logo.onclick = function() {
+            window.open('http://hongyan.cqupt.edu.cn/stuface2017','_blank');
         }
     </script>
 </html>
