@@ -119,6 +119,25 @@ body {
 				color: #fff;
 				text-shadow: -1px 1px #e05a36;
 				background-position: center -2px;
+				animation: dynamic .5s ease;
+			}
+			@keyframes dynamic {
+			  from, to {
+			    transform: scale(1, 1);
+			  }
+
+			  25% {
+			    transform: scale(0.85, 1.15);
+			  }
+
+			  50% {
+			    transform: scale(1.15, 0.85);
+			    
+			  }
+
+			  75% {
+			    transform: scale(0.95, 1.05);
+			  }
 			}
 
 		}
@@ -156,7 +175,7 @@ body {
 			height: 0px;
 			border: 3px solid #ef9328;
 			border-radius: 10px;
-			transform: translate(55px, 65px);
+			transform: translate(55px, 67px);
 			transition: all .2s;
 		}
 
@@ -259,12 +278,13 @@ body {
 		font-size: 18px;
 		color: #ea8552;
 		clear: both;
+		font-size: 15px;
 	}
 	.lb-p {
 		width:  600px;
 		margin: 0 auto;
 		line-height: 35px;
-		font-size: 16px;
+		font-size: 14px;
 		background: ~'url(./images/mm3line-min.png) no-repeat 0 100% / 200%';
 		color: #f1983f;
 	}
@@ -276,12 +296,14 @@ body {
 		color: #f1983f;
 		overflow: hidden;
 		text-align: right;
+		font-size: 16px;
+
 
 
 		&>div {
 			background: ~'url(./images/mm3line-min.png) no-repeat 0 100% / 200%';
 			width: 500px;
-			font-size: 16px;
+			font-size: 15px;
 			float: right;
 			height: 100%;
 			margin-left: 30px;
@@ -296,7 +318,7 @@ body {
 	.skewBox {
 		box-sizing: border-box;
 	    transform: skewX(0.9deg);
-	    overflow-y: scroll;
+	    overflow-y: auto;
 	    margin-top: 40px;
 	    margin-left: 5.5px;
 	    overflow-x: hidden;
@@ -358,8 +380,11 @@ body {
 				float: left;
 				margin-left: 50px;
 				clear: right;
+				font-size: 14px;
 			}
 			.lb-tit {
+				font-size: 16px;
+				margin: 10px;
 				margin-left: 50px;
 			}
 		}

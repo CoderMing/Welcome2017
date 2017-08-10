@@ -25,6 +25,9 @@ $(window).scroll(function() {
 		$('#fanhuidingbu').css('opacity', '0')
 	}
 });
+
+
+var originPath = location.origin + location.pathname;
 $('#nav .ni-r li:gt(0)').on('click', function() {
 	$('#nav .ni-r li').each(function() {
 		$(this).removeClass('ACTIVE')
@@ -53,6 +56,7 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
  		$('#child').height(1000);   //先降低iframe的高度 然后再使用offsetTop  此处默认iframe永远不低于1000px
 	}, 300);
 	$('#child').on('load', function() {
+		// history.pushState({time: new Date().getTime()}, '',  originPath + $(_this).attr('goto').replace(/\.\/(.*?)\/index\.html/, '$1'))
  		setTimeout(function() {
  			iframeLoad();
  			$('#child').css('opacity', 1);
@@ -105,7 +109,23 @@ $(window).mousemove(changeShan);
 function iframeLoad() {
 	console.log($('#child').contents().height());
 	$('#child').height($('#child').contents().height());
-	$('#child').contents().mousemove(changeShan);		
+	$('#child').contents().mousemove(changeShan);
+	if ($('iframe').contents().find('.mm2t-item').length) {
+		$('iframe').contents().find('.mm2t-item').click(function() {
+			$('#cover img').attr('src', $(this).css('background-image').replace(/url\("(.*?)"\)/, '$1'));
+			$('#cover').show();
+			setTimeout(function() {
+				$('#cover').css('opacity', 1);
+			}, 10);
+		});
+		console.log($('iframe').contents().find('#coverArt .guanbi'));
+		$('#coverArt .guanbi').click(function() {
+			$('#cover').css('opacity', 0);
+			setTimeout(function() {
+				$('#cover').hide();
+			}, 200);
+		});
+	}		
 };
 setTimeout(function() {
 	iframeLoad();
@@ -114,6 +134,11 @@ $('iframe').hover(function() {
 	console.log('123');
 	$(this).click();
 })
+
+
+
+
+
 
 // 返回顶部
 $('#fanhuidingbu').click(function() {
