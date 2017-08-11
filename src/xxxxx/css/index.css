@@ -6,7 +6,8 @@ body{
 	background: transparent;
 	height: auto;
 	display: block;
-	overflow: hidden;
+	font-family: "weituanyahei", "Arial";
+	/*overflow: hidden;*/
 }
 #contain{
 	position: relative;
@@ -36,6 +37,30 @@ img.btn:hover{
   }
 }
 /*按钮动画结束*/
+
+/*军训轮播动画*/
+@keyframes arm_left{
+	0%{
+		opacity: 0;
+		transform: translate(850px,0px);
+	}
+	100%{
+		opacity: 1;
+		transform: translate(0px,0px);
+	}
+}
+@keyframes arm_right{
+	0%{
+		opacity: 0;
+		transform: translate(-850px,0px);
+	}
+	100%{
+		opacity: 1;
+		transform: translate(0px,0px);
+	}
+}
+
+
 
 /*左边草动画*/
 @keyframes rot{ 
@@ -77,23 +102,68 @@ img.btn:hover{
 	margin-top: 140px;
 	height: 735px;
 }
-.map_waikuang{
-	position: absolute;
-	top: 0px;
-	left: -104px;
-}
 .map-title img{ 
 	position: absolute;
 }
-.map_map{
-	top: 55px;
-	left: 60px;
+.map_waikuang{
+	top: -134px;
+	left: -58px;
+	z-index: 30;
 }
-.map_grass{
-    top: 445px;
-    left: 847px;
-    transform-origin: 70% 70%;
-	animation: ros 1s ease infinite alternate;
+
+.map_con{
+	position: absolute;
+	z-index: 20;
+	top: 37px;
+	left: 54px;
+	overflow: hidden;
+	width: 879px;
+	height: 457px;
+	border: 1px solid rgb(209,231,164);
+	border-radius: 40px 40px 40px 40px;
+
+}
+.map_map{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 880px;
+}
+.map_move{
+	position: absolute;
+	z-index: 99;
+	top: 37px;
+	left: 54px;
+	width: 879px;
+	height: 457px;
+	cursor: move;
+}
+.map_oper{
+	position: absolute;
+	top: 230px;
+	left: 830px;
+	width: 100px;
+	height: 220px;
+	z-index: 99;
+	/*background: silver;*/
+}
+.map_add{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100px;
+	height: 100px;
+	background: url(../images/w_add.png);
+	cursor: pointer;
+}
+.map_sub{
+	position: absolute;
+	top: 120px;
+	left: 0px;
+	width: 100px;
+	height: 100px;
+	background: url(../images/w_sub.png);
+	cursor: pointer;
 }
 .map_title{
 	top: -134px;
@@ -139,11 +209,52 @@ img.btn:hover{
 	transform-origin: 70% 70%;
 	animation: rot 1s ease infinite alternate;
 }
-
-.arm_lalian{
-	top: 205px;
-	left: 410px;
+.arm-message{
+	display: none;
+	position: absolute;
+	top: 260px;
+	left: 65px;
+	width: 850px;
+	height: 280px;
 }
+div.on{
+	display: block;
+}
+.my_lalian{
+	position: absolute;
+	top: 200px;
+	left: 400px;
+    width: 185px;
+    height: 36px;
+    text-align: center;
+  
+}
+.arr_left{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: pointer;
+}
+.my_lalian p{
+	margin-top: -2px;
+	margin-left: 2px;
+	line-height: 36px;
+	font-size: 30px;
+	font-weight: bold;
+	color: rgb(255,197,70);
+}
+.arr_right{
+	position: absolute;
+	top: 0px;
+	left: 160px;
+	cursor: pointer;
+}
+
+
+
+
+
+
 .arm_input{
 	top: 540px;
 	left: 735px;
@@ -153,18 +264,13 @@ img.btn:hover{
 	transform: scale(1.1);
 	z-index: 10;
 }
-.arm-message{
-	position: absolute;
-	top: 260px;
-	left: 65px;
-	width: 850px;
-	height: 280px;
-}
+
 .arm-message img{
 	position: relative;
 	float: left;
 	margin-left: 15px;
 	cursor: pointer;
+	transition: all .5s ease;
 }
 .arm-message img:hover{
 	z-index: 10;
