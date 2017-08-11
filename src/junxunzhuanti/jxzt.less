@@ -238,17 +238,15 @@ body {
 
 	    	&>div {
 
-	    		.player {
+	    		#player {
 
 		    		width: 700px;
 		    		border-radius: 10px;
 		    		box-shadow: 0px 0px 2px 2px #c8e176;
 		    		border: 1px solid #aaa;  
-			    	height: 480px;
 			    	background: black;
 			    	margin: 50px auto;
 			    	display: block;
-				    background: url(./images/tu-min.png) no-repeat;
 				    background-size: cover;
 		    	}
 		    	.lunbo {
@@ -303,7 +301,7 @@ body {
 								font-size: 16px;
 
 							}
-							&:hover>div {
+							&:hover>div, &.ACTIVE>div {
 								height: 260px;
 								padding-top: 20px;
 								margin-top: 80px;
@@ -511,8 +509,8 @@ body {
 				.mm3m-h {
 					width: 80%;
 					margin: 30px auto;
-					font-size: 22px;
-					color: #f3b160;
+					font-size: 16px;
+					color: #ec7646;
 				}
     			.mm3m-p {
     				width: 80%;

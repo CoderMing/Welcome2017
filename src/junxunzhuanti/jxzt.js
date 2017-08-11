@@ -44,6 +44,10 @@ $('.lun-z, .lun-y').click(function() {
 	VideoLunboFlag = !VideoLunboFlag;
 });
 
+$('.lun-in .list').click(function() {
+	console.log('123123123');
+	$('#player').attr('src', $(this).attr('go'));
+});
 
 
 
