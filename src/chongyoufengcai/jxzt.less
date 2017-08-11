@@ -112,6 +112,40 @@ body {
 
 
 
+#mm3m-fl {
+	height: 650px;
+	width: 200px;
+	transform: skewX(-.9deg);
+	position: absolute;
+	left: 0;
+	background: black;
+	z-index: 3;
+    font-weight: 200;
+    left: 118px;
+    top: 422.5px;
+	transform-origin: center center;		    
+    overflow: hidden;
+	transition: all .2s;
+	display: none;
+	opacity: 0;
+
+	.orgtit {
+		transform: skewX(.9deg);
+		width: 197px;
+		height: 60px;
+		padding-right: 15px;
+		background: url(./images/orgtit.png) no-repeat center center / contain;
+		margin: 30px;
+		margin-left: -50px;
+		margin-top: 50px;
+		text-align: right;
+		line-height: 60px;
+		color: #81b332;
+		font-size: 20px;
+
+	}
+}
+
 #container {
 	width: 1000px;
 	position: relative;
@@ -233,87 +267,87 @@ body {
 
 		
 
-		// 模块1
-	    &#mm1 {
+		// // 模块1
+	 //    &#mm1 {
 
-	    	&>div {
+	 //    	&>div {
 
-	    		.player {
+	 //    		.player {
 
-		    		width: 700px;
-		    		border-radius: 10px;
-		    		box-shadow: 0px 0px 2px 2px #c8e176;
-		    		border: 1px solid #aaa;  
-			    	height: 480px;
-			    	background: black;
-			    	margin: 50px auto;
-			    	display: block;
-				    background: url(./images/tu-min.png) no-repeat;
-				    background-size: cover;
-		    	}
-		    	.lunbo {
-		    		width: 770px;
-		    		margin: 0 auto;
-		    		display: flex;
-		    		align-items: center;
+		//     		width: 700px;
+		//     		border-radius: 10px;
+		//     		box-shadow: 0px 0px 2px 2px #c8e176;
+		//     		border: 1px solid #aaa;  
+		// 	    	height: 480px;
+		// 	    	background: black;
+		// 	    	margin: 50px auto;
+		// 	    	display: block;
+		// 		    background: url(./images/tu-min.png) no-repeat;
+		// 		    background-size: cover;
+		//     	}
+		//     	.lunbo {
+		//     		width: 770px;
+		//     		margin: 0 auto;
+		//     		display: flex;
+		//     		align-items: center;
 
 
-		    		.lun-in {
-						flex: 4;
-						margin: 10px;
-						height: 200px;
-						display: block;
-						position: relative;
-						overflow: hidden;
+		//     		.lun-in {
+		// 				flex: 4;
+		// 				margin: 10px;
+		// 				height: 200px;
+		// 				display: block;
+		// 				position: relative;
+		// 				overflow: hidden;
 
-		    			.list {
-		    				position: absolute;
-			    			width: 170px;
-							height: 155px;
-							border-radius: 10px;
-						    background: url(./images/tu-min.png) no-repeat;
-						    background-size: cover;
-						    display: inline-block;
-						    overflow: hidden;
-						    box-sizing: border-box;
-						    transition: all .3s;
-						    cursor: pointer;
-						    border: 1px solid #c9e176;
+		//     			.list {
+		//     				position: absolute;
+		// 	    			width: 170px;
+		// 					height: 155px;
+		// 					border-radius: 10px;
+		// 				    background: url(./images/tu-min.png) no-repeat;
+		// 				    background-size: cover;
+		// 				    display: inline-block;
+		// 				    overflow: hidden;
+		// 				    box-sizing: border-box;
+		// 				    transition: all .3s;
+		// 				    cursor: pointer;
+		// 				    border: 1px solid #c9e176;
 						
-							&:nth-child(2) {
-								margin-left: 190px;
-							}
-							&:nth-child(3) {
-								margin-left: 380px;
-							}
-							&:nth-child(4) {
-								margin-left: 570px;
-							}
-							&>div {
-								width: 100%;
-								margin-top: -100px;
-								position: relative;
-								background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 25%,rgba(0, 0, 0, .5) 100%);
-								color: #ffffff;
-								line-height: 30px;
-								text-align: center;
-								transition: all .2s;
-								height: 130px;
-								padding-top: 150px;
-								font-size: 16px;
+		// 					&:nth-child(2) {
+		// 						margin-left: 190px;
+		// 					}
+		// 					&:nth-child(3) {
+		// 						margin-left: 380px;
+		// 					}
+		// 					&:nth-child(4) {
+		// 						margin-left: 570px;
+		// 					}
+		// 					&>div {
+		// 						width: 100%;
+		// 						margin-top: -100px;
+		// 						position: relative;
+		// 						background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 25%,rgba(0, 0, 0, .5) 100%);
+		// 						color: #ffffff;
+		// 						line-height: 30px;
+		// 						text-align: center;
+		// 						transition: all .2s;
+		// 						height: 130px;
+		// 						padding-top: 150px;
+		// 						font-size: 16px;
 
-							}
-							&:hover>div {
-								height: 260px;
-								padding-top: 20px;
-								margin-top: 80px;
-								line-height: 25px;
-							}
-						}
-		    		}
-		    	}
-	    	}
-	    }
+		// 					}
+		// 					&:hover>div {
+		// 						height: 260px;
+		// 						padding-top: 20px;
+		// 						margin-top: 80px;
+		// 						line-height: 25px;
+		// 					}
+		// 				}
+		//     		}
+		//     	}
+	 //    	}
+	 //    }
 
 
 	    // 模块2
@@ -435,7 +469,7 @@ body {
 
 
 	    // 模块3
-	    &#mm3 {
+	    &#mm3, &#mm1 {
 	    	transform: skewX(.9deg);
 	    	left: 129px;
 	    	width: 783.6px;
@@ -526,6 +560,17 @@ body {
     		}
 	    }
 
+
+
+	    &#mm1 {
+	    	overflow-x: visible;
+	    	#mm3m-0 {
+	    		width: 600px;
+	    		background: grey;
+	    		right: 0;
+	    		position: absolute;
+	    	}
+	    }
 	    // mm4 
 	    &#mm4 {
 	    	transform: skewX(.9deg);
