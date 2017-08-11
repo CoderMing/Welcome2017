@@ -1,0 +1,211 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+}
+body{
+	background: transparent;
+	height: auto;
+	display: block;
+	overflow: hidden;
+	font-family: "weituanyahei", "Arial";
+}
+/*右边草动画*/
+@keyframes ros{
+    from{
+         transform: rotate(0deg);}
+    to{
+        transform: rotate(5deg);}
+}
+.right_stone{
+	position: absolute;
+    top: 320px;
+	right: -17px;
+	z-index: 20;
+}
+.left_stone{
+	position: absolute;
+	top: 920px;
+	left: -53px;
+	z-index: 20;
+}
+.my_grass{
+	position: absolute;
+	top: 140px;
+	left: 20px;
+	z-index: 20;
+	transform-origin: 70% 70%;
+	animation: ros 1s ease infinite alternate; 
+}
+li.btn:hover{
+	animation: dynamic .5s ease;
+}
+/*按钮动画*/
+@keyframes dynamic {
+  0% {
+  	transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.85, 1.15);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+  100% {
+  	transform: scale(1, 1);
+  }
+}
+
+
+#contain{
+	position: relative;
+	top: 0;
+	left: 0;
+    width: 1300px;
+    height: 1200px;
+    margin: 0 auto;
+    /*background: silver;*/
+ 
+}
+.w_title{
+	width: 300px;
+	height: 150px;
+	margin: 0 auto;
+
+}
+.data{
+	position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 100%;
+    height: 1000px;
+    /*background: green;*/
+    background: url(../images/w_waikuang.png) no-repeat 26px -3px;
+}
+.my_button{
+    position: absolute;
+    top: 50px;
+    left: 276px;
+    width: 770px;
+    height: 106px;
+   
+}
+.my_button li{
+	z-index: 20;
+	float: left;
+	width: 220px;
+	height: 106px;
+/*	background: red;*/
+	margin: 0px 18px;
+	cursor: pointer;
+}
+.zuinan{
+	background: url(../images/w_zuinan.png) no-repeat;
+}
+.zuinanon{
+	background: url(../images/w_zuinanon.png) no-repeat;
+}
+.nannv{
+	background: url(../images/w_nannv.png) no-repeat;
+}
+.nannvon{
+	background: url(../images/w_nannvon.png) no-repeat;
+}
+.jiuye{
+	background: url(../images/w_jiuye.png) no-repeat;
+}
+.jiuyeon{
+	background: url(../images/w_jiuyeon.png) no-repeat;
+}
+
+.data_con{
+	position: absolute;
+	top: 174px;
+	left: 265px;
+	width: 774px;
+	height: 650px;
+	/*background: silver;*/
+}
+.data_nav{
+	width: 100%;
+	height: 75px;
+	/*background: red;*/
+	font-size: 21px;
+	color: rgb(137,186,59);
+}
+.data_nav ul{
+	width: 370px;
+	height: 75px;
+	margin: 0 auto;
+}
+.data_nav li{
+	float: left;
+	width: 160px;
+	height: 75px;
+	line-height: 75px;
+	text-align: center;
+	font-size: 21px;
+	cursor: pointer;
+	/*background: yellow;*/
+
+}
+.nav_dot{
+	position: absolute;
+	top: 63px;
+	left: 232px;
+	width: 100px;
+	height: 6px;
+	border-radius: 20px;
+	background: rgb(241,146,55);
+	transition: all 0.3s ease 0s;
+}
+.data_nav li.on{
+	color: rgb(241,146,55);
+}
+.data_pic{
+	position: absolute;
+	top: 75px;
+	left: 0px;
+	width: 774px;
+	height: 575px;
+	/*background: purple;*/
+}
+.data_pic > div{
+	position: absolute;
+	width: 125px;
+	height: 410px;
+	
+}
+.data_girl{
+	top: 110px;
+	left: 196px;
+	background: url(../images/w_girl.png) no-repeat;
+}
+.data_boy{
+	top: 110px;
+	left: 470px;
+	background: url(../images/w_boy.png) no-repeat;
+}
+.data_change{
+	position: absolute;
+	top: 35px;
+	left: 600px;
+	width: 205px;
+	height: 50px;
+	background: url(../images/w_search.png) no-repeat;
+}
+.my_select{
+	position: absolute;
+	z-index: 30;
+	top: 40px;
+	left: 750px;
+	width: 40px;
+	height: 40px;
+	
+	cursor: pointer;
+}

@@ -15,36 +15,25 @@ body{
 }
 
 /*按钮动画开始*/
-img.btn {
-  display: inline-block;
-  padding-right: 12px;
-  padding-top: 2px;
-  background-color: rgb(243,252,225);
-  border-radius: 10px;
-  box-shadow: 0 0 0 -2px #aaa, 0 0 0 -1px #000;
-  border: none;
-  transition: box-shadow .3s;
+img.btn:hover{
+	animation: dynamic .5s ease;
 }
-img.btn:hover, img.btn:focus {
-  box-shadow: 0 0 0 2px #aaa, 0 0 0 4px #aaa;
-  transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
-  animation: gelatine 0.5s 1;
-}
-img.btn:active{
-  background: #4ecdc4;
-  transition-duration: 0;
-  box-shadow: 0 0 0 2px #aaa, 0 0 0 4px #3ac7bd;
-}
-@keyframes gelatine {
-  from, to {transform: scale(1, 1);}
-  25% {transform: scale(0.9, 1.1);}
-  50% {transform: scale(1.1, 0.9);}
-  75% {transform: scale(0.95, 1.05);}
-  from, to {transform: scale(1, 1);}
-  25% {transform: scale(0.9, 1.1);}
-  50% {transform: scale(1.1, 0.9);}
-  75% {transform: scale(0.95, 1.05);}
-  100%{transform: scale(1, 1);}
+@keyframes dynamic {
+  0% {
+  	transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.85, 1.15);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+  100% {
+  	transform: scale(1, 1);
+  }
 }
 /*按钮动画结束*/
 

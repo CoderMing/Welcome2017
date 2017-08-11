@@ -6,6 +6,7 @@ li{
 	list-style-type: none;
 }
 body{
+	overflow: hidden;
 	background: transparent;
 	height: auto;
 	display: block;
@@ -17,6 +18,27 @@ body{
          transform: rotate(0deg);}
     to{
         transform: rotate(5deg);}
+}
+li.btn:hover{
+	animation: dynamic .5s ease;
+}
+/*按钮动画*/
+@keyframes dynamic {
+  0% {
+  	transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.85, 1.15);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+  100% {
+  	transform: scale(1, 1);
+  }
 }
 
 #contain{
