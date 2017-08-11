@@ -273,14 +273,14 @@ a {
   background: url(images/new_zscy.png) no-repeat;
   float: left;
   background-size: contain;
-  left: 5vw;
+  left: 4vw;
 }
 #qrcode1:hover {
   animation: none;
 }
 #qrcode2 {
   background: url(images/new_cyxbs.png) no-repeat;
-  right: 5vw;
+  right: 4vw;
   float: right;
   background-size: contain;
 }

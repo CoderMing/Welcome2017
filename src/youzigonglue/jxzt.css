@@ -64,12 +64,14 @@ body {
 }
 #container #title {
   width: 300px;
-  height: 150px;
+  height: 160px;
+  background-position: 100% 100%;
   margin-left: 330px;
   clear: both;
   background-size: contain;
   background: url(images/title-min.png) no-repeat;
   transform-origin: 55% 70%;
+  margin-bottom: -10px;
 }
 #container #title:hover {
   animation: rowtitle .5s 3 ease;
@@ -238,16 +240,17 @@ body {
 #container .lunbo .lb-in .lb-item.p1 {
   margin-left: -450px;
   opacity: .3;
-  transform: perspective(450px) rotateY(-80deg) scale(1) translate3d(-225px, 0, 0);
+  transform: perspective(450px) rotateY(-7deg) scale(0.5) translate3d(105px, 0, 0);
 }
 #container .lunbo .lb-in .lb-item.p2 {
   transform: translate(0, 0);
+  opacity: 1;
   z-index: 2;
 }
 #container .lunbo .lb-in .lb-item.p3 {
   margin-left: 0px;
   opacity: .3;
-  transform: perspective(450px) rotateY(80deg) scale(1) translate3d(225px, 0, 0);
+  transform: perspective(450px) rotateY(7deg) scale(0.5) translate3d(-105px, 0, 0);
 }
 #container .lunbo .lb-in .lb-item > div {
   width: 100%;
@@ -295,6 +298,7 @@ body {
   height: 100%;
   margin-left: 30px;
   text-align: left;
+  color: #ea8552;
 }
 #container .lb-tit strong,
 #container .lb-p strong {

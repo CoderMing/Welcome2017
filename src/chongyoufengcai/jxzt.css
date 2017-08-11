@@ -119,7 +119,6 @@ body {
   transform: skewX(-0.9deg);
   position: absolute;
   left: 0;
-  background: black;
   z-index: 3;
   font-weight: 200;
   left: 118px;
@@ -129,13 +128,14 @@ body {
   transition: all .2s;
   display: none;
   opacity: 0;
+  z-index: 11;
 }
 #mm3m-fl .orgtit {
   transform: skewX(0.9deg);
   width: 197px;
   height: 60px;
   padding-right: 15px;
-  background: url(images/orgtit.png) no-repeat center center / contain;
+  background: url(images/orgtit.png) no-repeat center center / 100% 100%;
   margin: 30px;
   margin-left: -50px;
   margin-top: 50px;
@@ -143,6 +143,14 @@ body {
   line-height: 60px;
   color: #81b332;
   font-size: 20px;
+  transition: all .2s;
+  cursor: pointer;
+}
+#mm3m-fl .orgtit:hover,
+#mm3m-fl .orgtit.ACTIVE {
+  margin-left: -30px;
+  background-image: url(images/orgtit-A.png);
+  color: white;
 }
 #container {
   width: 1000px;
@@ -315,70 +323,48 @@ body {
   border-radius: 10px;
   border: 1px solid #cbe37d;
   box-sizing: border-box;
+  position: relative;
 }
-#container .mm#mm2 .mm2t-in .mm2t-item > div {
+#container .mm#mm2 .mm2t-in .mm2t-item > div:first-child {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: rgba(84, 72, 42, 0.5);
-  transition: all .5s;
-}
-#container .mm#mm2 .mm2t-in .mm2t-item > div p {
-  display: block;
-  width: 150px;
-  height: 120px;
-  border-radius: 50% 50% 0 0;
-  background: #fbfef0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all .2s;
+  line-height: 204px;
   text-align: center;
-  font-size: 17px;
-  color: #f1a774;
-  transform: translate(0, 150px);
-  line-height: 60px;
-  margin: 0 auto;
-  box-shadow: 0px 0px 20px 20px rgba(100, 100, 100, 0.3);
-  transition: all .5s;
-  animation: jumpf .5s forwards;
+  color: white;
 }
-#container .mm#mm2 .mm2t-in .mm2t-item > div:hover {
-  background: none;
+#container .mm#mm2 .mm2t-in .mm2t-item > div:first-child p {
+  line-height: 22px;
+  transition: all .2s;
+  margin-top: 94px;
 }
-#container .mm#mm2 .mm2t-in .mm2t-item > div:hover p {
-  animation: jumpt .5s forwards;
+#container .mm#mm2 .mm2t-in .mm2t-item > div:last-child {
+  position: absolute;
+  opacity: 0;
+  transition: all .2s;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  background: url(images/playlogo.png) no-repeat center center / cover;
 }
-@keyframes jumpt {
-  0% {
-    transform: translate(0, 150px);
-  }
-  30% {
-    transform: translate(0, 140px);
-  }
-  100% {
-    transform: translate(0, 300px);
-  }
+#container .mm#mm2 .mm2t-in .mm2t-item:hover > div:last-child {
+  transition: all .2s .1s;
+  opacity: 1;
 }
-@keyframes jumpf {
-  0% {
-    transform: translate(0, 300px);
-  }
-  30% {
-    transform: translate(0, 300px);
-  }
-  60% {
-    transform: translate(0, 143px);
-  }
-  70% {
-    transform: translate(0, 155px);
-  }
-  80% {
-    transform: translate(0, 143px);
-  }
-  90% {
-    transform: translate(0, 151px);
-  }
-  100% {
-    transform: translate(0, 150px);
-  }
+#container .mm#mm2 .mm2t-in .mm2t-item:hover > div:first-child {
+  height: 35px;
+  line-height: 25px;
+  margin-top: 169px;
+  font-size: 16px;
+}
+#container .mm#mm2 .mm2t-in .mm2t-item:hover > div:first-child p {
+  margin-top: 5px;
 }
 #container .mm#mm3,
 #container .mm#mm1 {
@@ -424,7 +410,9 @@ body {
   color: #ef9328;
 }
 #container .mm#mm3 .mm3m,
-#container .mm#mm1 .mm3m {
+#container .mm#mm1 .mm3m,
+#container .mm#mm3 .mm5m,
+#container .mm#mm1 .mm5m {
   width: 100%;
   height: auto;
   height: 690px;
@@ -436,12 +424,16 @@ body {
   transition: all .2s;
 }
 #container .mm#mm3 .mm3m.AVTIVE,
-#container .mm#mm1 .mm3m.AVTIVE {
+#container .mm#mm1 .mm3m.AVTIVE,
+#container .mm#mm3 .mm5m.AVTIVE,
+#container .mm#mm1 .mm5m.AVTIVE {
   opacity: 1;
   display: block;
 }
 #container .mm#mm3 .mm3m::-webkit-scrollbar,
-#container .mm#mm1 .mm3m::-webkit-scrollbar {
+#container .mm#mm1 .mm3m::-webkit-scrollbar,
+#container .mm#mm3 .mm5m::-webkit-scrollbar,
+#container .mm#mm1 .mm5m::-webkit-scrollbar {
   width: 10px;
   background-color: #c4eee9;
   border-radius: 250px;
@@ -449,27 +441,37 @@ body {
   box-shadow: 5px 0px 2px #aae4dc inset;
 }
 #container .mm#mm3 .mm3m::-webkit-scrollbar-thumb,
-#container .mm#mm1 .mm3m::-webkit-scrollbar-thumb {
+#container .mm#mm1 .mm3m::-webkit-scrollbar-thumb,
+#container .mm#mm3 .mm5m::-webkit-scrollbar-thumb,
+#container .mm#mm1 .mm5m::-webkit-scrollbar-thumb {
   background: #f1a37d;
   border-radius: 250px;
   box-shadow: 1px 0px 5px 5px #ef885b inset;
 }
 #container .mm#mm3 .mm3m .mm3m-h,
 #container .mm#mm1 .mm3m .mm3m-h,
+#container .mm#mm3 .mm5m .mm3m-h,
+#container .mm#mm1 .mm5m .mm3m-h,
 #container .mm#mm3 .mm3m .mm3m-p,
-#container .mm#mm1 .mm3m .mm3m-p {
+#container .mm#mm1 .mm3m .mm3m-p,
+#container .mm#mm3 .mm5m .mm3m-p,
+#container .mm#mm1 .mm5m .mm3m-p {
   transform-origin: -10000000px 0;
   transform: skewX(-0.9deg);
 }
 #container .mm#mm3 .mm3m .mm3m-h,
-#container .mm#mm1 .mm3m .mm3m-h {
+#container .mm#mm1 .mm3m .mm3m-h,
+#container .mm#mm3 .mm5m .mm3m-h,
+#container .mm#mm1 .mm5m .mm3m-h {
   width: 80%;
   margin: 30px auto;
-  font-size: 22px;
-  color: #f3b160;
+  font-size: 16px;
+  color: #ec7646;
 }
 #container .mm#mm3 .mm3m .mm3m-p,
-#container .mm#mm1 .mm3m .mm3m-p {
+#container .mm#mm1 .mm3m .mm3m-p,
+#container .mm#mm3 .mm5m .mm3m-p,
+#container .mm#mm1 .mm5m .mm3m-p {
   width: 80%;
   margin: 0 auto;
   padding: 10px 2px;
@@ -483,219 +485,123 @@ body {
 }
 #container .mm#mm1 #mm3m-0 {
   width: 600px;
-  background: grey;
   right: 0;
   position: absolute;
+}
+#container .mm#mm3 {
+  overflow-x: visible;
+}
+#container .mm#mm3 #mm3m-0 {
+  width: 600px;
+  right: 0;
+  position: absolute;
+}
+#container .mm#mm3 .teacher-item {
+  width: 330px;
+  height: 199px;
+  border-radius: 10px;
+  border: 1px solid #c9e176;
+  margin: 20px;
+  background: url(images/teacher.png) no-repeat center center / cover;
+  float: left;
+  transform: skewX(-0.9deg);
+  position: relative;
+  margin-bottom: 30px;
+}
+#container .mm#mm3 .teacher-item p {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+  text-align: center;
+  color: #ed763c;
+}
+#container .mm#mm3 .student-item {
+  width: 700px;
+  margin: 40px 20px 0px 40px;
+  height: 200px;
+  overflow: hidden;
+}
+#container .mm#mm3 .student-item .si-l {
+  width: 280px;
+  height: 189px;
+  border-radius: 10px;
+  border: 1px solid #c9e176;
+  margin-right: 20px;
+  background: url(images/teacher.png) no-repeat center center / cover;
+  float: left;
+  transform: skewX(-0.9deg);
+  position: relative;
+}
+#container .mm#mm3 .student-item .si-r {
+  width: 390px;
+  float: right;
+  height: 100%;
+  margin-right: 0;
+  transform: skewX(-0.9deg);
+  font-size: 15px;
+}
+#container .mm#mm3 .student-item .si-r .si-tit {
+  text-align: right;
+  color: #ec7646;
+  width: 70px;
+  float: left;
+  display: block;
+  margin-right: 15px;
+  padding-bottom: 10px;
+}
+#container .mm#mm3 .student-item .si-r .si-p {
+  color: #f2b160;
+  float: left;
+  clear: right;
+  display: block;
+  width: 300px;
+  padding-bottom: 10px;
 }
 #container .mm#mm4 {
   transform: skewX(0.9deg);
   width: 789px;
+  overflow-y: scroll;
+  height: 740px;
+  top: 340px;
 }
-#container .mm#mm4 #m4-b,
-#container .mm#mm4 #m4-k {
-  transform: skewX(-0.9deg);
-}
-#container .mm#mm4 #m4-geci {
-  width: 100%;
-  transform: translate(0, 50px);
-  margin: 0 0 50px 0;
-  padding: 0 0 50px 0;
-  overflow: auto;
-  height: 480px;
-  text-align: center;
-}
-#container .mm#mm4 #m4-geci p {
-  transform: skewX(-0.9deg);
-  color: #f3b86d;
-  line-height: 30px;
-  font-size: 18px;
-  text-shadow: 0px 0px 1px #f3c89d;
-  font-weight: 300;
-}
-#container .mm#mm4 #m4-geci p:first-child {
-  font-size: 25px;
-}
-#container .mm#mm4 #m4-geci::-webkit-scrollbar {
+#container .mm#mm4::-webkit-scrollbar {
   width: 10px;
   background-color: #c4eee9;
   border-radius: 250px;
   border: 1px solid #aae4dc;
   box-shadow: 5px 0px 2px #aae4dc inset;
 }
-#container .mm#mm4 #m4-geci::-webkit-scrollbar-thumb {
+#container .mm#mm4::-webkit-scrollbar-thumb {
   background: #f1a37d;
   border-radius: 250px;
   box-shadow: 1px 0px 5px 5px #ef885b inset;
 }
-#container .mm#mm4 #m4-b {
-  height: 10px;
-  width: 600px;
-  margin: 20px auto;
-  margin-top: 100px;
-  cursor: pointer;
-}
-#container .mm#mm4 #m4-b #m4b-l {
+#container .mm#mm4 .mm4t-item {
+  width: 235px;
+  margin: 5px 0px 40px 20px;
+  height: 204px;
+  transform: skewX(-0.9deg);
+  background: url(images/tu-min.png);
+  background-size: cover;
   float: left;
-  width: 500px;
-  height: 10px;
-  border-radius: 50px;
-  background: #daebb9;
-}
-#container .mm#mm4 #m4-b #m4b-l #m4b-r {
-  background: #f8c560;
-  height: 100%;
-  width: 0%;
-  margin-right: -10px;
+  cursor: pointer;
   border-radius: 10px;
-  float: left;
-}
-#container .mm#mm4 #m4-b #m4b-l #m4b-x {
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
-  background: white;
-  border-radius: 20px;
-  transform: translate(5px, 0);
-  float: left;
-  transform: scale(2, 2);
-  cursor: pointer;
-}
-#container .mm#mm4 #m4-b #m4b-ti {
-  margin-left: 15px;
-  float: left;
-  color: #f3b86d;
-  line-height: 10px;
-  font-size: 13px;
-}
-#container .mm#mm4 #m4-k {
-  width: 530px;
-  height: 120px;
-  display: block;
-  display: flex;
-  margin: 0 auto;
-  transform: translate(-20px, 0);
-}
-#container .mm#mm4 #m4-k .m4k-b {
-  flex: 1;
-  height: 60px;
-  background: url(images/zanting.png) no-repeat center center;
-  background-size: 90%;
-  margin: 26px;
-  border-radius: 100px;
-  cursor: pointer;
-}
-#container .mm#mm4 #m4-k #m4k-1 {
+  border: 1px solid #cbe37d;
+  box-sizing: border-box;
   position: relative;
-  background: url(images/gedan.png) no-repeat center 50%;
-  background-size: 120%;
-  background-position: center 40%;
+  overflow: visible;
 }
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan {
-  color: #889941;
+#container .mm#mm4 .mm4t-item > div {
   position: absolute;
-  width: 250px;
-  padding-top: 50px;
-  height: 350px;
-  text-align: center;
-  background: url(images/musicListBg.png) no-repeat center center;
-  background-size: contain;
-  top: -400px;
-  left: -67px;
-  transform: scale(0, 0);
-  transform-origin: center 100%;
-  transition: all .3s ease;
-  animation-direction: reverse;
-  animation: musiclistreverse .3s forwards;
-}
-@keyframes musiclistreverse {
-  100% {
-    transform: scale(0, 0);
-    opacity: 0;
-  }
-  20% {
-    transform: scale(1.1, 1.1);
-    opacity: 1;
-  }
-  0% {
-    transform: scale(1, 1);
-    opacity: 1;
-  }
-}
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan.ACTIVE {
-  opacity: 1;
-  transform: scale(0, 0);
-  animation: musiclist .3s forwards;
-}
-@keyframes musiclist {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.1, 1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1, 1);
-    opacity: 1;
-  }
-}
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .tit {
-  font-size: 20px;
+  top: 100%;
   line-height: 40px;
-}
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ {
-  height: 25px;
-  width: 180px;
-  margin: 5px auto;
-  text-align: left;
-  line-height: 25px;
-}
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ.ACTIVE {
-  border-right: 3px solid #ddad54;
-}
-#container .mm#mm4 #m4-k #m4k-1 #m4-gedan .gequ small {
-  float: right;
-}
-#container .mm#mm4 #m4-k #m4k-2 {
-  background-image: url(images/backMusic.png);
-}
-#container .mm#mm4 #m4-k #m4k-3 {
-  background-image: url(images/bofang.png);
-}
-#container .mm#mm4 #m4-k #m4k-4 {
-  background-image: url(images/nextMusic.png);
-}
-#container .mm#mm4 #m4-k #m4k-5 {
-  width: 53px;
-  background-image: url(images/yinliang.png);
-  background-size: 140%;
-}
-#container .mm#mm4 #m4-k #m4k-5 #m4-yinliang {
-  width: 100px;
-  height: 8px;
-  background: #daebb9;
-  position: relative;
-  transform: translate();
-  top: 26px;
-  left: 55px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-#container .mm#mm4 #m4-k #m4k-5 #m4-yinliang #m4y-jindu {
-  background: #f8c560;
-  height: 100%;
-  width: 50%;
-  border-radius: 10px;
-  float: left;
-}
-#container .mm#mm4 #m4-k #m4k-5 #m4-yinliang #m4y-control {
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 20px;
-  margin-left: -8px;
-  float: left;
-  transform: scale(2, 2);
-  cursor: pointer;
+  width: 100%;
+  transition: all .2s;
+  text-align: center;
+  color: #ec7646;
 }
