@@ -45,6 +45,7 @@ $('.lun-z, .lun-y').click(function() {
 });
 
 $('.lun-in .list').click(function() {
+	$('.lun-in .list').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
 	console.log('123123123');
 	$('#player').attr('src', $(this).attr('go'));
 });
