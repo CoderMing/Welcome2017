@@ -26,7 +26,7 @@ $('.mt-t').get(0).click();
 var l3tlist = [55, 245, 440, 635]
 $('#mm1 .m3t-li').click(function() {
 	$('.m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
-	$('.m3t-biao').css('transform', 'translate(' + l3tlist[$(this).attr('a')] + 'px, 65px)');
+	$('.m3t-biao').css('transform', 'translate(' + l3tlist[$(this).attr('a')] + 'px, 67px)');
 	$('.mm3m').css('opacity', 0);
 	var _this = this;
 	setTimeout(function() {
@@ -43,7 +43,7 @@ $('#mm1 .m3t-li').eq(0).click()
 var l3tlist2 = [21, 150, 278, 407, 535, 663]
 $('#mm3 .m3t-li').click(function() {
 	$('#mm3 .m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
-	$('#mm3 .m3t-biao').css('transform', 'translate(' + l3tlist2[$(this).attr('a')] + 'px, 65px)');
+	$('#mm3 .m3t-biao').css('transform', 'translate(' + l3tlist2[$(this).attr('a')] + 'px, 67px)');
 	$('#mm3 .mm3m').css('opacity', 0);
 	var _this = this;
 	setTimeout(function() {

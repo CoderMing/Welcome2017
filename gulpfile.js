@@ -9,4 +9,7 @@ gulp.task('default', _=> {
 	gulp.watch('./src/junxunzhuanti/jxzt.less', (e)=> {
 		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/junxunzhuanti'));
 	});
+	gulp.watch('./src/xx.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src'));
+	});
 })
