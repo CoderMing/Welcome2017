@@ -2,12 +2,15 @@
 	margin: 0;
 	padding: 0;
 }
+img{
+	user-select: none;
+}
 body{
 	background: transparent;
 	height: auto;
 	display: block;
 	font-family: "weituanyahei", "Arial";
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 #contain{
 	position: relative;
@@ -19,6 +22,7 @@ body{
 img.btn:hover{
 	animation: dynamic .5s ease;
 }
+
 @keyframes dynamic {
   0% {
   	transform: scale(1, 1);
@@ -59,8 +63,7 @@ img.btn:hover{
 		transform: translate(0px,0px);
 	}
 }
-
-
+/*军训轮播动画结束*/
 
 /*左边草动画*/
 @keyframes rot{ 
@@ -78,10 +81,9 @@ img.btn:hover{
 }
 /*路标动画*/
 @keyframes weltitle{
-    from{
-         transform: rotateY(0deg);}
-    to{
-        transform: rotateY(360deg);}
+    from{transform: rotateY(0deg);}
+    to{transform: rotateY(360deg);}
+  
 }
 /*四大重邮信息栏动画*/
 @keyframes meslogo{
@@ -128,6 +130,7 @@ img.btn:hover{
 	top: 0px;
 	left: 0px;
 	width: 880px;
+	user-select: none;
 }
 .map_move{
 	position: absolute;
@@ -209,11 +212,20 @@ img.btn:hover{
 	transform-origin: 70% 70%;
 	animation: rot 1s ease infinite alternate;
 }
+.army_holder{
+	z-index: 10;
+	position: absolute;
+	top: 210px;
+	left: 7px;
+	width: 965px;
+	height: 330px;
+	overflow: hidden;
+}
 .arm-message{
 	display: none;
 	position: absolute;
-	top: 260px;
-	left: 65px;
+	top: 50px;
+	left: 55px;
 	width: 850px;
 	height: 280px;
 }
@@ -236,12 +248,30 @@ div.on{
 	cursor: pointer;
 }
 .my_lalian p{
-	margin-top: -2px;
+	margin-top: 0px;
 	margin-left: 2px;
 	line-height: 36px;
 	font-size: 30px;
 	font-weight: bold;
 	color: rgb(255,197,70);
+}
+.help_click_left{
+	position: absolute;
+	top: 0;
+	z-index: 99;
+	left: -4px;
+	width: 40px;
+	height: 100%;
+	cursor: pointer;
+}
+.help_click_right{
+	position: absolute;
+	z-index: 99;
+	top: 0;
+	left: 152px;
+	width: 40px;
+	height: 100%;
+	cursor: pointer;
 }
 .arr_right{
 	position: absolute;
@@ -249,7 +279,11 @@ div.on{
 	left: 160px;
 	cursor: pointer;
 }
-
+.myimg{
+	width: 266px;
+	height: 200px;
+	border-radius: 15px; 
+}
 
 
 
