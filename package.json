@@ -1,0 +1,24 @@
+{
+  "name": "welcome2017",
+  "version": "1.0.0",
+  "description": "#### 以下内容准备中。。。",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderMing/Welcome2017.git"
+  },
+  "author": "zdm wj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderMing/Welcome2017/issues"
+  },
+  "homepage": "https://github.com/CoderMing/Welcome2017#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2"
+  }
+}

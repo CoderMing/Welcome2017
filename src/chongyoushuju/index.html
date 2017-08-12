@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="css/index.css" rel="stylesheet" type="text/css" >
+    </head>
+    <body>
+        <img class="right_stone" src="images/w_rightstone.png">
+        <img class="left_stone" src="images/w_leftstone.png">
+        <img class="my_grass" src="images/w_grass.png">
+        
+        <div id="contain">
+            <div class="w_title">
+                <img src="images/w_title.png">
+            </div>
+
+            <div class="data">
+
+                <div class="my_button">
+                    <ul>
+                        <li class="button1 btn zuinanon"></li>
+                        <li class="button2 btn nannv"></li>
+                        <li class="button3 btn jiuye"></li>
+                    </ul>
+                </div>
+
+                <div class="data_con">
+                    <div class="data_nav">
+                        <ul>
+                            <li class="on">全校统计</li>
+                            <li style="margin-left: 50px;">学院统计</li>
+                            <div class="nav_dot"></div>
+                        </ul>
+                    </div>
+                    <div class="data_pic">
+                        <div class="data_girl"></div>
+                        <div class="data_boy"></div>
+                        <p class="data_change">
+                            <P class="my_select"></P>
+                        </p>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       
+    </body>
+    <script type="text/javascript">
+        var button1 = document.querySelector(".button1"),
+            button2 = document.querySelector(".button2"),
+            button3 = document.querySelector(".button3"),
+            oLi = document.querySelectorAll(".data_nav li"),
+            nav_dot = document.querySelector(".nav_dot"),
+            flag = 1;
+        
+        button1.onmouseenter = function() {
+            button1.className = "button1 btn zuinanon";
+        }
+        button2.onmouseenter = function() {
+            button2.className = "button2 btn nannvon";
+        }
+        button3.onmouseenter = function() {
+            button3.className = "button3 btn jiuyeon";
+        }
+        button1.onclick = function() {
+            button1.className = "button1 btn zuinanon";
+            button2.className = "button2 btn nannv";
+            button3.className = "button3 btn jiuye";
+            flag = 1;
+        }
+        button2.onclick = function() {
+            button1.className = "button1 btn zuinan";
+            button2.className = "button2 btn nannvon";
+            button3.className = "button3 btn jiuye";
+            flag = 2;
+        }
+        button3.onclick = function() {
+            button1.className = "button1 btn zuinan";
+            button2.className = "button2 btn nannv";
+            button3.className = "button3 btn jiuyeon";
+            flag = 3;
+        }
+        button1.onmouseleave = function() {
+            if(flag == 1){
+                button1.className = "button1 btn zuinanon";
+            }else{
+                button1.className = "button1 btn zuinan";
+            }
+        }
+        button2.onmouseleave = function() {
+            if(flag == 2){
+                button2.className = "button2 btn nannvon";
+            }else{
+                button2.className = "button2 btn nannv";
+            }
+        }
+        button3.onmouseleave = function() {
+            if(flag == 3){
+                button3.className = "button3 btn jiuyeon";
+            }else{
+                button3.className = "button3 btn jiuye";
+            }
+        }
+
+        for(var i=0,len=oLi.length;i < len;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function() {
+                var index = this.index;
+                for(var i=0;i < len;i++){
+
+                    oLi[i].className = '';
+                }
+                this.className = "on";
+                nav_dot.style.left = 210*index+232+'px';
+            }
+        }
+
+    </script>
+</html>
