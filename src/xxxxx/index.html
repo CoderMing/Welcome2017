@@ -214,7 +214,7 @@
                 var boxW = 880;
                 var boxH = 446;
 
-                map_move.onmousemove = function(e){
+                document.onmousemove = function(e){
                     var e = e || window.event; 
                     var _left = e.clientX - x1 + l;
                     var _top = e.clientY - y1 + t;
@@ -229,7 +229,7 @@
                 }
                 //解绑点击事件
                 document.onmouseup = function(){
-                    map_move.onmousemove = null;
+                    document.onmousemove = null;
                     document.onmouseup = null;
                 }
             }
@@ -237,7 +237,7 @@
 
 
             function myMove() {
-                
+
             }
             //地图结束
            

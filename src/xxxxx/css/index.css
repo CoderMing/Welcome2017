@@ -2,12 +2,13 @@
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	background: transparent;
 	height: auto;
 	display: block;
 	font-family: "weituanyahei", "Arial";
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 #contain{
 	position: relative;
@@ -108,7 +109,6 @@ img.btn:hover{
 	top: -134px;
 	left: -58px;
 	z-index: 30;
-	
 }
 
 .map_con{
