@@ -89,7 +89,15 @@ $('.lunbo .lb-l').click(function() {
 })
 
 
+/*
 
+		修bug的区域（orz
+
+
+*/
+
+//字多了换行bug
+$('.showitem:even').css('clear', 'left')
 
 
 

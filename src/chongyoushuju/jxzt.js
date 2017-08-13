@@ -4,7 +4,7 @@ $('.mt-t').click(function() {
 	$('.mt-t').removeClass('ACTIVE');
 	$(this).addClass('ACTIVE');
 	$('#zhibiao').css('transform', 'translate(' + transList[$(this).attr('a')] + 'px, 103px)');
-
+	$('#zhibiao').css('background-image', 'url(./images/zhibiao' + ($(this).attr('a') == '2' ? '' : '-G' ) + '-min.png')
 
 	var _this = this;
 	$('.mm').removeClass('SHOW');
@@ -30,12 +30,14 @@ $('.mt-t').click(function() {
 $('.mt-t').get(0).click();
 
 
-var _WorkRatio = []
+
+
+
+
 var a = document.createElement('script')
-a.src = 'http://www.yangruixin.com/test/test.php?RequestType=WorkRatio_FE';
+a.src = './data/x.txt';
 $('body').append(a);
 function WorkRatio(e) {
-	_WorkRatio = e.Data;
 	var xx = echarts.init($('#charts-6')[0]);
 	var college = [],
 		radio = [];
@@ -159,7 +161,12 @@ function WorkRatio(e) {
 
 
 
-
+$.ajax({
+	url: './data/m.txt',
+	success: function(e) {
+		console.log(JSON.parse(e));
+	}
+})
 
 
 

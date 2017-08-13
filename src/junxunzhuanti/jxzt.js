@@ -48,6 +48,7 @@ $('.lun-in .list').click(function() {
 	$('.lun-in .list').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
 	console.log('123123123');
 	$('#player').attr('src', $(this).attr('go'));
+	$('#player')[0].play();
 });
 
 
@@ -136,6 +137,19 @@ $('#m4-b')
 // 		$('#m4b-r').width(e.offsetX);
 // 	}
 // })
+$('#m4-yinliang')
+.click(function(e) {
+	$('#m4y-jindu').width(e.offsetX);
+	$('audio')[0].volume = $('#m4y-jindu').width() / $('#m4-yinliang').width();
+});
+$('audio')[0].volume = .5;
+
+
+
+
+
+
+
 function musicTime() {
 	if (!isPused) {
 		musicSeconds++;

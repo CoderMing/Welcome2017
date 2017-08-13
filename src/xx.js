@@ -110,6 +110,8 @@ function iframeLoad() {
 	console.log($('#child').contents().height());
 	$('#child').height($('#child').contents().height());
 	$('#child').contents().mousemove(changeShan);
+
+	// item
 	if ($('iframe').contents().find('.mm2t-item').length) {
 		$('iframe').contents().find('.mm2t-item').click(function() {
 			$('#cover img').attr('src', $(this).css('background-image').replace(/url\("(.*?)"\)/, '$1'));
@@ -125,13 +127,17 @@ function iframeLoad() {
 				$('#cover').hide();
 			}, 200);
 		});
-	}		
+	}
+	$('#child').contents().find('.mes_mesinput1').click(function(){$('.ni-r li').eq(3).click()});
+	$('#child').contents().find('.mes_mesinput2').click(function(){$('.ni-r li').eq(2).click()});
+	$('#child').contents().find('.mes_mesinput3').click(function(){$('.ni-r li').eq(3).click()});
+	$('#child').contents().find('.mes_mesinput4').click(function(){$('.ni-r li').eq(0).click()});
+
 };
 setTimeout(function() {
 	iframeLoad();
 }, 1000);
 $('iframe').hover(function() {
-	console.log('123');
 	$(this).click();
 })
 

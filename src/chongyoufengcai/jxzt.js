@@ -72,25 +72,38 @@ $('#mm1 .m3t-li').click(function() {
 $('#mm1 .m3t-li').eq(0).click();
 
 
+
+
+$.ajax({
+	url: './data/m.txt',
+	success: function(e) {
+		window._sorgData = $.parseJSON(e).Data;
+		window._sorgData.forEach(function(a, b, c) {
+			a.el = '';
+			a.el += '<div class="mm3m-h">' + a.name + '</div>';
+			a.el += '<div class="mm3m-p">' + a.resume + '</div>';
+			a.department.forEach(function(_a, _b, _c) {
+				a.el += '<div class="mm3m-h">' + _a.name + '</div>';
+				a.el += '<div class="mm3m-p">' + _a.resume + '</div>';
+			})
+		})
+		$('#mm3m-0').html(_sorgData[0].el);
+	}
+});
+
 $('#mm3m-fl .orgtit').click(function(e) {
-	console.log(e);
 	if (e.target.className == 'orgtit') {
 		console.log("12dfsa3");
 		$('#mm3m-fl .orgtit').removeClass('ACTIVE');
 		$(this).addClass('ACTIVE');
 		$('#mm3m-0').css('opacity', 0);
+		var _this = this;
 		setTimeout(function() {
-			$('#mm3m-0').html(`
-			 			<div class="mm3m-h">这是测试文字</div>
-			 			<div class="mm3m-p">
-			 				这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字这是测试文字
-			 			</div>`);
+			$('#mm3m-0').html(_sorgData[$(_this).attr('a')].el);
 			$('#mm3m-0').css('opacity', 1);
 		}, 200);
 	}
 });
-
-
 
 var l3tlist2 = [152, 543];
 $('#mm3 .m3t-li').click(function() {
@@ -109,6 +122,46 @@ $('#mm3 .m3t-li').click(function() {
 		}, 10)
 	}, 200)
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+$.ajax({
+	url: './data/x.txt',
+	success: function(e) {
+		var e = $.parseJSON(e);
+		console.log(e);
+		window._xueSheng = new Vue({
+			el: '#mm5m-1',
+			data: {
+				item: e.Data
+			}
+		})
+	}
+})
+
+
+
 
 
 
