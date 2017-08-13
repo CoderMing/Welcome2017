@@ -6,7 +6,7 @@ li{
 	list-style-type: none;
 }
 body{
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background: transparent;
 	height: auto;
 	display: block;
@@ -298,9 +298,16 @@ li.on{
 .foot_con{
 	width: 312px;
 	height: 41px;
+	overflow: hidden;
 	/*background: pink;*/
 	margin: 15px auto;
 }
+#help_page{
+	position: relative;
+	top: 0px;
+	transition: all .5s ease;
+}
+
 .foot_left{
 	float: left;
 }
@@ -324,11 +331,13 @@ li.on{
 	cursor: pointer;
 
 }
+
 .foot_con li.on{
 	background: url(../images/w_mydot.png) no-repeat 8px 5px;
 	color: rgb(255,255,255);
 
 }
+
 .right_stone{
 	position: absolute;
     top: 320px;

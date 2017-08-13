@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title></title>
         <link href="css/index.css" rel="stylesheet" type="text/css" >
+        <script type="text/javascript" src="./js/jquery-min.js"></script>
     </head>
     <body>
         <img class="right_stone" src="images/w_rightstone.png">
@@ -63,75 +64,10 @@
                         <div class="help_nav_people">提问者</div>
                     </div>
                     
-                    <ul>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">学校宿舍有哪几个档次，都在哪里？</p>
-                            <p class="help_t">2017.06.18</p>
-                            <p class="help_p">张德明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li>
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        <li style="border-bottom: none;">
-                            <p class="help_q">开会需要准备什么东西？</p>
-                            <p class="help_t">2017.06.15</p>
-                            <p class="help_p">明明</p>
-                            
-                        </li>
-                        
+                    <ul id="help_message">
+
                     </ul>
+                
                 </div>
                 <div class="help_foot">
                     <div class="foot_con">
@@ -139,12 +75,8 @@
                         <img class="foot_left" src="./images/w_left_page.png">
                         <img class="foot_right" src="./images/w_right_page.png">
                         
-                        <ul>
-                            <li class="on">1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
+                        <ul id="help_page">
+                            
                         </ul>
                     </div>
                 </div>
@@ -156,16 +88,187 @@
     	var button1 = document.querySelector('.button1'),
     	    button2 = document.querySelector('.button2'),
     	    welcome = document.querySelector('.welcome'),
-            oLi = document.querySelectorAll('.help_nav li'),
             dot = document.querySelector('.help_dot'),
-            pageDot = document.querySelectorAll('.foot_con li'),
             welcome_smile = document.querySelector('.welcome_smile'),
             xuezhang_help = document.querySelector('.xuezhang_help'),
             foot_left = document.querySelector('.foot_left'),
             foot_right = document.querySelector('.foot_right'),
             smile_logo = document.querySelector('.smile_logo'),
+            help_message = document.querySelector('#help_message'),
+            help_page = document.querySelector('#help_page'),
+            oLi = document.querySelectorAll('.help_nav li'),
     	    flag = true;
 
+
+
+            var all = [],  //全部
+                stu = [],  //学习
+                lif = [],  //生活
+                act = [],  //活动
+                org = [],  //组织
+                oth = [];  //其他
+            
+
+            
+        /*ajax 请求开始*/
+        $.ajax({
+            url: 'http://hongyan.cqupt.edu.cn/XZBBM-test/index.php/api/search/tag/',
+            data: {},
+            method: 'GET',
+            success: function(data) {
+                all = data;
+                for(var i=0;i < data.length;i++){
+                    for(var j = 0;j < all[i].tag.length;j++){
+                        if(all[i].tag[j] == "学习"){
+                        stu.push(all[i]);
+                        }else if(all[i].tag[j] == "生活"){
+                            lif.push(all[i]);
+                        }else if(all[i].tag[j] == "活动"){
+                            act.push(all[i]);
+                        }else if(all[i].tag[j] == "组织"){
+                            org.push(all[i]);
+                        }else if(all[i].tag[j] == "其他"){
+                            oth.push(all[i]);
+                        }
+                    }
+                }
+    			$('#help_page li:first-child').click();	
+                $('.help_nav li:first-child').click();
+            },
+            fail: function() {
+                alert("您的网络异常，请重新加载！")
+            }
+        })
+
+        for(var i=0,len=oLi.length;i<len;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function() {
+                var index = this.index;
+                for(var j=0;j<len;j++){
+                    oLi[j].className = "";
+                }
+                this.className = "on";
+                load(this.innerText);
+                dot.style.left = (index * 129 + 22) +'px';
+            }
+        }
+
+        
+
+        function load(obj) {
+            help_page.style.top = "0px";
+            if(obj == "全部"){
+                this_message(all);
+                page_change(all,0);
+            }else if(obj == "学习类"){
+                this_message(stu);
+                page_change(stu,0);
+            }else if(obj == "生活类"){
+                this_message(lif);
+                page_change(lif,0);
+            }else if(obj == "活动类"){
+                this_message(act);
+                page_change(act,0);
+            }else if(obj == "组织类"){
+                this_message(org);
+                page_change(org,0);
+            }else if(obj == "其他类"){
+                this_message(oth);
+                page_change(oth,0);
+            }
+        }
+
+        function this_message(arr) {
+            page_change(arr,dot_position);
+            var page = Math.ceil(arr.length / 11);
+            content_page = "<li class=\"on\" id=\"to_click\">1</li>";
+            
+            for(var i=1;i<page;i++){
+                content_page += "<li>"+(i+1)+"</li>"
+            }
+            
+            help_page.innerHTML = content_page;
+
+            
+            var pageDot = document.querySelectorAll('.foot_con li');
+            var dot_position = 0;
+            var len=pageDot.length;
+            
+            for(var i=0;i < len;i++){
+                pageDot[i].index = i;
+
+                pageDot[i].onclick = function() {
+                    dot_position = this.index;
+                  
+                    for(var i=0,len=pageDot.length;i < len;i++){
+                        pageDot[i].className = '';    
+                    }
+                    this.className = 'on';
+                    page_change(arr,dot_position);
+                }
+            }
+
+            foot_left.onclick = function() {
+
+                
+                dot_position--;
+                
+                if(dot_position < 0){
+                    dot_position = 0;
+                }
+              
+                for(var i=0;i < len;i++){
+                    pageDot[i].className = '';    
+                }
+                page_change(arr,dot_position);
+                change_bar(dot_position,true);
+                pageDot[dot_position].className = 'on';
+            }
+            foot_right.onclick = function() {
+                dot_position++;
+               
+                if(dot_position > len-1){
+                    dot_position = len-1;
+                }
+                for(var i=0;i < len;i++){
+                    pageDot[i].className = '';    
+                }
+                page_change(arr,dot_position);
+                change_bar(dot_position,false);
+                pageDot[dot_position].className = 'on';
+            }
+        }
+        
+        function page_change(arr,dot) {
+            help_message.innerHTML = "";
+            var help_content = "";
+            for(var i = dot*11;i < (dot+1)*11;i++){
+                try{
+                    help_content += "<li><p class=\"help_q\">"+arr[i].content+"</p><p class=\"help_t\">"+arr[i].time+"</p><p class=\"help_p\">"+arr[i].name+"</p></li>"
+                }catch(e){
+                
+                }
+            }
+            help_message.innerHTML = help_content;
+        }
+
+
+        function change_bar(dot,bool) {
+
+            if(bool){
+                if(dot % 5 == 4){
+                    help_page.style.top = -((dot / 5) * 40)+32 + "px";
+                }
+            }else{
+                if(dot % 5 == 0){
+                    help_page.style.top = -((dot / 5) * 40) + "px";
+                }
+            }
+        }
+
+        
+
+        //下面是无关内容
         button1.onclick = function() {
         	button1.className = "button1 xiaolianon";
         	button2.className = "button2 xuezhang";
@@ -204,53 +307,7 @@
         		button2.className = "button2 btn xuezhangon";
         	}  
         }
-
-        for(var i=0,len=oLi.length;i < len;i++){
-            oLi[i].index = i;
-            oLi[i].onclick = function() {
-                var index = this.index;
-                for(var i=0;i < len+1;i++){
-
-                    oLi[i].className = '';
-                }
-                this.className = "on";
-                dot.style.left = (index * 129 + 22) +'px';
-            }
-        }
         
-        var dot_position = 0;
-        for(var i=0,len=pageDot.length;i < len;i++){
-
-            pageDot[i].index = i;
-
-            pageDot[i].onclick = function() {
-                dot_position = this.index;
-                for(var i=0;i < len;i++){
-                    pageDot[i].className = '';    
-                }
-                this.className = 'on';
-            }
-        }
-        foot_left.onclick = function() {
-            dot_position--;
-            if(dot_position < 0){
-                dot_position = 0;
-            }
-            for(var i=0;i < len;i++){
-                pageDot[i].className = '';    
-            }
-            pageDot[dot_position].className = 'on';
-        }
-        foot_right.onclick = function() {
-            dot_position++;
-            if(dot_position > 4){
-                dot_position = 4;
-            }
-            for(var i=0;i < len;i++){
-                pageDot[i].className = '';    
-            }
-            pageDot[dot_position].className = 'on';
-        }
 
         smile_logo.onclick = function() {
             window.open('http://hongyan.cqupt.edu.cn/stuface2017','_blank');
