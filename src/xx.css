@@ -70,6 +70,7 @@ a {
 #coverArt .ca-p {
   color: #666;
   width: 640px;
+  text-align: center;
   line-height: 30px;
   font-size: 16px;
   margin: 0 auto;
@@ -99,16 +100,16 @@ a {
   }
 }
 #loading div.l-out {
-  width: 400px;
-  height: 200px;
+  width: 300px;
+  height: 150px;
   background: url(images/redrock.png) no-repeat center center;
   background-size: contain;
   margin: 0 auto;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -150px;
-  margin-left: -200px;
+  margin-top: -130px;
+  margin-left: -150px;
 }
 #loading div.l-in {
   width: 500px;
@@ -135,6 +136,7 @@ a {
   }
 }
 #loading div.l-in div.l-l {
+  position: relative;
   background: #eee;
   transform-origin: 100% center;
   width: 100%;
@@ -201,6 +203,8 @@ a {
   transition: all .2s ease-in-out;
 }
 #nav .nav-in .ni-r li {
+  overflow: hidden;
+  position: relative;
   line-height: 80px;
   height: 80px;
   font-size: 20px;
@@ -215,6 +219,16 @@ a {
 #nav .nav-in .ni-r li.ACTIVE {
   color: white;
   cursor: pointer;
+}
+#nav .nav-in .ni-r li span {
+  width: 100px;
+  height: 100px;
+  background: url(images/hot.png) no-repeat center center / cover;
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: -30px;
+  transition: all .2s;
 }
 #nav .nav-in .ni-r li div {
   color: white;
@@ -244,6 +258,9 @@ a {
   height: 55px;
   line-height: 55px;
   font-size: 17px;
+}
+#nav.toSmall .nav-in .ni-r li span {
+  top: -35px;
 }
 #nav.toSmall .nav-in .ni-r li div {
   font-size: 17px;

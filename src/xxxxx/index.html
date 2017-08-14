@@ -52,15 +52,15 @@
                 <div class="army_holder">
                     <div class="arm-message">
                         <img class="arm_left myimg" draggable="false" src="images/w_fen1.jpg"></img>   
-                        <img class="arm_center myimg" draggable="false" src="images/w_fen2.jpg"></img>   
-                        <img class="arm_right myimg" draggable="false" src="images/w_fen3.jpg"></img>
+                        <img class="arm_center myimg" draggable="false" src="images/w_fen3.jpg"></img>   
+                        <img class="arm_right myimg" draggable="false" src="images/w_fen2.jpg"></img>
                         <p class="arm_p">迈着矫健的步伐，他们的风采是汗水的结晶，挺拔身姿，跑道上留下他们坚定的足迹，像挺拔的青松,像奔腾的骏马,重邮学子，他们像东方升起的旭日,光芒万丈，站立在南山之巅，续写着一段奋力拼搏的历史。</p>   
                     </div>
 
                     <div class="arm-message on">
                         <img class="arm_left myimg" draggable="false" src="images/w_beiy.jpg"></img>   
-                        <img class="arm_center myimg" draggable="false" src="images/w_jundshou.jpg"></img>   
-                        <img class="arm_right myimg" draggable="false" src="images/w_junhun.jpg"></img>
+                        <img class="arm_center myimg" draggable="false" src="images/w_junhun.jpg"></img>   
+                        <img class="arm_right myimg" draggable="false" src="images/w_jundshou.jpg"></img>
                         <p class="arm_p">无论是震撼人心的“重邮军魂”，还是整齐有力的表演操，亦或柔美催泪的《跪羊图》，都展现出重邮学子对军训的昂扬激情和对父母的存孝之心，也同时靠着整齐的节奏，将重邮军魂展现的淋漓尽致。</p>   
                     </div>
 
@@ -174,30 +174,53 @@
             my_p = document.querySelector('.my_lalian p'),
             help_click_left = document.querySelector('.help_click_left'),
             help_click_right = document.querySelector('.help_click_right'),
-            flag = 1;
+            flag = 1,
+            _left = 0,
+            _top = 0;
 
            
             //地图开始
 
             //放大功能
+
             map_add.onclick = function() {
                 var w = getStyle(map_map,"width");
-                w = parseFloat(w) + 100;
+                w = parseFloat(w) + 1100;
                 if(w > 4000){
                     w = 4000;
                 }
                 map_map.style.width = w + "px";
                 map_map.style.height = "";
+                get_data(true);
             }
             //缩小功能
             map_sub.onclick = function() {
                 var w = getStyle(map_map,"width");
-                w = parseFloat(w) - 100;
+                w = parseFloat(w) - 1100;
                 if(w < 880){
-                    w = 880
+                    w = 880;
                     map_map.style.height = "445px";
                 }
                 map_map.style.width = w + "px";
+                get_data(false);
+            }
+
+            var temp = 0;
+            function get_data(bool) {
+                //获取地图宽高
+                var W = map_map.offsetWidth;
+                var H = map_map.offsetHeight;
+                (W > 3100)&&(W = 3080);
+                (H > 2200)&&(H = 2179);
+                if(bool){
+                    _left = -(W / 2);
+                    _top = -(H / 2);
+                }else{
+                    _left = 0;
+                    _top = 0;
+                }
+                map_map.style.left = _left + "px";
+                map_map.style.top = _top + "px";
             }
             //获取属性值
             function getStyle(obj,attr){
@@ -228,8 +251,8 @@
 
                 document.onmousemove = function(e){
                     var e = e || window.event; 
-                    var _left = e.clientX - x1 + l;
-                    var _top = e.clientY - y1 + t;
+                    _left = e.clientX - x1 + l;
+                    _top = e.clientY - y1 + t;
                     //判断
                     (_left > 0)&&(_left = 0);
                     (_top > 0)&&(_top = 0);
@@ -245,12 +268,7 @@
                     document.onmouseup = null;
                 }
             }
-
-
-
-            function myMove() {
-
-            }
+            
             //地图结束
            
             //军训轮播开始

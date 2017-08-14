@@ -70,6 +70,7 @@ a {
 	.ca-p {
 		color: #666;
 		width: 640px;
+		text-align: center;
 		line-height: 30px;
 		font-size: 16px;
 		margin: 0 auto;
@@ -95,16 +96,16 @@ a {
 	}
 	
 	div.l-out {
-		width: 400px;
-		height: 200px;
+		width: 300px;
+		height: 150px;
 		background: url(./images/redrock.png) no-repeat center center;
 		background-size: ~'contain';
 		margin: 0 auto;
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin-top: -150px;
-		margin-left: -200px;
+		margin-top: -130px;
+		margin-left: -150px;
 	}
 
 	div.l-in {
@@ -129,6 +130,7 @@ a {
 
 
 		div.l-l {
+			position: relative;
 			background: #eee;
 			transform-origin: 100% center;
 			width: 100%;
@@ -190,6 +192,8 @@ a {
 
 
 			li {
+				overflow:hidden;
+				position: relative;
 				line-height: 80px;
 				height: 80px;
 				font-size: 20px;
@@ -204,6 +208,16 @@ a {
 				&:hover, &.ACTIVE {
 					color: white;
 					cursor: pointer;
+				}
+				span {
+					width: 100px;
+					height: 100px;
+					background: url(images/hot.png) no-repeat center center / cover;
+					display: block;
+					position: absolute;
+					top: -25px;
+					right: -30px;
+					transition: all .2s;
 				}
 				div {
 					color: white;
@@ -240,7 +254,10 @@ a {
 					height: 55px;
 					line-height: 55px;
 					font-size: 17px;
-
+					
+					span {
+						top: -35px;
+					}
 					div {
 						font-size: 17px;
 						line-height: 105px;

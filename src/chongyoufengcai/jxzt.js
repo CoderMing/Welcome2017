@@ -93,7 +93,6 @@ $.ajax({
 
 $('#mm3m-fl .orgtit').click(function(e) {
 	if (e.target.className == 'orgtit') {
-		console.log("12dfsa3");
 		$('#mm3m-fl .orgtit').removeClass('ACTIVE');
 		$(this).addClass('ACTIVE');
 		$('#mm3m-0').css('opacity', 0);
@@ -104,7 +103,6 @@ $('#mm3m-fl .orgtit').click(function(e) {
 		}, 200);
 	}
 });
-
 var l3tlist2 = [152, 543];
 $('#mm3 .m3t-li').click(function() {
 	$('.m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
@@ -134,7 +132,11 @@ $('#mm3 .m3t-li').click(function() {
 
 
 
-
+$('.orgtit[a=2]').click({
+	target: {
+		className: 'orgtit'
+	}
+});
 
 
 

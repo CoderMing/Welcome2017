@@ -166,22 +166,23 @@ body {
   background-size: contain;
   background: url(images/title-min.png) no-repeat;
   transform-origin: 55% 70%;
+  transform: translate(20px, 15px);
 }
 #container #title:hover {
   animation: rowtitle .5s 3 ease;
 }
 @keyframes rowtitle {
   0% {
-    transform: rotate(0);
+    transform: rotate(0) translate(20px, 15px);
   }
   25% {
-    transform: rotate(-5deg);
+    transform: rotate(-5deg) translate(20px, 15px);
   }
   75% {
-    transform: rotate(5deg);
+    transform: rotate(5deg) translate(20px, 15px);
   }
   100% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translate(20px, 15px);
   }
 }
 #container #main {
@@ -479,6 +480,14 @@ body {
   color: #f3b160;
   font-size: 15px;
   background: url(images/mm3line-min.png) no-repeat center 100%;
+}
+#container .mm#mm3 .mm3m .mm3m-p span,
+#container .mm#mm1 .mm3m .mm3m-p span,
+#container .mm#mm3 .mm5m .mm3m-p span,
+#container .mm#mm1 .mm5m .mm3m-p span {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
 }
 #container .mm#mm1 {
   overflow-x: visible;

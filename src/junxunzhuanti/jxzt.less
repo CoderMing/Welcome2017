@@ -126,6 +126,7 @@ body {
 		background-size: contain;
 		background: url(./images/title-min.png) no-repeat;
 		transform-origin: 55% 70%;
+		transform: translate(20px, 20px) ;
 
 
 			&:hover {
@@ -133,10 +134,10 @@ body {
 			}
 
 			@keyframes rowtitle {
-				 0% {transform: rotate(0)}
-				 25% {transform: rotate(-5deg)}
-				 75% {transform: rotate(5deg)}
-				 100% {transform: rotate(0deg)}
+				 0% {transform: rotate(0) translate(20px, 20px) }
+				 25% {transform: rotate(-5deg) translate(20px, 20px) }
+				 75% {transform: rotate(5deg) translate(20px, 20px) }
+				 100% {transform: rotate(0deg) translate(20px, 20px) }
 			}
 	}
 	#main {
@@ -636,8 +637,8 @@ body {
 						color: #889941;
 						position: absolute;
 						width: 250px;
-						padding-top: 50px;
-						height: 350px;
+						padding-top: 20px;
+						height: 360px;
 						text-align: center;
 						background: url(./images/musicListBg.png) no-repeat center center;
 						background-size: contain;

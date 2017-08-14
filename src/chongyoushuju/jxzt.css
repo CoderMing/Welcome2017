@@ -56,6 +56,13 @@ body {
   background: url(images/w_mydot-min.png) no-repeat;
   background-size: contain;
 }
+#picker {
+  position: absolute;
+  display: block;
+  right: 50px;
+  top: 100px;
+  z-index: 8;
+}
 #container {
   width: 1000px;
   position: relative;
@@ -70,22 +77,23 @@ body {
   background-size: contain;
   background: url(images/title-min.png) no-repeat;
   transform-origin: 55% 70%;
+  transform: translate(20px, 15px);
 }
 #container #title:hover {
   animation: rowtitle .5s 3 ease;
 }
 @keyframes rowtitle {
   0% {
-    transform: rotate(0);
+    transform: rotate(0) translate(20px, 0);
   }
   25% {
-    transform: rotate(-5deg);
+    transform: rotate(-5deg) translate(20px, 0);
   }
   75% {
-    transform: rotate(5deg);
+    transform: rotate(5deg) translate(20px, 0);
   }
   100% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translate(20px, 0);
   }
 }
 #container #main {

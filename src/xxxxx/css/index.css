@@ -2,9 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-img{
-	user-select: none;
-}
 body{
 	background: transparent;
 	height: auto;
@@ -131,6 +128,7 @@ img.btn:hover{
 	left: 0px;
 	width: 880px;
 	user-select: none;
+	transition: all .2s linear;
 }
 .map_move{
 	position: absolute;
@@ -152,12 +150,15 @@ img.btn:hover{
 }
 .map_add{
 	position: absolute;
-	top: 0px;
+	top: 19px;
 	left: 0px;
 	width: 100px;
 	height: 100px;
 	background: url(../images/w_add.png);
 	cursor: pointer;
+}
+.map_add:hover{
+	transform: rotate(360deg);
 }
 .map_sub{
 	position: absolute;
@@ -167,6 +168,9 @@ img.btn:hover{
 	height: 100px;
 	background: url(../images/w_sub.png);
 	cursor: pointer;
+}
+.map_sub:hover{
+	transform: rotate(360deg);
 }
 .map_title{
 	top: -134px;
@@ -318,7 +322,7 @@ div.on{
 	margin: 0 auto;
 	width: 820px;
 	height: 70px;
-	font-size: 14px;
+	font-size: 13px;
 	color: rgb(99,112,88);
 	line-height: 30px;
 }

@@ -1,4 +1,4 @@
-zbody {
+body {
 	margin: 0;
 	height: auto;
 	width: 100vw;
@@ -63,14 +63,13 @@ zbody {
 	
 	#title {
 		width: 300px;
-		height: 160px;
-		background-position: 100% 100%;
+		height: 150px;
 		margin-left: 330px;
 		clear: both;
 		background-size: contain;
 		background: url(./images/title-min.png) no-repeat;
 		transform-origin: 55% 70%;
-		margin-bottom: -10px;
+		transform: translate(20px, 20px);
 
 
 			&:hover {
@@ -78,10 +77,10 @@ zbody {
 			}
 
 			@keyframes rowtitle {
-				 0% {transform: rotate(0)}
-				 25% {transform: rotate(-5deg)}
-				 75% {transform: rotate(5deg)}
-				 100% {transform: rotate(0deg)}
+				 0% {transform: rotate(0) translate(20px, 20px) }
+				 25% {transform: rotate(-5deg) translate(20px, 20px) }
+				 75% {transform: rotate(5deg) translate(20px, 20px) }
+				 100% {transform: rotate(0deg) translate(20px, 20px) }
 			}
 	}
 	#main {
@@ -276,8 +275,8 @@ zbody {
 	.lb-tit	{
 		width: 600px;
 		margin: 0 auto;
-		height: 60px;
-		line-height: 60px;
+		height: 45px;
+		line-height: 30px;
 		font-size: 18px;
 		color: #ea8552;
 		clear: both;
@@ -286,7 +285,7 @@ zbody {
 	.lb-p {
 		width:  600px;
 		margin: 0 auto;
-		line-height: 35px;
+		line-height: 26px;
 		font-size: 14px;
 		background: ~'url(./images/mm3line-min.png) no-repeat 0 100% / 200%';
 		color: #f1983f;

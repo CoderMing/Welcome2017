@@ -167,6 +167,7 @@ body {
 		background-size: contain;
 		background: url(./images/title-min.png) no-repeat;
 		transform-origin: 55% 70%;
+		transform: translate(20px, 15px) ;
 
 
 			&:hover {
@@ -174,10 +175,10 @@ body {
 			}
 
 			@keyframes rowtitle {
-				 0% {transform: rotate(0)}
-				 25% {transform: rotate(-5deg)}
-				 75% {transform: rotate(5deg)}
-				 100% {transform: rotate(0deg)}
+				 0% {transform: rotate(0) translate(20px, 15px) }
+				 25% {transform: rotate(-5deg) translate(20px, 15px) }
+				 75% {transform: rotate(5deg) translate(20px, 15px) }
+				 100% {transform: rotate(0deg) translate(20px, 15px) }
 			}
 	}
 	#main {
@@ -480,6 +481,12 @@ body {
 					color: #f3b160;
     				font-size: 15px;
     				background: url(./images/mm3line-min.png) no-repeat center 100%;
+
+    				span {
+    					display: inline-block;
+    					width: 32%;
+    					text-align: center;
+    				}
     			}
     		}
 	    }

@@ -23,7 +23,13 @@ $('.mt-t').click(function() {
 		}, 200)
 	}, 0)
 });
-$('.mt-t').get(3).click();
+$('.mt-t').eq(0).click();
+
+
+
+
+
+
 
 
 
@@ -55,7 +61,7 @@ $('.lun-in .list').click(function() {
 
 
 
-var transList2 = [88, 348, 610];
+var transList2 =  [0, 152, 543];
 $('.m3t-li').click(function() {
 	$('.m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
 	$('.m3t-biao').css('transform', 'translate(' + transList2[$(this).attr('a')] + 'px, 67px)');
@@ -70,7 +76,7 @@ $('.m3t-li').click(function() {
 	}, 200)
 });
 
-
+$('.m3t-li').eq(0).click();
 
 
 
@@ -207,6 +213,55 @@ $('#m4k-1').click(function(e) {
 		isMusicListDrop = !isMusicListDrop;
 	}
 })
+
+$('.mm2t-item').each(function(index, el) {
+	$(el).css('background-image', 'url(./images/ldfc/' + $(el).attr('pi') + '.jpg)')
+});
+
+
+
+
+$('#m4-gedan .gequ').click(function(e) {
+	$('#music').attr('src', './music/' + $(this).attr('gm') + '.mp3');
+	musicSeconds = -1;
+	isPused = true;
+	$('#m4k-3').css('background-image', 'url(images/bofang.png)');
+});
+ 
+
+
+
+
+
+console.log('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:contain;padding:200px 405px;');
+console.log('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

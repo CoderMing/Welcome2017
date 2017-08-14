@@ -157,6 +157,116 @@ function WorkRatio(e) {
 }
 
 
+var _b = document.createElement('script')
+_b.src = 'http://www.yangruixin.com/test/apiForFE.php?RequestType=SexRatio_FE';
+$('body').append(_b);
+function SexRatio(e) {
+	var college = [],
+		radio = [];
+	e.Data.forEach(function(a, b, c) {
+		college.push(a.college);
+		radio.push({
+			value: parseFloat(a.WomenRatio),
+			itemStyle: {
+			}
+		})
+	})
+	console.log(e);
+
+	var xx = echarts.init($('#charts-1')[0]);
+
+		xx.setOption({
+			title: {
+				text: ''
+			},
+			tooltip: {},
+			xAxis: {
+				axisTick: {
+					show: false
+				},
+				name: '学院名字',
+				nameTextStyle: {
+					color: '#98cf67'
+				},
+				data: college,
+				axisLabel: {
+					rotate: 25,
+					interval: 0,
+					textStyle: {
+						color: '#ef9267'
+					}
+				},
+				axisLine:{
+	                lineStyle:{
+	                    color:'#f6a439',
+	                    width:4,
+	                }
+	            },
+	            splitLine: {
+	            	show: false
+	            }
+			},
+			yAxis: {
+				axisTick: {
+					show: false
+				},
+				name: '妹子占比',
+				nameTextStyle: {
+					color: '#98cf67'
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#ef9267'
+					}
+				},
+				axisLine:{
+	                lineStyle:{
+	                    color:'#f6a439',
+	                    width:4,
+	                }
+	            },
+	            splitLine: {
+	            	show: false
+	            }
+			},
+			series: [{
+				type: 'bar',
+				data: radio,
+				barWidth: '20px',
+				itemStyle: {
+					normal: {
+						barBorderRadius: [5, 5, 0, 0],
+						shadowColor: 'rgba(0, 0, 0, .0001)',
+						shadowBlur: 30,
+						color: new echarts.graphic.LinearGradient(
+							0, 0, 0, 1,
+							 [
+	                            {offset: 1, color: '#f6a439'},
+	                            {offset: 0.5, color: '#f6a439'},
+	                            {offset: 0, color: '#ffc750'}
+	                        ]
+						)
+					},
+					emphasis: {
+						color: '#f6a439',
+		                shadowBlur: 50,
+		                shadowColor: 'rgba(0, 0, 0, 0.1)'
+					}
+				},
+		        animationDelay: function (idx) {
+		            return idx * 10;
+		        }
+			}],
+			animationEasing: 'elasticOut'
+		})
+
+}
+
+
+
+
+
 
 
 
@@ -164,18 +274,119 @@ function WorkRatio(e) {
 $.ajax({
 	url: './data/m.txt',
 	success: function(e) {
-		console.log(JSON.parse(e));
+		e = $.parseJSON(e);
+		var tt = echarts.init($('#charts-3')[0]);
+		var college = [],
+			radio = [];
+		e.Data.forEach(function(a, b, c) {
+			a.major.forEach(function(_a, _b, _c) {
+				college.push(a.college + '-' + _a.major);
+				radio.push(_a.course);
+			})
+		})
+		var _picker = '';
+		college.forEach(function(a, b, c) {
+			_picker += ' <option value ="' + b + '">' + a + '</option>';
+		})
+		$('#picker').html(_picker);
+		$('#picker').change(function(e) {
+			var xx = [],
+				mm = [];
+
+			radio[$(this).val()].forEach(function(a, b, c) {
+				xx.push(a.course);
+				mm.push(parseFloat(a.ratio));
+			})
+			console.log(tt, xx, mm);
+			tt.setOption({
+				title: {
+					text: ''
+				},
+				tooltip: {},
+				xAxis: {
+					axisTick: {
+						show: false
+					},
+					name: '课程名称',
+					nameTextStyle: {
+						color: '#98cf67'
+					},
+					data: xx,
+					axisLabel: {
+						rotate: 25,
+						interval: 0,
+						textStyle: {
+							color: '#ef9267'
+						}
+					},
+					axisLine:{
+		                lineStyle:{
+		                    color:'#f6a439',
+		                    width:4,
+		                }
+		            },
+		            splitLine: {
+		            	show: false
+		            }
+				},
+				yAxis: {
+					axisTick: {
+						show: false
+					},
+					name: '挂科率',
+					nameTextStyle: {
+						color: '#98cf67'
+					},
+					axisLabel: {
+						interval: 0,
+						textStyle: {
+							color: '#ef9267'
+						}
+					},
+					axisLine:{
+		                lineStyle:{
+		                    color:'#f6a439',
+		                    width:4,
+		                }
+		            },
+		            splitLine: {
+		            	show: false
+		            }
+				},
+				series: [{
+					type: 'bar',
+					data: mm,
+					barWidth: '80px',
+					itemStyle: {
+						normal: {
+							barBorderRadius: [10, 10, 0, 0],
+							shadowColor: 'rgba(0, 0, 0, .0001)',
+							shadowBlur: 30,
+							color: new echarts.graphic.LinearGradient(
+								0, 0, 0, 1,
+								 [
+		                            {offset: 1, color: '#f6a439'},
+		                            {offset: 0.5, color: '#f6a439'},
+		                            {offset: 0, color: '#ffc750'}
+		                        ]
+							)
+						},
+						emphasis: {
+							color: '#f6a439',
+			                shadowBlur: 50,
+			                shadowColor: 'rgba(0, 0, 0, 0.1)'
+						}
+					},
+			        animationDelay: function (idx) {
+			            return idx * 10;
+			        }
+				}],
+				animationEasing: 'elasticOut'
+			})
+		});
+		$('#picker').change();
 	}
 })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -236,8 +447,6 @@ $('#mm2 .m3t-li').click(function() {
 	}, 200)
 });
 $('#mm2 .m3t-li').eq(0).click();
-
-
 
 
 

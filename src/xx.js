@@ -115,6 +115,8 @@ function iframeLoad() {
 	if ($('iframe').contents().find('.mm2t-item').length) {
 		$('iframe').contents().find('.mm2t-item').click(function() {
 			$('#cover img').attr('src', $(this).css('background-image').replace(/url\("(.*?)"\)/, '$1'));
+			$('#cover .ca-tit').html($(this).find('div').html());
+			$('#cover .ca-p').html($(this).attr('al'));
 			$('#cover').show();
 			setTimeout(function() {
 				$('#cover').css('opacity', 1);
@@ -175,10 +177,17 @@ $('#fanhuidingbu').click(function() {
 
 
 
+setInterval(function() {
+	$('#child')[0].contentWindow.console.log = function(){};
+	$('#child')[0].contentWindow.console.warn  = function(){};
+}, 100)
 
+var x1x2 = console.log;
+console.log = function(){};
 
-
-
+console.clear();
+x1x2('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:contain;padding:200px 405px;');
+x1x2('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
 
 
 
