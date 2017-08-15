@@ -22,7 +22,6 @@ $('.mt-t').get(0).click();
 
 
 
-
 var l3tlist = [55, 245, 440, 635];
 var wenzimiaoshu = [{
 	t: '兴业苑（17--23）：',
@@ -44,7 +43,6 @@ $('#mm1 .m3t-li').click(function() {
 	$('#mm1 .lunbo .lb-item div').html($(this).html());
 	var _this = this;
 	$('#mm1 .lunbo .lb-item').each(function(index, el) {
-		console.log(index);
 		$(el).css('background-image', 'url(./images/qinshi/' + (parseInt($(_this).attr('a')) + 1) + '/' + (index+1) + '.jpg'); 
 	});
 	$('#mm1 .lb-tit').html(wenzimiaoshu[$(_this).attr('a')].t);
@@ -91,7 +89,6 @@ $('#mm3 .m3t-li').click(function() {
 	var _this = this;
 
 	$('#mm3 .lunbo .lb-item').each(function(index, el) {
-		console.log(index);
 		$(el).css('background-image', 'url(./images/shitang/' + (parseInt($(_this).attr('a')) + 1) + '/' + (index+1) + '.jpg'); 
 	});
 	$('#mm3 .lb-tit').html(wenzimiaoshu2[$(_this).attr('a')].t);

@@ -33,7 +33,6 @@ $('.mt-t').get(0).click();
 
 
 
-
 var a = document.createElement('script')
 a.src = './data/x.txt';
 $('body').append(a);
@@ -49,7 +48,6 @@ function WorkRatio(e) {
 			}
 		})
 	})
-	console.log(e);
 
 	$('.mt-t[a=2]')[0].addEventListener('click',function() {
 		setTimeout(function() {
@@ -159,7 +157,7 @@ function WorkRatio(e) {
 
 
 var _b = document.createElement('script')
-_b.src = 'http://www.yangruixin.com/test/apiForFE.php?RequestType=SexRatio_FE';
+_b.src = 'http://hongyan.cqupt.edu.cn/welcome/2017/api/apiForFE.php?RequestType=SexRatio_FE';
 $('body').append(_b);
 function SexRatio(e) {
 	var college = [],
@@ -172,7 +170,6 @@ function SexRatio(e) {
 			}
 		})
 	})
-	console.log(e);
 
 	var xx = echarts.init($('#charts-1')[0]);
 
@@ -299,7 +296,6 @@ $.ajax({
 				xx.push(a.course);
 				mm.push(parseFloat(a.ratio));
 			})
-			console.log(tt, xx, mm);
 			tt.setOption({
 				title: {
 					text: ''
@@ -425,7 +421,6 @@ $('#mm1 .m3t-li').click(function() {
 	$('.m3t-biao').css('transform', 'translate(' + l3tlist2[$(this).attr('a')] + 'px, 67px)');
 	$('.mm3m').css('opacity', 0);
 	var _this = this;
-	console.log($(_this).attr('a'));
 	setTimeout(function() {
 		$('.mm3m').hide();
 		$('#mm3m-' + $(_this).attr('a')).css('display', 'block');

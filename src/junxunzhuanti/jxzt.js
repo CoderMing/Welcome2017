@@ -52,7 +52,6 @@ $('.lun-z, .lun-y').click(function() {
 
 $('.lun-in .list').click(function() {
 	$('.lun-in .list').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
-	console.log('123123123');
 	$('#player').attr('src', $(this).attr('go'));
 	$('#player')[0].play();
 });
@@ -99,7 +98,6 @@ $.ajax({
 			return item.replace(/(\[.*?\])(?=[^\n]+)/, '').trim();
 		});
 
-		console.log(musicLrc, musicLrcArt, musicLrcTime);
 		$('#m4-geci').html(function() {
 			var list = '';
 			musicLrcArt.forEach(function(a, b, c) {
@@ -166,7 +164,6 @@ function musicTime() {
 	if ($('#music')[0].ended) {
 		musicSeconds = -1;
 		$('#m4k-3').css('background-image', 'url(images/bofang.png)');
-		console.log('123');
 	}
 	setTimeout(musicTime, 1000);
 }
@@ -194,7 +191,6 @@ $('#m4k-3').click(function() {
 		$('#music')[0].play();
 	}
 });
-
 
 
 // 歌单
@@ -225,30 +221,29 @@ $('#m4-gedan .gequ').click(function(e) {
 	$('#music').attr('src', './music/' + $(this).attr('gm') + '.mp3');
 	musicSeconds = -1;
 	isPused = false;
-	$('#m4k-3').css('background-image', 'url(images/bofang.png)');
+	$('#m4k-3').css('background-image', 'url(images/zanting.png)');
 	$('#music')[0].play();
 	$.ajax({
-	url: './music/' + $(this).attr('gm') + '.lrc',
-	success: function(e) {
-		musicLrc = e.match(/(\[.*?\])([^\n]+)/g);
-		musicLrcTime = musicLrc.map(function(item) {
-			return item.replace(/\[(.*?)\]([^\n]+)/, '$1')
-					   .split(/:(?=\d\d.\d\d)/)
-					   .map(function(a) {
-					   		return parseFloat(a);
-					   });
-		});
-		musicLrcArt = musicLrc.map(function(item) {
-			return item.replace(/(\[.*?\])(?=[^\n]+)/, '').trim();
-		});
-
-		console.log(musicLrc, musicLrcArt, musicLrcTime);
-		$('#m4-geci').html(function() {
-			var list = '';
-			musicLrcArt.forEach(function(a, b, c) {
-				list += '<p>' + a + '</p>';
+		url: './music/' + $(this).attr('gm') + '.lrc',
+		success: function(e) {
+			musicLrc = e.match(/(\[.*?\])([^\n]+)/g);
+			musicLrcTime = musicLrc.map(function(item) {
+				return item.replace(/\[(.*?)\]([^\n]+)/, '$1')
+						   .split(/:(?=\d\d.\d\d)/)
+						   .map(function(a) {
+						   		return parseFloat(a);
+						   });
 			});
-			return list;
+			musicLrcArt = musicLrc.map(function(item) {
+				return item.replace(/(\[.*?\])(?=[^\n]+)/, '').trim();
+			});
+
+			$('#m4-geci').html(function() {
+				var list = '';
+				musicLrcArt.forEach(function(a, b, c) {
+					list += '<p>' + a + '</p>';
+				});
+				return list;
 		})
 
 		// 活动歌词

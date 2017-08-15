@@ -40,7 +40,6 @@ $('.mt-t').get(0).click();
 
 
 
-
 var l3tlist = [88, 348, 610];
 $('#mm1 .m3t-li').click(function() {
 	$('.m3t-li').removeClass('ACTIVE').filter(this).addClass('ACTIVE');
@@ -152,7 +151,6 @@ $.ajax({
 	url: './data/x.txt',
 	success: function(e) {
 		var e = $.parseJSON(e);
-		console.log(e);
 		window._xueSheng = new Vue({
 			el: '#mm5m-1',
 			data: {

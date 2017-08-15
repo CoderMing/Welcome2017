@@ -152,7 +152,6 @@ $('iframe').hover(function() {
 
 // 返回顶部
 $('#fanhuidingbu').click(function() {
-	console.log('123');
 	var top = $(window).scrollTop(),
 		interval = setInterval(function() {
 			$(window).scrollTop($(window).scrollTop() - top/15);
@@ -176,22 +175,8 @@ $('#fanhuidingbu').click(function() {
 
 
 
-
-
-
-// setInterval(function() {
-// 	$('#child')[0].contentWindow.console.log = function(){};
-// 	$('#child')[0].contentWindow.console.info = function(){};
-// 	$('#child')[0].contentWindow.console.warn  = function(){};
-// 	$('#child')[0].contentWindow.console.error  = function(){};
-// }, 10)
-
-// var x1x2 = console.log;
-// console.log = function() {};
-
-// console.clear();
-// x1x2('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:100% 100%;padding:225px 405px;');
-// x1x2('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
+console.log('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:100% 100%;padding:225px 405px;');
+console.log('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
 
 
 
