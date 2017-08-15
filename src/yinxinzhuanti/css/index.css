@@ -13,7 +13,7 @@ body{
 	font-family: "weituanyahei", "Arial";
 }
 /*右边草动画*/
-@keyframes ros{
+@keyframes ros {
     from{
          transform: rotate(0deg);}
     to{
@@ -22,6 +22,30 @@ body{
 li.btn:hover{
 	animation: dynamic .5s ease;
 }
+/*左板块动画*/
+/*@keyframes left_in {
+    form{
+    	transform: translateX(-60px);
+    	opacity: 0;
+
+    }
+    to{
+    	transform: translateX(0px);
+    	opacity: 1;
+    }
+}
+//右板块动画
+@keyframes right_in {
+    form{
+    	transform: translate(60px,0px);
+    	opacity: 0;
+
+    }
+    to{
+    	transform: translate(0px,0px);
+    	opacity: 1;
+    }
+}*/
 /*按钮动画*/
 @keyframes dynamic {
   0% {
@@ -40,8 +64,20 @@ li.btn:hover{
   	transform: scale(1, 1);
   }
 }
-
+/*路标动画*/
+@keyframes weltitle{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(5deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-5deg);}
+    100%{transform: rotate(0deg);}
+  
+}
+.w_title:hover{
+	animation: weltitle .5s ease 2 alternate;
+}
 #contain{
+	transform: scale(0.85);
 	position: relative;
 	top: 0;
 	left: 0;

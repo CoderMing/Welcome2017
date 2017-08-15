@@ -68,10 +68,11 @@ function WorkRatio(e) {
 					},
 					data: college,
 					axisLabel: {
-						rotate: 25,
+						rotate: 18,
 						interval: 0,
 						textStyle: {
-							color: '#ef9267'
+							color: '#ef9267',
+							fontSize: 10
 						}
 					},
 					axisLine:{
@@ -190,10 +191,11 @@ function SexRatio(e) {
 				},
 				data: college,
 				axisLabel: {
-					rotate: 25,
+					rotate: 18,
 					interval: 0,
 					textStyle: {
-						color: '#ef9267'
+						color: '#ef9267',
+						fontSize: 10
 					}
 				},
 				axisLine:{
@@ -210,7 +212,7 @@ function SexRatio(e) {
 				axisTick: {
 					show: false
 				},
-				name: '妹子占比',
+				name: '女生占比',
 				nameTextStyle: {
 					color: '#98cf67'
 				},
@@ -309,14 +311,18 @@ $.ajax({
 					},
 					name: '课程名称',
 					nameTextStyle: {
-						color: '#98cf67'
+						color: '#98cf67',
+					},
+					gird: {
+						bottom: 100
 					},
 					data: xx,
 					axisLabel: {
-						rotate: 25,
+						rotate: 18,
 						interval: 0,
 						textStyle: {
-							color: '#ef9267'
+							color: '#ef9267',
+							fontSize: 10
 						}
 					},
 					axisLine:{

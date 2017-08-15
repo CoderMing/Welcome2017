@@ -84,16 +84,16 @@ body {
 }
 @keyframes rowtitle {
   0% {
-    transform: rotate(0) translate(20px, 0);
+    transform: rotate(0) translate(20px, 15px);
   }
   25% {
-    transform: rotate(-5deg) translate(20px, 0);
+    transform: rotate(-5deg) translate(20px, 15px);
   }
   75% {
-    transform: rotate(5deg) translate(20px, 0);
+    transform: rotate(5deg) translate(20px, 15px);
   }
   100% {
-    transform: rotate(0deg) translate(20px, 0);
+    transform: rotate(0deg) translate(20px, 15px);
   }
 }
 #container #main {
@@ -120,10 +120,10 @@ body {
   height: 83px;
   color: #f19942;
   vertical-align: middle;
-  line-height: 66px;
+  line-height: 77px;
   text-align: center;
   text-shadow: -1px 1px #ccc;
-  transition: all .1s ease;
+  transition: transform .1s ease;
   cursor: pointer;
 }
 #container .m-t .mt-t.ACTIVE,

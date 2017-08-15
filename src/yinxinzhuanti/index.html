@@ -7,37 +7,24 @@
         <script type="text/javascript" src="./js/jquery-min.js"></script>
     </head>
     <body>
-        
-        
-        
         <div class="cover_contain">
             <div class="on_title">
                 <div class="on_image"></div>
                 <p class="on_question"><!-- 这是测试问题栏 --></p>
                 <div class="on_delete"></div>
             </div>
-            
             <div class="on_page">
                 <div class="question_re">提问回复(<span class="num_count">12</span>)</div>
                 <ul><!-- 存放回答信息 --> </ul>
             </div>
-            
         </div>
-
-
-
-
-
-
-
-
         <img class="right_stone" src="images/w_rightstone.png">
         <img class="left_stone" src="images/w_leftstone.png">
         <img class="w_wel_mydot" src="images/w_wel_mydot.png">
         <img class="my_grass" src="images/w_grass.png">
         <div id="contain">
             <div class="w_title">
-            	<img src="images/w_title.png">
+            	<img class="w_title" src="images/w_title.png">
             </div>
             
             <div class="welcome">
@@ -65,10 +52,6 @@
                     </div>
                 </div>
             </div>
-
-            
-
-
             <div class="xuezhang_help">
                 <div class="help_nav">
                     <ul>
@@ -87,20 +70,14 @@
                         <div class="help_nav_time">时间</div>
                         <div class="help_nav_people">提问者</div>
                     </div>
-                    
                     <ul id="help_message">
-
                     </ul>
-                
                 </div>
                 <div class="help_foot">
                     <div class="foot_con">
-                        
                         <img class="foot_left" src="./images/w_left_page.png">
                         <img class="foot_right" src="./images/w_right_pageon.png">
-                        
                         <ul id="help_page">
-                            
                         </ul>
                     </div>
                 </div>
@@ -123,40 +100,23 @@
             oLi = document.querySelectorAll('.help_nav li'),
             w_cover = document.querySelector('.w_cover'),
             on_ul = document.querySelector(".on_page ul"),
-           
             cover_contain = document.querySelector(".cover_contain"),
             on_delete = document.querySelector(".on_delete"),
             on_question = document.querySelector(".on_question"),
             num_count = document.querySelector(".num_count"),
     	    flag = true;
-
-            
-            
             on_delete.onclick = function() {
-                
                 cover_contain.style.display = "none";
             }
-
-
-            
-
-
-
-
-
-
             var all = [],  //全部
                 stu = [],  //学习
                 lif = [],  //生活
                 act = [],  //活动
                 org = [],  //组织
                 oth = [];  //其他
-            
-
-            
         /*ajax 请求开始*/
         $.ajax({
-            url: 'http://hongyan.cqupt.edu.cn/XZBBM-test/index.php/api/search/tag/',
+            url: 'http://hongyan.cqupt.edu.cn/XZBBM/index.php/api/search/tag/',
             data: {},
             method: 'GET',
             success: function(data) {
@@ -183,7 +143,6 @@
                 alert("您的网络异常，请重新加载！")
             }
         })
-        
         //顶部导航条点击切换板块内容
         for(var i=0,len=oLi.length;i<len;i++){
             oLi[i].index = i;
@@ -229,12 +188,10 @@
                 resize();
             }
         }
-
         function resize() {
             foot_left.src = "./images/w_left_page.png";
             foot_right.src = "./images/w_right_pageon.png";
         }
-        
         //对一个大板块的页面进行操作和分页
         function this_message(arr) {
             //计算底部分页的页面数
@@ -302,7 +259,6 @@
                 }
             }
             help_message.innerHTML = help_content;
-            
 
             //点击内容 显示详细信息
             var op_forclick = document.querySelectorAll('.op_forclick');
@@ -314,45 +270,34 @@
                         id = op_forclick[index].innerText;
                     for(var j=0;j < arr.length;j++){
                         if(arr[j].Id == id){
-                            
                             document.w_alert = arr[j];
-                            
                             cover_contain.style.display = "block";
                             on_question.innerHTML = arr[j].content;
-
-             
-            
-            $.ajax({
-                url: 'http://hongyan.cqupt.edu.cn/XZBBM-test/index.php/api/question/'+id,
-                data: {},
-                method: 'GET',
-                success: function(data) {
-                    on_ul.innerHTML = "";
-                    for(var i=0,len=data.comment.length;i<len;i++){
-                        // console.log(data.comment[i].content)
-                        // console.log(data.comment[i].name)
-                        // console.log(data.comment[i].time)
-                        on_ul.innerHTML += "<li><div class=\"on_c\">"+data.comment[i].content+"</div><div class=\"on_t\">"+data.comment[i].time+"</div><div class=\"on_p\">"+data.comment[i].name+"</div></li>";
-                        num_count.innerText = len;
-                    }
-                },
-                fail: function() {
-                    alert("您的网络异常，请重新加载！")
-                }
-            })
-
-                           
-                        
-
+                                
+                                $.ajax({
+                                    url: 'http://hongyan.cqupt.edu.cn/XZBBM/index.php/api/question/'+id,
+                                    data: {},
+                                    method: 'GET',
+                                    success: function(data) {
+                                        on_ul.innerHTML = "";
+                                        for(var i=0,len=data.comment.length;i<len;i++){
+                                            // console.log(data.comment[i].content)
+                                            // console.log(data.comment[i].name)
+                                            // console.log(data.comment[i].time)
+                                            on_ul.innerHTML += "<li><div class=\"on_c\">"+data.comment[i].content+"</div><div class=\"on_t\">"+data.comment[i].time+"</div><div class=\"on_p\">"+data.comment[i].name+"</div></li>";
+                                            num_count.innerText = len;
+                                        }
+                                    },
+                                    fail: function() {
+                                        alert("您的网络异常，请重新加载！")
+                                    }
+                                })
+                            }
                         }
-                    }
 
+                    }
                 }
             }
-        }
-
-        
-        
 
         //change_bar 改变底部分页栏点击状态 这一块被反复引用
         function change_bar(dot,bool,len) {
@@ -379,9 +324,7 @@
                 }
             }
         }
-
         
-
         //下面是无关内容
         button1.onclick = function() {
         	button1.className = "button1 xiaolianon";
@@ -390,7 +333,6 @@
             welcome_smile.style.display = 'block';
             xuezhang_help.style.display = 'none';
         	flag = true;
-
         }
         button2.onclick = function() {
         	button1.className = "button1 xiaolian";
@@ -421,8 +363,6 @@
         		button2.className = "button2 btn xuezhangon";
         	}  
         }
-        
-
         smile_logo.onclick = function() {
             window.open('http://hongyan.cqupt.edu.cn/stuface2017','_blank');
         }

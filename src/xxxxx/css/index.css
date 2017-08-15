@@ -103,11 +103,13 @@ img.btn:hover{
 }
 .map-title img{ 
 	position: absolute;
+	user-select: none;
 }
 .map_waikuang{
 	top: -134px;
 	left: -58px;
 	z-index: 30;
+	user-select: none;
 }
 
 .map_con{
@@ -120,7 +122,6 @@ img.btn:hover{
 	height: 457px;
 	border: 1px solid rgb(209,231,164);
 	border-radius: 40px 40px 40px 40px;
-
 }
 .map_map{
 	position: absolute;
@@ -182,6 +183,7 @@ img.btn:hover{
     top: 801px;
 	right: -17px;
 	z-index: 20;
+	z-index: -1;
 }
 .my_dot1{
 	top: 640px;
@@ -289,10 +291,6 @@ div.on{
 	border-radius: 15px; 
 }
 
-
-
-
-
 .arm_input{
 	top: 540px;
 	left: 735px;
@@ -302,7 +300,6 @@ div.on{
 	transform: scale(1.1);
 	z-index: 10;
 }
-
 .arm-message img{
 	position: relative;
 	float: left;
@@ -459,7 +456,7 @@ div.on{
 	position: absolute;
 	top: 2393px;
 	left: -53px;
-	z-index: 20;
+	z-index: -1;
 }
 
 /* 四块信息栏完毕*/

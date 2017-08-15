@@ -149,39 +149,50 @@
         </div>
     <!-- <script type="text/javascript" src="./js/magnifier.js"></script> -->
     <script type="text/javascript">
-        var w_title = document.getElementsByClassName('wel_title')[0],
-            w_gongnue = document.getElementsByClassName('mes_gongnue')[0],
-            w_shuju = document.getElementsByClassName('mes_shuju')[0],
-            w_fengcai = document.getElementsByClassName('mes_fengcai')[0],
-            w_guanyu = document.getElementsByClassName('mes_guanyu')[0],
-            w_armtitle = document.getElementsByClassName('arm_armtitle')[0],
-            w_gongnue2 = document.getElementsByClassName('mes_gongnue2')[0],
-            w_shuju2 = document.getElementsByClassName('mes_shuju2')[0],
-            w_guanyu2 = document.getElementsByClassName('mes_guanyu2')[0],
-            w_fengcai2 = document.getElementsByClassName('mes_fengcai2')[0],
-            w_maptitle = document.getElementsByClassName('map_title')[0],
+        var w_title = _o$('wel_title')[0],
+            w_gongnue = _o$('mes_gongnue')[0],
+            w_shuju = _o$('mes_shuju')[0],
+            w_fengcai = _o$('mes_fengcai')[0],
+            w_guanyu = _o$('mes_guanyu')[0],
+            w_armtitle = _o$('arm_armtitle')[0],
+            w_gongnue2 = _o$('mes_gongnue2')[0],
+            w_shuju2 = _o$('mes_shuju2')[0],
+            w_guanyu2 = _o$('mes_guanyu2')[0],
+            w_fengcai2 = _o$('mes_fengcai2')[0],
+            w_maptitle = _o$('map_title')[0],
             oBtn = document.querySelectorAll('.btn'),
             //地图专栏对象
-            map_move = document.querySelector('.map_move'),
-            map_map = document.querySelector('.map_map'),
-            map_add = document.querySelector('.map_add'),
-            map_sub = document.querySelector('.map_sub'),
+            map_move = $('.map_move'),
+            map_map = $('.map_map'),
+            map_add = $('.map_add'),
+            map_sub = $('.map_sub'),
             //军训专栏对象
             arm_message = document.querySelectorAll('.arm-message'),
-            arr_left = document.querySelector('.arr_left'),
-            army_holder = document.querySelector('.army_holder'),
-            arr_right = document.querySelector('.arr_right'),
-            my_p = document.querySelector('.my_lalian p'),
-            help_click_left = document.querySelector('.help_click_left'),
-            help_click_right = document.querySelector('.help_click_right'),
+            arr_left = $('.arr_left'),
+            army_holder = $('.army_holder'),
+            arr_right = $('.arr_right'),
+            my_p = $('.my_lalian p'),
+            help_click_left = $('.help_click_left'),
+            help_click_right = $('.help_click_right'),
+            map_waikuang = $('.map_waikuang'),
             flag = 1,
             _left = 0,
             _top = 0;
+
+            function $(obj){
+                return document.querySelector(obj);
+            }
+            function _o$(obj){
+                return document.getElementsByClassName(obj);
+            }
 
            
             //地图开始
 
             //放大功能
+            map_waikuang.onmousemove = function() {
+                return false;
+            }
 
             map_add.onclick = function() {
                 var w = getStyle(map_map,"width");
@@ -205,7 +216,7 @@
                 get_data(false);
             }
 
-            var temp = 0;
+            var tag = 0;
             function get_data(bool) {
                 //获取地图宽高
                 var W = map_map.offsetWidth;
@@ -215,10 +226,26 @@
                 if(bool){
                     _left = -(W / 2);
                     _top = -(H / 2);
+                    tag++;
+                    (tag > 3)&&(tag = 3);
                 }else{
-                    _left = 0;
-                    _top = 0;
+                    (tag < 1)&&(tag = 1);
+                    if(tag == 1){
+                        _left = 0;
+                        _top = 0;
+                        tag--;
+                    }else if(tag == 2){
+                        _left = -440;
+                        _top = -311.5;
+                        tag--;
+                    }else if(tag == 3){
+                        _left = -990;
+                        _top = -700.5;
+                        tag--;
+                    }
                 }
+                
+                
                 map_map.style.left = _left + "px";
                 map_map.style.top = _top + "px";
             }
@@ -248,6 +275,7 @@
                 //获取盒子宽高
                 var boxW = 880;
                 var boxH = 446;
+
 
                 document.onmousemove = function(e){
                     var e = e || window.event; 
@@ -341,6 +369,7 @@
             // oBtn.onclick = function() {
             //     alert(1);
             // }
+            //按钮特效
             for(var i=0,len=oBtn.length;i<len;i++){
                 oBtn[i].onmousedown = function() {
                     this.src = "./images/w_input_onclick.png";

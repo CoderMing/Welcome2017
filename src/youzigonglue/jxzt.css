@@ -117,7 +117,7 @@ body {
   line-height: 66px;
   text-align: center;
   text-shadow: -1px 1px #ccc;
-  transition: all .1s ease;
+  transition: transform .1s ease;
   cursor: pointer;
 }
 #container .m-t .mt-t.ACTIVE,
@@ -238,7 +238,7 @@ body {
 }
 #container .lunbo .lb-in .lb-item.p1 {
   margin-left: -450px;
-  opacity: .3;
+  opacity: .1;
   transform: perspective(450px) rotateY(-7deg) scale(0.5) translate3d(105px, 0, 0);
 }
 #container .lunbo .lb-in .lb-item.p2 {
@@ -248,7 +248,7 @@ body {
 }
 #container .lunbo .lb-in .lb-item.p3 {
   margin-left: 0px;
-  opacity: .3;
+  opacity: .1;
   transform: perspective(450px) rotateY(7deg) scale(0.5) translate3d(-105px, 0, 0);
 }
 #container .lunbo .lb-in .lb-item > div {

@@ -167,7 +167,7 @@ body {
 			line-height: 66px;
 			text-align: center;
 			text-shadow: -1px 1px #ccc;
-			transition: ~'all .1s ease';
+			transition: ~'transform .1s ease';
 			cursor: pointer;
 
 			&.ACTIVE, &:hover {
@@ -275,18 +275,22 @@ body {
 						    display: inline-block;
 						    overflow: hidden;
 						    box-sizing: border-box;
+						    background-position: center;
 						    transition: all .3s;
 						    cursor: pointer;
 						    border: 1px solid #c9e176;
 						
 							&:nth-child(2) {
 								margin-left: 190px;
+						    background-position: center;
 							}
 							&:nth-child(3) {
 								margin-left: 380px;
+						    background-position: center;
 							}
 							&:nth-child(4) {
 								margin-left: 570px;
+						    background-position: center;
 							}
 							&>div {
 								width: 100%;
@@ -307,6 +311,7 @@ body {
 								padding-top: 20px;
 								margin-top: 80px;
 								line-height: 25px;
+								background-position: center;
 							}
 						}
 		    		}
@@ -638,11 +643,11 @@ body {
 						position: absolute;
 						width: 250px;
 						padding-top: 20px;
-						height: 360px;
+						height: 260px;
 						text-align: center;
 						background: url(./images/musicListBg.png) no-repeat center center;
-						background-size: contain;
-						top:-400px;
+						background-size: 100% 100%;
+						top: -275px;
 						left: -67px;
 						transform: scale(0, 0);
 						transform-origin: center 100%;

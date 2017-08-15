@@ -52,10 +52,12 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
 			opacity: 0
  		});
 	setTimeout(function() {
+		$('#lc-loading').show(200);
  		$('#child').attr('src', $(_this).attr('goto'));
  		$('#child').height(1000);   //先降低iframe的高度 然后再使用offsetTop  此处默认iframe永远不低于1000px
 	}, 300);
 	$('#child').on('load', function() {
+		$('#lc-loading').hide(200);
 		// history.pushState({time: new Date().getTime()}, '',  originPath + $(_this).attr('goto').replace(/\.\/(.*?)\/index\.html/, '$1'))
  		setTimeout(function() {
  			iframeLoad();
@@ -63,7 +65,7 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
  		}, 100);
 	});
 });
-
+$('#lc-loading').hide(100);
 // 倒计时
 setInterval(function() {
 	// 开学当日时间
@@ -99,7 +101,7 @@ function changeShan(e) {
  	move($('#shan'), -8, -5);
  	move($('#lantian'), -13, -10);
 	move($('#taiyang'), -23, -20);
-	move($('#flyman'), 13, 8);
+	// move($('#flyman'), 13, 8);
 }
 $(window).mousemove(changeShan);
 
@@ -107,14 +109,13 @@ $(window).mousemove(changeShan);
 // 中间iframe
 
 function iframeLoad() {
-	console.log($('#child').contents().height());
 	$('#child').height($('#child').contents().height());
 	$('#child').contents().mousemove(changeShan);
 
 	// item
 	if ($('iframe').contents().find('.mm2t-item').length) {
 		$('iframe').contents().find('.mm2t-item').click(function() {
-			$('#cover img').attr('src', $(this).css('background-image').replace(/url\("(.*?)"\)/, '$1'));
+			$('#cover img').attr('src', './junxunzhuanti/images/ldfc/' + $(this).attr('pi') + '.jpg');
 			$('#cover .ca-tit').html($(this).find('div').html());
 			$('#cover .ca-p').html($(this).attr('al'));
 			$('#cover').show();
@@ -122,19 +123,20 @@ function iframeLoad() {
 				$('#cover').css('opacity', 1);
 			}, 10);
 		});
-		console.log($('iframe').contents().find('#coverArt .guanbi'));
-		$('#coverArt .guanbi').click(function() {
+		$([$('#coverArt .guanbi')[0], $('#cover')[0]]).click(function() {
 			$('#cover').css('opacity', 0);
 			setTimeout(function() {
 				$('#cover').hide();
 			}, 200);
 		});
 	}
-	$('#child').contents().find('.mes_mesinput1').click(function(){$('.ni-r li').eq(3).click()});
+	$('#child').contents().find('.mes_mesinput1').click(function(){$('.ni-r li').eq(4).click()});
 	$('#child').contents().find('.mes_mesinput2').click(function(){$('.ni-r li').eq(2).click()});
 	$('#child').contents().find('.mes_mesinput3').click(function(){$('.ni-r li').eq(3).click()});
 	$('#child').contents().find('.mes_mesinput4').click(function(){$('.ni-r li').eq(0).click()});
-
+	$('#child').contents().find('.arm_input').click(function(){$('.ni-r li').eq(5).click()})
+	$('#child').contents().find('.wel_learn1').click(function(){$('.ni-r li').eq(1).click()})
+	$('#child').contents().find('.wel_learn2').click(function(){$('.ni-r li').eq(1).click()})
 };
 setTimeout(function() {
 	iframeLoad();
@@ -177,17 +179,19 @@ $('#fanhuidingbu').click(function() {
 
 
 
-setInterval(function() {
-	$('#child')[0].contentWindow.console.log = function(){};
-	$('#child')[0].contentWindow.console.warn  = function(){};
-}, 100)
+// setInterval(function() {
+// 	$('#child')[0].contentWindow.console.log = function(){};
+// 	$('#child')[0].contentWindow.console.info = function(){};
+// 	$('#child')[0].contentWindow.console.warn  = function(){};
+// 	$('#child')[0].contentWindow.console.error  = function(){};
+// }, 10)
 
-var x1x2 = console.log;
-console.log = function(){};
+// var x1x2 = console.log;
+// console.log = function() {};
 
-console.clear();
-x1x2('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:contain;padding:200px 405px;');
-x1x2('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
+// console.clear();
+// x1x2('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:100% 100%;padding:225px 405px;');
+// x1x2('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
 
 
 

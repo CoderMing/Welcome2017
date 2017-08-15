@@ -224,17 +224,47 @@ $('.mm2t-item').each(function(index, el) {
 $('#m4-gedan .gequ').click(function(e) {
 	$('#music').attr('src', './music/' + $(this).attr('gm') + '.mp3');
 	musicSeconds = -1;
-	isPused = true;
+	isPused = false;
 	$('#m4k-3').css('background-image', 'url(images/bofang.png)');
+	$('#music')[0].play();
+	$.ajax({
+	url: './music/' + $(this).attr('gm') + '.lrc',
+	success: function(e) {
+		musicLrc = e.match(/(\[.*?\])([^\n]+)/g);
+		musicLrcTime = musicLrc.map(function(item) {
+			return item.replace(/\[(.*?)\]([^\n]+)/, '$1')
+					   .split(/:(?=\d\d.\d\d)/)
+					   .map(function(a) {
+					   		return parseFloat(a);
+					   });
+		});
+		musicLrcArt = musicLrc.map(function(item) {
+			return item.replace(/(\[.*?\])(?=[^\n]+)/, '').trim();
+		});
+
+		console.log(musicLrc, musicLrcArt, musicLrcTime);
+		$('#m4-geci').html(function() {
+			var list = '';
+			musicLrcArt.forEach(function(a, b, c) {
+				list += '<p>' + a + '</p>';
+			});
+			return list;
+		})
+
+		// 活动歌词
+		// musicLrcTime.forEach(function(a, b, c) {
+		// 	+function() {
+		// 		setTimeout(function(a, b, c) {
+		// 			$('#m4-geci').scrollTop(48 * b);
+		// 		}, a[0] * 60000 + a[1] * 1000);
+		// 	}(a, b, c);	
+		// });
+	}
+})
 });
  
 
 
-
-
-
-console.log('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:contain;padding:200px 405px;');
-console.log('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
 
 
 
