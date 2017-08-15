@@ -438,7 +438,7 @@ a {
   z-index: 5;
   transform-origin: center 150vw;
   transition: all 0.5s ease-in;
-  margin-left: 29vw;
+  /* margin-left: 29vw; */
   opacity: 0;
   margin-top: -53vw;
   animation: runcar 1s 5s forwards;
@@ -461,11 +461,15 @@ a {
     opacity: 1;
   }
 }
+.banner-con {
+  margin: 0 auto;
+  width: 40vw;
+}
 #banner #yishuzi {
   z-index: 6;
   width: 39.5vw;
   height: 20vw;
-  margin-left: 28.0vw;
+  /* margin-left: 28.0vw; */
   margin-top: -32.2vw;
   opacity: 0;
   background: url(images/new_yishuzi.png) no-repeat center center;
@@ -499,7 +503,7 @@ a {
   transform: scale(1, 1);
   background-size: cover;
   margin-top: -1vw;
-  margin-left: 60vw;
+  margin-left: 30vw;
   opacity: 0;
   animation: showman .5s 5.7s forwards;
 }
@@ -519,7 +523,7 @@ a {
   transform: scale(1, 0);
   z-index: 6;
   background-size: contain;
-  margin-left: 33.7vw;
+  margin-left: 4.7vw;
   animation: dropzi .5s 5.6s forwards;
 }
 #banner #daojishihanzi .yishuzi {
