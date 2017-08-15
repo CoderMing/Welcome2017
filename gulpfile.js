@@ -2,20 +2,20 @@ let gulp = require('gulp'),
 	less = require('gulp-less');
 
 gulp.task('default', _=> {
-	gulp.watch('./src/youzigonglue/jxzt.less', (e)=> {
-		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/youzigonglue'));
+	gulp.watch('youzigonglue/jxzt.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('youzigonglue'));
 		console.log('12321');
 	});
-	gulp.watch('./src/junxunzhuanti/jxzt.less', (e)=> {
-		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/junxunzhuanti'));
+	gulp.watch('junxunzhuanti/jxzt.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('junxunzhuanti'));
 	});
-	gulp.watch('./src/chongyoufengcai/jxzt.less', (e)=> {
-		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/chongyoufengcai'));
+	gulp.watch('chongyoufengcai/jxzt.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('chongyoufengcai'));
 	});
-	gulp.watch('./src/chongyoushuju/jxzt.less', (e)=> {
-		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src/chongyoushuju'));
+	gulp.watch('chongyoushuju/jxzt.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest('chongyoushuju'));
 	});
-	gulp.watch('./src/xx.less', (e)=> {
-		gulp.src(e.path).pipe(less()).pipe(gulp.dest('./src'));
+	gulp.watch('xx.less', (e)=> {
+		gulp.src(e.path).pipe(less()).pipe(gulp.dest(''));
 	});
 })

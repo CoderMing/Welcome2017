@@ -35,14 +35,7 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
 	$(this).addClass('ACTIVE');
 	
 	// 高度跳转
-	var toFrame = ($('#car').offset().top + $('#car').height() - 50) - $(window).scrollTop(),
-		flag = 0,
-		Inter = setInterval(function() {
-		$(window).scrollTop($(window).scrollTop() + toFrame/15);
-		if (++flag >= 15) {
-			clearInterval(Inter);
-		}
-	}, 15);
+	$(window).scrollTop($('#car').offset().top + $('#car').height() - 50)
 
 	// iframe切换
 
