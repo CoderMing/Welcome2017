@@ -14,7 +14,9 @@ body{
 	width: 1000px;
 	margin: 0 auto;
 }
-
+img{
+	user-select: none;
+}
 /*按钮动画开始*/
 img.btn:hover{
 	animation: dynamic .5s ease;
@@ -129,7 +131,6 @@ img.btn:hover{
 	left: 0px;
 	width: 880px;
 	user-select: none;
-	transition: all .2s linear;
 }
 .map_move{
 	position: absolute;
