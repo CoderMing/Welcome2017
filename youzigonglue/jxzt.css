@@ -425,5 +425,6 @@ body {
 #container .showitem .si-p strong {
   padding-right: 10px;
   font-size: 16px;
+  font-weight: normal;
   color: #ea8552;
 }

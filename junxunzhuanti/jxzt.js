@@ -9,6 +9,8 @@ $('.mt-t').click(function() {
 		'background-size': 'contain'
 	});
 
+	$('video')[0].pause();
+	$('audio')[0].pause();
 	var _this = this;
 	$('.mm').removeClass('SHOW');
 	$($('.mm')[$(this).attr('a')]).addClass('SHOW');
