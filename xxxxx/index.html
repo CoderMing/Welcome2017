@@ -204,6 +204,12 @@
                 map_map.style.height = "";
                 get_data(true);
             }
+            map_add.onmousedown = function() {
+                map_map.style.transition = "all 0.5s ease";
+            }
+            map_add.onmouseleave = function() {
+                map_map.style.transitionProperty = "none"; 
+            }
             //缩小功能
             map_sub.onclick = function() {
                 var w = getStyle(map_map,"width");
@@ -214,6 +220,12 @@
                 }
                 map_map.style.width = w + "px";
                 get_data(false);
+            }
+            map_sub.onmousedown = function() {
+                map_map.style.transition = "all 0.5s ease";
+            }
+            map_sub.onmouseleave = function() {
+                map_map.style.transitionProperty = "none"; 
             }
 
             var tag = 0;
