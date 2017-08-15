@@ -8,7 +8,7 @@ li{
 body{
 	overflow: hidden;
 	background: transparent;
-	height: auto;
+	/*height: auto;*/
 	display: block;
 	font-family: "weituanyahei", "Arial";
 }
@@ -80,8 +80,8 @@ li.btn:hover{
 	transform: scale(0.85);
 	position: relative;
 	top: 0;
-	left: 0;
-    width: 1300px;
+	left: -70px;
+    width: 1155px;
     height: 1400px;
     margin: 0 auto;
     overflow: hidden;
@@ -91,7 +91,7 @@ li.btn:hover{
 .w_title{
 	width: 300px;
 	height: 150px;
-	margin: 0 auto;
+	margin: 0 35%;
 }
 .welcome{
     position: absolute;
@@ -409,8 +409,8 @@ li.on{
 	position: fixed;
 	z-index: 51;
 	top: 470px;
-	left: 50%;
-	margin-left: -457px;
+	left: 54%;
+	margin-left: -524px;
 	width: 915px;
 	height: 640px;
 	border-radius: 20px;
