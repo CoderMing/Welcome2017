@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jxzt</title>
+	<meta charset="utf-8">
+</head>
+<link rel="stylesheet" href="./jxzt.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?29069a17f26a379c748a0378b4ff928f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<body>
+	<div id="st-r"></div>
+	<div id="st-l"></div>
+	<div id="yz"></div>
+	<div class="zs" style="left: 180px;top: 270px;"></div>
+	<div class="zs" style="left: 400px;top: 1000px;"></div>
+	<div class="zs" style="right: 180px;top: 270px;"></div>
+	<div class="zs" style="right: 180px;top: 700px;"></div>
+	<div id="container">
+		 <div id="title"></div>
+		 <div id="main">
+		 	<div class="m-t">
+		 		<div id="zhibiao"></div>
+		 		<div a="0" class="mt-t ACTIVE">男女比例</div>
+		 		<div a="1" class="mt-t">最难科目</div>
+		 		<div a="2" class="mt-t">就业率</div>
+		 	</div>
+		 	<div id="mm1" class="mm SHOW">
+		 		<div class="titbg">
+		 			<div a="0" class="m3t-li ACTIVE">全校统计</div>
+		 		</div>
+		 		<div id="mm3m-0" style="opacity: 1;display: block;" class="mm3m">
+		 			<div class="charts" id="charts-1"></div>
+		 		</div>
+		 	</div>
+		 	<div id="mm2" class="mm">
+		 		<select name="xx" id="picker">
+		 			
+		 		</select>
+		 		<div class="titbg">
+		 			<div a="0" class="m3t-li">学院统计</div>
+		 		</div>
+		 		<div id="mm4m-0" style="opacity: 1;display: block;" class="mm4m">
+					<div class="charts" id="charts-3"></div>
+		 		</div>
+		 	</div>
+		 	<div id="mm3" class="mm">
+		 		<div id="mm5m-1" class="mm5m" style="display: block;opacity: 1">
+					<div class="charts" id="charts-6" style="height: 530px;"></div>
+		 		</div>
+		 	</div>
+	</div>
+<script src="./jxzt.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="css/index.css" rel="stylesheet" type="text/css" >
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <script type="text/javascript" src="./js/jquery-min.js"></script>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?29069a17f26a379c748a0378b4ff928f";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </head>
+    <body>
+
+            
+      
+        
+        <img class="right_stone" src="images/w_rightstone.png">
+        <img class="left_stone" src="images/w_leftstone.png">
+        <img class="w_wel_mydot" src="images/w_wel_mydot.png">
+        <img class="my_grass" src="images/w_grass.png">
+        <div id="contain">
+            <div class="w_title">
+            	<img class="w_title" src="images/w_title.png">
+            </div>
+            
+            <div class="welcome">
+                <div class="my_button">
+                	<ul>
+                		<li class="button1 btn xiaolianon"></li>
+                		<li class="button2 btn xuezhang"></li>
+                	</ul>
+                </div>
+            </div>
+
+            <div class="welcome_smile">
+                <div class="smile_logo"></div>
+                <div class="smile_mes">
+                    <img src="./images/w_wel_left.png">
+                    <img class="smi_right" src="./images/w_wel_right.png">
+                    <div class="smi_con">
+                        <ul>
+                            <li><span>活动时间：</span>本次上线时间为即日起——2017年9月8日12：00</li>
+                            <li><span>活动主题：</span>新生笑脸征集——晒晒通知书</li>
+                            <li><span>活动对象：</span>2017级所有小鲜肉</li>
+                            <li><span>参与方式：</span>上传认为最有特色或创意录取通知书的合照（每人限一张）参与活动</li>
+                            <li><span>照片形式：</span>不限形式、照片可以是新生，特色景物，小物件和录取通知书的合照。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="xuezhang_help">
+                <div class="help_nav">
+                    <ul>
+                        <li class="on">全部</li>
+                        <li>学习类</li>
+                        <li>生活类</li>
+                        <li>活动类</li>
+                        <li>组织类</li>
+                        <li>其他类</li>
+                        <div class="help_dot"></div>
+                    </ul>
+                </div>
+                <div class="help_contain">
+                    <div class='help_con_nav'>
+                        <div class="help_nav_tiwen">提问内容</div>
+                        <div class="help_nav_time">时间</div>
+                        <div class="help_nav_people">提问者</div>
+                    </div>
+                    <ul id="help_message">
+                    </ul>
+                </div>
+                <div class="help_foot">
+                    <div class="foot_con">
+                        <img class="foot_left" src="./images/w_left_page.png">
+                        <img class="foot_right" src="./images/w_right_pageon.png">
+                        <ul id="help_page">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="for_float">    
+                <div class="cover_contain">
+                    <div class="on_title">
+                        <div class="on_image"></div>
+                        <p class="on_question"><!-- 这是测试问题栏 --></p>
+                        <div class="on_delete"></div>
+                    </div>
+                    <div class="on_page">
+                        <div class="question_re">提问回复(<span class="num_count">12</span>)</div>
+                        <ul><!-- 存放回答信息 --> </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script type="text/javascript">
+    	var button1 = document.querySelector('.button1'),
+    	    button2 = document.querySelector('.button2'),
+    	    welcome = document.querySelector('.welcome'),
+            dot = document.querySelector('.help_dot'),
+            welcome_smile = document.querySelector('.welcome_smile'),
+            xuezhang_help = document.querySelector('.xuezhang_help'),
+            foot_left = document.querySelector('.foot_left'),
+            foot_right = document.querySelector('.foot_right'),
+            smile_logo = document.querySelector('.smile_logo'),
+            help_message = document.querySelector('#help_message'),
+            help_page = document.querySelector('#help_page'),
+            oLi = document.querySelectorAll('.help_nav li'),
+            w_cover = document.querySelector('.w_cover'),
+            on_ul = document.querySelector(".on_page ul"),
+            cover_contain = document.querySelector(".cover_contain"),
+            on_delete = document.querySelector(".on_delete"),
+            on_question = document.querySelector(".on_question"),
+            num_count = document.querySelector(".num_count"),
+            for_float = document.querySelector(".for_float"),
+    	    flag = true;
+            on_delete.onclick = function() {
+                for_float.style.display = "none";
+            }
+            var all = [],  //全部
+                stu = [],  //学习
+                lif = [],  //生活
+                act = [],  //活动
+                org = [],  //组织
+                oth = [];  //其他
+        /*ajax 请求开始*/
+        $.ajax({
+            url: 'http://hongyan.cqupt.edu.cn/XZBBM/index.php/api/search/tag/',
+            data: {},
+            method: 'GET',
+            success: function(data) {
+                all = data;
+                for(var i=0;i < data.length;i++){
+                    for(var j = 0;j < all[i].tag.length;j++){
+                        if(all[i].tag[j] == "学习"){
+                        stu.push(all[i]);
+                        }else if(all[i].tag[j] == "生活"){
+                            lif.push(all[i]);
+                        }else if(all[i].tag[j] == "活动"){
+                            act.push(all[i]);
+                        }else if(all[i].tag[j] == "组织"){
+                            org.push(all[i]);
+                        }else{
+                            oth.push(all[i]);
+                        }
+                    }
+                }
+                $('.help_nav li:first-child').click();
+                $('#help_page li:first-child').click();
+            },
+            fail: function() {
+                alert("您的网络异常，请重新加载！")
+            }
+        })
+        //顶部导航条点击切换板块内容
+        for(var i=0,len=oLi.length;i<len;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function() {
+                var index = this.index;
+                for(var j=0;j<len;j++){
+                    oLi[j].className = "";
+                }
+                this.className = "on";
+                load(this.innerText);
+                dot.style.left = (index * 129 + 22) +'px';
+            }
+        }
+        
+        //加载每个板块内容 obj : 板块名字的字符串 this_message 传一个对应板块的数组
+        //page_change 调用一下函数 打开显示每个页面的第一页内容
+        //resize 切换板块时 重置底部分页栏箭头状态
+        function load(obj) {
+            help_page.style.top = "0px";
+            if(obj == "全部"){
+                this_message(all);
+                page_change(all,0);
+                resize();
+            }else if(obj == "学习类"){
+                this_message(stu);
+                page_change(stu,0);
+                resize();
+            }else if(obj == "生活类"){
+                this_message(lif);
+                page_change(lif,0);
+                resize();
+            }else if(obj == "活动类"){
+                this_message(act);
+                page_change(act,0);
+                resize();
+            }else if(obj == "组织类"){
+                this_message(org);
+                page_change(org,0);
+                resize();
+            }else if(obj == "其他类"){
+                this_message(oth);
+                page_change(oth,0);
+                resize();
+            }
+        }
+        function resize() {
+            foot_left.src = "./images/w_left_page.png";
+            foot_right.src = "./images/w_right_pageon.png";
+        }
+        //对一个大板块的页面进行操作和分页
+        function this_message(arr) {
+            //计算底部分页的页面数
+            page_change(arr,dot_position);
+            var page = Math.ceil(arr.length / 11);
+            content_page = "<li class=\"on\" id=\"to_click\">1</li>";
+            for(var i=1;i<page;i++){
+                content_page += "<li>"+(i+1)+"</li>"
+            }
+            help_page.innerHTML = content_page;
+
+            //操作底部的分页下标
+            var pageDot = document.querySelectorAll('.foot_con li');
+            var dot_position = 0;
+            var len=pageDot.length;
+            //点击分页下标切换
+            for(var i=0;i < len;i++){
+                pageDot[i].index = i;
+                pageDot[i].onclick = function() {
+                    dot_position = this.index;
+                    for(var i=0,len=pageDot.length;i < len;i++){
+                        pageDot[i].className = '';    
+                    }
+                    this.className = 'on';
+                    page_change(arr,dot_position);
+                    change_bar(dot_position,"",len);
+                }
+            }
+            //分页栏左箭头切换
+            foot_left.onclick = function() {
+                dot_position--;
+                if(dot_position < 0){
+                    dot_position = 0;
+                }
+                for(var i=0;i < len;i++){
+                    pageDot[i].className = '';    
+                } 
+                page_change(arr,dot_position);
+                change_bar(dot_position,true,len);
+                pageDot[dot_position].className = 'on';
+            }
+            //分页栏右箭头切换
+            foot_right.onclick = function() {
+                dot_position++;
+                if(dot_position > len-1){
+                    dot_position = len-1;
+                }
+                for(var i=0;i < len;i++){
+                    pageDot[i].className = '';    
+                }
+                page_change(arr,dot_position);
+                change_bar(dot_position,false,len);
+                pageDot[dot_position].className = 'on';
+            }
+        }
+        
+        //根据传来的数组和分页定位点显示对应的页面 这一板块被反复引用
+        function page_change(arr,dot) {
+            help_message.innerHTML = "";
+            var help_content = "";
+            for(var i = dot*11;i < (dot+1)*11;i++){
+                try{
+                    help_content += "<li><p class=\"help_q\">"+arr[i].content+"</p><p class=\"help_t\">"+arr[i].time+"</p><p class=\"help_p\">"+arr[i].name+"</p><p style=\"display:none\" class=\"op_forclick\">"+arr[i].Id+"</p></li>"
+                }catch(e){
+                }
+            }
+            help_message.innerHTML = help_content;
+
+            //点击内容 显示详细信息
+            var op_forclick = document.querySelectorAll('.op_forclick');
+                help_q = document.querySelectorAll('.help_q');
+            for(var i = 0,len = op_forclick.length;i < len;i++){
+                help_q[i].index = i;
+                help_q[i].onmouseup = function() {
+                    var index = this.index,
+                        id = op_forclick[index].innerText;
+                    for(var j=0;j < arr.length;j++){
+                        if(arr[j].Id == id){
+                            for_float.style.display = "block";
+                            on_question.innerHTML = arr[j].content;
+                                
+                                $.ajax({
+                                    url: 'http://hongyan.cqupt.edu.cn/XZBBM/index.php/api/question/'+id,
+                                    data: {},
+                                    method: 'GET',
+                                    success: function(data) {
+                                        on_ul.innerHTML = "";
+                                        num_count.innerText = "0";
+                                        for(var i=0,len=data.comment.length;i<len;i++){
+                                            // console.log(data.comment[i].content)
+                                            // console.log(data.comment[i].name)
+                                            // console.log(data.comment[i].time)
+                                            on_ul.innerHTML += "<li><div class=\"on_c\">"+data.comment[i].content+"</div><div class=\"on_t\">"+data.comment[i].time+"</div><div class=\"on_p\">"+data.comment[i].name+"</div></li>";
+                                            num_count.innerText = len;
+                                        }
+                                    },
+                                    fail: function() {
+                                        alert("您的网络异常，请重新加载！")
+                                    }
+                                })
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        //change_bar 改变底部分页栏点击状态 这一块被反复引用
+        function change_bar(dot,bool,len) {
+            //当前页面到第一张或最后一张，显示不可选择图标
+            if(dot == 0){
+                foot_left.src = "./images/w_left_page.png";
+            }else{
+                foot_left.src = "./images/w_left_pageon.png";
+            }
+            if(dot == len-1){
+                foot_right.src = "./images/w_right_page.png";
+            }else{
+                foot_right.src = "./images/w_right_pageon.png";
+            }
+            
+            //点击左右箭头碰到边界，调整下标列表的高度
+            if(bool == true){
+                if(dot % 5 == 4){
+                    help_page.style.top = -((dot / 5) * 40)+32 + "px";
+                }
+            }else if(bool == false){
+                if(dot % 5 == 0){
+                    help_page.style.top = -((dot / 5) * 40) + "px";
+                }
+            }
+        }
+        
+        //下面是无关内容
+        button1.onclick = function() {
+        	button1.className = "button1 xiaolianon";
+        	button2.className = "button2 xuezhang";
+        	welcome.style.background = "url(./images/w_waikuangleft.png) no-repeat 26px -54px";
+            welcome_smile.style.display = 'block';
+            xuezhang_help.style.display = 'none';
+        	flag = true;
+        }
+        button2.onclick = function() {
+        	button1.className = "button1 xiaolian";
+        	button2.className = "button2 xuezhangon";
+        	welcome.style.background = "url(./images/w_waikuangright.png) no-repeat 26px -84px";
+            xuezhang_help.style.display = 'block';
+            welcome_smile.style.display = 'none';
+        	flag = false;
+        }
+
+        button1.onmouseenter = function() {
+        	    button1.className = "button1 btn xiaolianon";
+        }
+        button1.onmouseleave = function() {
+            if(flag){
+        	    button1.className = "button1 btn xiaolianon" 
+        	}else{
+        		button1.className = "button1 btn xiaolian" 
+        	} 
+        }
+        button2.onmouseenter = function() {
+            button2.className = "button2 btn xuezhangon";
+        }
+        button2.onmouseleave = function() {
+            if(flag){
+        	    button2.className = "button2 btn xuezhang";
+        	}else{
+        		button2.className = "button2 btn xuezhangon";
+        	}  
+        }
+        smile_logo.onclick = function() {
+            window.open('http://hongyan.cqupt.edu.cn/stuface2017','_blank');
+        }
+    </script>
+</html>

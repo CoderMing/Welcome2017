@@ -1,0 +1,296 @@
+body {
+	margin: 0;
+	height: auto;
+	width: 100vw;
+	display: block;
+	padding: 0;
+	font-family: "weituanyahei", "Arial";
+	overflow-x: hidden;
+}
+#st-l {
+	width: 180px;
+	height: 180px;
+	background: url(./images/w_leftstone-min.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: -40px;
+	top: 900px;
+}
+#st-r {
+	width: 200px;
+	height: 250px;
+	background: url(./images/w_rightstone-min.png) no-repeat 0 0;
+	background-size: cover;
+	position: absolute;
+	float: right;
+	margin-right: 0px;
+	right: 0;
+	top: 300px;
+}
+#yz {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background: url(./images/w_mesgrass-min.png) no-repeat;
+	background-size: contain;
+	animation: ~'gress 3s infinite ease-in';
+	left: 50px;
+	top: 200px;
+	transform-origin: 65% 65%;
+}
+@keyframes gress {
+	0% {transform: rotate(0deg)}
+	25% {transform: rotate(5deg)}
+	75% {transform: rotate(-5deg)}
+}
+.zs {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: url(./images/w_mydot-min.png) no-repeat;
+	background-size: contain;
+}
+#picker {
+	position: absolute;
+	display: block;
+	right: 50px;
+	top: 100px;
+	z-index: 8;
+}
+
+
+
+
+
+#container {
+	width: 1000px;
+	position: relative;
+	height: auto;
+	margin: 0 auto;
+	
+	#title {
+		width: 300px;
+		height: 150px;
+		margin-left: 330px;
+		clear: both;
+		background-size: contain;
+		background: url(./images/title-min.png) no-repeat;
+		transform-origin: 55% 70%;
+		transform: translate(20px, 15px);
+
+
+			&:hover {
+				animation: ~'rowtitle .5s 3 ease';
+			}
+
+			@keyframes rowtitle {
+				 0% {transform: rotate(0) translate(20px, 15px);}
+				 25% {transform: rotate(-5deg) translate(20px, 15px);}
+				 75% {transform: rotate(5deg) translate(20px, 15px);}
+				 100% {transform: rotate(0deg) translate(20px, 15px);}
+			}
+	}
+	#main {
+		width: 1000px;
+		height: 900px;
+		background: url(./images/waike-min.png) no-repeat;
+		background-size: contain;
+		margin-left: -20px;
+	}
+	.m-t {
+		width: 81%;
+		height: 300px;
+		margin-left: 13%;
+		padding-top: 30px;
+		display: flex;
+		position: relative;
+
+		.mt-t {
+			flex: 1;
+			background: url(./images/btn-min.png) no-repeat;
+			background-size: cover;
+			margin: 10px 34px;
+			font-size: 22px;
+			height: 83px;
+			color: #f19942;
+			vertical-align: middle;
+			line-height: 77px;
+			text-align: center;
+			text-shadow: -1px 1px #ccc;
+			transition: ~'transform .1s ease';
+			cursor: pointer;
+
+
+			&.ACTIVE, &:hover {
+				background: url(./images/btn-A-min.png) no-repeat;
+				background-size: cover;
+				color: #fff;
+				text-shadow: -1px 1px #e05a36;
+				background-position: center -2px;
+				animation: dynamic .5s ease;
+			}
+			@keyframes dynamic {
+			  from, to {
+			    transform: scale(1, 1);
+			  }
+
+			  25% {
+			    transform: scale(0.85, 1.15);
+			  }
+
+			  50% {
+			    transform: scale(1.15, 0.85);
+			    
+			  }
+
+			  75% {
+			    transform: scale(0.95, 1.05);
+			  }
+			}
+
+		}
+		#zhibiao {
+			width: 45px;
+			height: 47px;
+			z-index: 2;
+			background: url(./images/zhibiao-G-min.png) no-repeat;
+			background-size: contain;
+			position: absolute;
+			transform: translate(75px, 103px);
+			transition: ~'all .2s ease';
+		}
+	}
+
+	.mm {
+		z-index: 3;
+	    font-weight: 200;
+	    position: absolute;
+	    width: 784px;
+	    height: 558px;
+	    left: 123px;
+	    margin-top: 7px;
+	    top: 296.5px;
+	    border-radius: 38px 38px 0px 0px ;
+	    transform-origin: center center;
+	    overflow: hidden;
+		transition: all .2s;
+		opacity: 0;
+
+		&.SHOW {		
+			transition: all .2s;
+			display: block;
+			opacity: 1;
+		}
+
+
+
+
+
+	    // 模块3
+	    &#mm3, &#mm2, &#mm1 {
+	    	left: 124px;
+	    	height: 600px;
+
+	    	.titbg {
+	    		position: relative;
+	    		width: 100%;
+	    		height: 80px;
+	    		background: url(./images/mm3bg-min.png) no-repeat;
+	    		background-position: center center;
+	    		background-size: cover;
+	    		display: flex;
+
+	    		.m3t-biao {
+	    			position: absolute;
+	    			width: 80px;
+	    			height: 0px;
+	    			border: 3px solid #ef9328;
+	    			border-radius: 10px;
+	    			transform: translate(88px, 67px);
+	    			transition: all .2s;
+	    		}
+
+	    		.m3t-li {
+	    			font-size: 20px;
+	    			flex: 1;
+	    			color: #6fa808;
+	    			line-height: 80px;
+	    			height: 100px;
+	    			text-align: center;
+	    			transition: all .2s;
+	    			cursor: pointer;
+	    			margin: 0 20px;
+
+	    			&.ACTIVE {
+	    				color: #ef9328;
+	    			}
+	    		}
+	    	}
+    		.mm3m, .mm4m, .mm5m {
+    			width: 100%;
+    			height: 550px;
+    			height: auto;
+    			display: none;
+    			position: absolute;
+    			opacity: 0;
+				transition: all .2s;
+
+				&.AVTIVE {
+					opacity: 1;
+					display: block;
+				}
+				.mm3m-h {
+					width: 80%;
+					margin: 30px auto;
+					font-size: 16px;
+					color: #ec7646;
+				}
+    			.mm3m-p {
+    				width: 80%;
+    				margin: 0 auto;
+    				padding: 10px 2px;
+    				line-height: 30px;
+					color: #f3b160;
+    				font-size: 15px;
+    				background: url(./images/mm3line-min.png) no-repeat center 100%;
+    			}
+
+    			.charts {
+    				width: 650px;
+    				padding-top: 30px;
+    				height: 450px;
+    				margin: 0 auto;
+    			}
+    		}
+	    }
+
+
+	    &#mm1 {
+	    	overflow-x: visible;
+	    }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
