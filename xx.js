@@ -28,7 +28,7 @@ $(window).scroll(function() {
 
 
 var originPath = location.origin + location.pathname;
-$('#nav .ni-r li:gt(0)').on('click', function() {
+$('#nav .ni-r li:gt(0)').on('click', function(e) {
 	$('#nav .ni-r li').each(function() {
 		$(this).removeClass('ACTIVE')
 	});
@@ -50,6 +50,9 @@ $('#nav .ni-r li:gt(0)').on('click', function() {
  		$('#child').height(1000);   //先降低iframe的高度 然后再使用offsetTop  此处默认iframe永远不低于1000px
 	}, 300);
 	$('#child').on('load', function() {
+		if (e && e.gotoBBM) {
+			$('iframe').contents().find('li.button2.xuezhangon').click();
+		}
 		$('#lc-loading').hide(200);
 		// history.pushState({time: new Date().getTime()}, '',  originPath + $(_this).attr('goto').replace(/\.\/(.*?)\/index\.html/, '$1'))
  		setTimeout(function() {
@@ -129,7 +132,7 @@ function iframeLoad() {
 	$('#child').contents().find('.mes_mesinput4').click(function(){$('.ni-r li').eq(0).click()});
 	$('#child').contents().find('.arm_input').click(function(){$('.ni-r li').eq(5).click()})
 	$('#child').contents().find('.wel_learn1').click(function(){$('.ni-r li').eq(1).click()})
-	$('#child').contents().find('.wel_learn2').click(function(){$('.ni-r li').eq(1).click()})
+	$('#child').contents().find('.wel_learn2').click(function(){$('.ni-r li').eq(1).click({gotoBBM: true})})
 };
 setTimeout(function() {
 	iframeLoad();

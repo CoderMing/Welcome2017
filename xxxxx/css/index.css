@@ -16,6 +16,11 @@ body{
 }
 img{
 	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	/*-khtml-user-select: none;*/
+	-webkit-user-select: none;
+
 }
 /*按钮动画开始*/
 img.btn:hover{
@@ -102,16 +107,27 @@ img.btn:hover{
 	position: relative;
 	margin-top: 140px;
 	height: 735px;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .map-title img{ 
 	position: absolute;
 	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .map_waikuang{
 	top: -134px;
 	left: -58px;
 	z-index: 30;
 	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	
 }
 
 .map_con{
@@ -131,6 +147,9 @@ img.btn:hover{
 	left: 0px;
 	width: 880px;
 	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .map_move{
 	position: absolute;
@@ -158,6 +177,10 @@ img.btn:hover{
 	height: 100px;
 	background: url(../images/w_add.png);
 	cursor: pointer;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .map_add:hover{
 	transform: rotate(360deg);
@@ -170,6 +193,10 @@ img.btn:hover{
 	height: 100px;
 	background: url(../images/w_sub.png);
 	cursor: pointer;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 .map_sub:hover{
 	transform: rotate(360deg);

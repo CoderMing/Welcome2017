@@ -115,16 +115,7 @@
             on_delete = document.querySelector(".on_delete"),
             on_question = document.querySelector(".on_question"),
             num_count = document.querySelector(".num_count"),
-            contain = document.getElementById("contain"),
     	    flag = true;
-            
-            
-            
-            if(document.documentElement.clientWidth < 1100){
-                contain.style.left = "-130px";
-                console.log(document.documentElement.clientWidth)
-            }
-
             on_delete.onclick = function() {
                 cover_contain.style.display = "none";
             }
@@ -300,15 +291,13 @@
                                     method: 'GET',
                                     success: function(data) {
                                         on_ul.innerHTML = "";
-                                        console.log(data);
                                         for(var i=0,len=data.comment.length;i<len;i++){
                                             // console.log(data.comment[i].content)
                                             // console.log(data.comment[i].name)
                                             // console.log(data.comment[i].time)
                                             on_ul.innerHTML += "<li><div class=\"on_c\">"+data.comment[i].content+"</div><div class=\"on_t\">"+data.comment[i].time+"</div><div class=\"on_p\">"+data.comment[i].name+"</div></li>";
-
+                                            num_count.innerText = len;
                                         }
-                                        num_count.innerText = data.comment.length;
                                     },
                                     fail: function() {
                                         alert("您的网络异常，请重新加载！")
