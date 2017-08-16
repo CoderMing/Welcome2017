@@ -171,9 +171,11 @@ $('#fanhuidingbu').click(function() {
 
 
 
-console.log('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:100% 100%;padding:225px 405px;');
-console.log('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～')
-
+setTimeout(function() {
+	console.clear();
+	console.log('%c ', 'line-height:500px;background-image:url("https://www.coderming.com/Welcome2017/src/1.jpg");background-repeat:no-repeat;background-size:100% 100%;padding:225px 405px;');
+	console.log('2017红岩网校PC端新生专题网项目组（从左到右）：匡俊嘉，彭时夏，卢帅，王佳，田秋怡，王弘毅，程浚哲，张德明 and尚未出镜的 龚梅，詹磊～');
+}, 1000)
 
 
 
