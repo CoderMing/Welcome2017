@@ -17,6 +17,9 @@ a {
   text-decoration: none;
   color: white;
 }
+body>a:last-child {
+  display: none;
+}
 #cover {
   display: none;
   opacity: 0;

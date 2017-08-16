@@ -335,7 +335,7 @@ $.ajax({
 					axisTick: {
 						show: false
 					},
-					name: '挂科率',
+					name: '65分以下频率',
 					nameTextStyle: {
 						color: '#98cf67'
 					},
