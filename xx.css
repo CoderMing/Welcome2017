@@ -573,19 +573,19 @@ a {
   margin: 0 auto;
   margin-top: 18vw;
   transform: translate(0, 0vw);
-  width: 10vw;
+  width: 100%;
   z-index: 10;
-  height: auto;
+  overflow: hidden;
 }
 iframe {
   z-index: 10;
   transform: translate(0, 0vw);
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   min-width: 1000px;
   height: 0vw;
   margin: 0 auto;
-  margin-left: -45vw;
+  /* margin-left: -45vw; */
   opacity: 1;
   transition: all .3s ease;
   animation: showframe 2.5s 4s;
