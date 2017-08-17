@@ -1,7 +1,9 @@
 let gulp = require('gulp'),
-	less = require('gulp-less');
+	less = require('gulp-less')
+	browserSync = require('browser-sync').create();;
 
 gulp.task('default', _=> {
+
 	gulp.watch('youzigonglue/jxzt.less', (e)=> {
 		gulp.src(e.path).pipe(less()).pipe(gulp.dest('youzigonglue'));
 		console.log('12321');
@@ -18,4 +20,9 @@ gulp.task('default', _=> {
 	gulp.watch('xx.less', (e)=> {
 		gulp.src(e.path).pipe(less()).pipe(gulp.dest(''));
 	});
+	gulp.watch(['*.html'], _=> {
+		browserSync.init({
+	     server: { baseDir: "./" } 
+	   });
+	})
 })
