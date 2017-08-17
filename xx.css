@@ -5,6 +5,7 @@
   font-family: 'Arial';
   font-weight: 200;
   color: #444;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
   background: #fbfdf1;

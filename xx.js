@@ -5,6 +5,12 @@ if ($('#loading')) {
 	}, 5500)
 }
 
+$(window).on('scroll.elasticity', e => {
+    e.preventDefault()
+}).on('touchmove.elasticity', e => {
+    e.preventDefault()
+})
+
 // header
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 60) {
