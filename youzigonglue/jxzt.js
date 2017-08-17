@@ -90,7 +90,7 @@ $('#mm3 .m3t-li').click(function() {
 
 	$('#mm3 .lunbo .lb-item').each(function(index, el) {
 		$(el).css('background-image', 'url(./images/shitang/' + (parseInt($(_this).attr('a')) + 1) + '/' + (index+1) + '.jpg'); 
-	});
+	}).find('div').html((wenzimiaoshu2[$(_this).attr('a')].t).split('：')[0]);
 	$('#mm3 .lb-tit').html(wenzimiaoshu2[$(_this).attr('a')].t);
 	$('#mm3 .lb-p').html(wenzimiaoshu2[$(_this).attr('a')].p);
 
