@@ -263,8 +263,25 @@ $('#m4-gedan .gequ').click(function(e) {
 
 
 
+// 上下一首
+var whereMusicNow = 0;
+ $('#m4k-2').click(function() {
+ 	if (whereMusicNow <= 0) {
+ 		whereMusicNow = 5;
+ 	}else {
+ 		whereMusicNow--;
+ 	}
+ 	$('#m4-gedan .gequ').eq(whereMusicNow).click();
+ });
 
-
+ $('#m4k-4').click(function() {
+ 	if (whereMusicNow >= 5) {
+ 		whereMusicNow = 0;
+ 	}else {
+ 		whereMusicNow++;
+ 	}
+ 	$('#m4-gedan .gequ').eq(whereMusicNow).click();
+ });
 
 
 
