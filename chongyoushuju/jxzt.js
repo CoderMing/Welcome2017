@@ -36,14 +36,14 @@ $('.mt-t').get(0).click();
 var a = document.createElement('script')
 a.src = './data/x.txt';
 $('body').append(a);
-function WorkRatio(e) {
+function DataOfJob(e) {
 	var xx = echarts.init($('#charts-6')[0]);
 	var college = [],
 		radio = [];
 	e.Data.forEach(function(a, b, c) {
-		college.push(a.college);
+		college.push(a.company);
 		radio.push({
-			value:parseFloat(a.ratio),
+			value:parseFloat(a.peoples),
 			itemStyle: {
 			}
 		})
@@ -60,13 +60,13 @@ function WorkRatio(e) {
 					axisTick: {
 						show: false
 					},
-					name: '学院名字',
+					name: '公司名称',
 					nameTextStyle: {
 						color: '#98cf67'
 					},
 					data: college,
 					axisLabel: {
-						rotate: 18,
+						rotate: 17,
 						interval: 0,
 						textStyle: {
 							color: '#ef9267',
@@ -87,7 +87,7 @@ function WorkRatio(e) {
 					axisTick: {
 						show: false
 					},
-					name: '就业率',
+					name: '签约人数',
 					nameTextStyle: {
 						color: '#98cf67'
 					},
