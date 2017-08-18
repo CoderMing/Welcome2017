@@ -167,8 +167,12 @@ $('#fanhuidingbu').click(function() {
 
 
 
-
-
+// 移动端
+if ($(window).height() > $(window).width()) {
+	$('#qrcode2').hide();
+	$('#qrcode1').hide();
+	$('#fanhuidingbu').hide();
+}
 
 
 
