@@ -174,7 +174,9 @@ if ($(window).height() > $(window).width()) {
 	$('#fanhuidingbu').hide();
 }
 
-
+$('#guanli').click(function() {
+	alert('你不是管理员');
+});
 
 
 
