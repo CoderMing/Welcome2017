@@ -167,7 +167,7 @@ $('.lunbo .lb-l').click(function() {
 
 
 var _dfas = document.createElement('script');
-_dfas.src = 'http://www.yangruixin.com/test/apiForFE.php?RequestType=QQGroup_FE';
+_dfas.src = 'http://hongyan.cqupt.edu.cn/welcome/2017/api/apiForFE.php?RequestType=QQGroup_FE';
 $('body').append(_dfas);
 function QQGroup_FE(e) {
 	var _list = '';
